@@ -1,42 +1,40 @@
 package model.element.mobile;
 
-import java.awt.Point;
-
-import model.IMap;
 import model.element.Permeability;
 import model.element.Sprite;
 
-public class Monster extends Mobile {
-	private Sprite spriteMonster1;
-	private Sprite spriteMonster2;
+public abstract class AbstractMonster extends Mobile {
 
-	public Monster(Point position, Sprite sprite, IMap map, Permeability permeability) {
+	private Sprite	spriteMonster1;
+	private Sprite	spriteMonster2;
+
+	public AbstractMonster(Sprite sprite, Permeability permeability) {
 		super(sprite, permeability);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	protected void die(){
+	protected void die() {
 
 	}
 
 	@Override
-	public void moveDown(){
+	public void moveDown() {
 
 	}
 
 	@Override
-	public void moveLeft(){
+	public void moveLeft() {
 
 	}
 
 	@Override
-	public void moveRight(){
+	public void moveRight() {
 
 	}
 
 	@Override
-	public void moveUp(){
+	public void moveUp() {
 
 	}
 }
