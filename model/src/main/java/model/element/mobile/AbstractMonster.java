@@ -8,8 +8,8 @@ public abstract class AbstractMonster extends Mobile {
 	private Sprite				spriteMonster1;
 	private Sprite				spriteMonster2;
 
-	private BehaviorGetPath		behaviorGetPath	= new BehaviorGetPath();
-	private BehaviorGetSpeed behaviorGetSpeed = neww BehaviorGetSpeed();
+	private BehaviorGetPath		behaviorGetPath;
+	private BehaviorGetSpeed	behaviorGetSpeed;
 
 	public AbstractMonster(Sprite sprite, Permeability permeability) {
 		super(sprite, permeability);
