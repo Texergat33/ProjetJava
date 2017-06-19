@@ -10,7 +10,7 @@ public class Boulder extends Mobile{
 	private Sprite spriteBoulder;
 
 	public Boulder(Point position, Sprite sprite, IMap map, Permeability permeability) {
-		super(position, sprite, map, permeability);
+		super(sprite, permeability);
 		// TODO Auto-generated constructor stub
 	}
 

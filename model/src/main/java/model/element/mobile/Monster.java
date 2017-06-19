@@ -11,7 +11,7 @@ public class Monster extends Mobile {
 	private Sprite spriteMonster2;
 
 	public Monster(Point position, Sprite sprite, IMap map, Permeability permeability) {
-		super(position, sprite, map, permeability);
+		super(sprite, permeability);
 		// TODO Auto-generated constructor stub
 	}
 

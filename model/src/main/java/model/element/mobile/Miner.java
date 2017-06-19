@@ -20,28 +20,8 @@ public class Miner extends Mobile {
 	private Sprite	spriteLeft2;
 
 	public Miner(Point position, Sprite sprite, IMap map, Permeability permeability) {
-		super(position, sprite, map, permeability);
+		super(sprite, permeability);
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void moveUp() {
-
-	}
-
-	@Override
-	public void moveDown() {
-
-	}
-
-	@Override
-	public void moveRight() {
-
-	}
-
-	@Override
-	public void moveLeft() {
-
 	}
 
 	@Override
@@ -51,6 +31,26 @@ public class Miner extends Mobile {
 
 	@Override
 	public void doNothing() {
+
+	}
+
+	@Override
+	public void moveDown() {
+
+	}
+
+	@Override
+	public void moveLeft() {
+
+	}
+
+	@Override
+	public void moveRight() {
+
+	}
+
+	@Override
+	public void moveUp() {
 
 	}
 }
