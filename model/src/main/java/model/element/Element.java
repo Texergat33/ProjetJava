@@ -2,7 +2,7 @@ package model.element;
 
 import java.awt.Image;
 
-public abstract class Element {
+public abstract class Element implements IElement {
 	private Permeability	permeability;
 	// private Sprite sprite;
 
@@ -12,15 +12,18 @@ public abstract class Element {
 
 	}
 
+	@Override
 	public Sprite getSprite() {
 		return this.sprite;
 	}
 
+	@Override
 	public Permeability getPermeability() {
 		return this.permeability;
 
 	}
 
+	@Override
 	public Image getImage() {
 		return null;
 
