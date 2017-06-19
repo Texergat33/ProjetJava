@@ -2,6 +2,7 @@ package model.element.mobile;
 
 import java.awt.Point;
 
+import model.IMap;
 import model.element.Permeability;
 import model.element.Sprite;
 
@@ -69,5 +70,5 @@ public abstract class Mobile implements IMobile {
 	protected void die() {
 
 	}
-	// test
+
 }

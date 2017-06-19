@@ -9,4 +9,3 @@ public interface IElement {
 
 	public Image getImage();
 }
-// test

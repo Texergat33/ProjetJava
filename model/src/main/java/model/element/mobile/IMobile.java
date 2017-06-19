@@ -19,5 +19,4 @@ public interface IMobile {
 
 	public Point getPosition();
 
-	// test
 }

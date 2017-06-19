@@ -38,5 +38,5 @@ public class Sprite {
 	public void setImageLoaded(boolean imageLoaded) {
 		this.imageLoaded = imageLoaded;
 	}
-	// test
+
 }
