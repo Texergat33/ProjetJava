@@ -5,8 +5,11 @@ import model.element.Sprite;
 
 public abstract class AbstractMonster extends Mobile {
 
-	private Sprite	spriteMonster1;
-	private Sprite	spriteMonster2;
+	private Sprite				spriteMonster1;
+	private Sprite				spriteMonster2;
+
+	private BehaviorGetPath		behaviorGetPath	= new BehaviorGetPath();
+	private BehaviorGetSpeed behaviorGetSpeed = neww BehaviorGetSpeed();
 
 	public AbstractMonster(Sprite sprite, Permeability permeability) {
 		super(sprite, permeability);
