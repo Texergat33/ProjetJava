@@ -8,22 +8,27 @@ public abstract class MotionlessElementFactory {
 	private static DeathStar deathStar = new DeathStar();
 
 	public static MotionlessElement createBackground(){
+		return null;
 
 	}
 
 	public static MotionlessElement createDeathStar(){
+		return null;
 
 	}
 
 	public static MotionlessElement createDiamondCounter(){
+		return null;
 
 	}
 
 	public static MotionlessElement createGround(){
+		return null;
 
 	}
 
 	public static MotionlessElement createWall(){
+		return null;
 
 	}
 }
