@@ -1,12 +1,5 @@
 package controller;
 
-import java.sql.SQLException;
-import java.util.List;
-
-import model.Example;
-import model.IModel;
-import view.IView;
-
 /**
  * <h1>The Class ControllerFacade provides a facade of the Controller
  * component.</h1>
@@ -14,13 +7,22 @@ import view.IView;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public class ControllerFacade implements IController {
+public class BoulderDashController implements IBoulderDashController, IOrderPerformer {
 
     /** The view. */
-    private final IView  view;
+    private final IBoulderDashView  view;
 
     /** The model. */
-    private final IModel model;
+    private final IBoulderDashModel model;
+
+    /* this is the speed of all the mobile element */
+    private int                     speed;
+
+    /*
+     * this attribut is the order that the controler receive from the view and
+     * will send to the model. This is the aggregation with the enum UserOrder
+     */
+    private UserOrder               OrderPile;
 
     /**
      * Instantiates a new controller facade.
@@ -33,7 +35,7 @@ public class ControllerFacade implements IController {
     /*
      * the main only call the controller who instanciate the view and the model
      */
-    public ControllerFacade(final IView view, final IModel model) {
+    public BoulderDashController(final IBoulderDashView view, final IBoulderDashModel model) {
         super();
         this.view = view;
         this.model = model;
@@ -49,33 +51,30 @@ public class ControllerFacade implements IController {
      * the method start is call in the main. It call the view for the display
      * the view call the model who call the query
      */
-    public void start() throws SQLException {
-        this.getView().displayMessage(this.getModel().getExampleById(1).toString());
-        // Display exemple 1, by ID, We call the view and we display the message
-        // We send a id
-
-        this.getView().displayMessage(this.getModel().getExampleByName("Example 2").toString());
-        // Display exemple 2, by Name, We call the view and we display the
-        // message
-
-        final List<Example> examples = this.getModel().getAllExamples();
-        // we put in a arraylist the result of the exemple 3
-        final StringBuilder message = new StringBuilder();
-        // create a string list of 16 caractere empty
-        // a.append(" bar);
-        for (final Example example : examples) {
-            message.append(example);
-            message.append('\n');
-        }
-        this.getView().displayMessage(message.toString());
-    }
+    /*
+     * public void start() throws SQLException {
+     * this.getView().displayMessage(this.getModel().getExampleById(1).toString(
+     * )); // Display exemple 1, by ID, We call the view and we display the
+     * message // We send a id
+     *
+     * this.getView().displayMessage(this.getModel().
+     * getExampleByName("Example 2").toString()); // Display exemple 2, by Name,
+     * We call the view and we display the // message
+     *
+     * final List<Example> examples = this.getModel().getAllExamples(); // we
+     * put in a arraylist the result of the exemple 3 final StringBuilder
+     * message = new StringBuilder(); // create a string list of 16 caractere
+     * empty // a.append(" bar); for (final Example example : examples) {
+     * message.append(example); message.append('\n'); }
+     * this.getView().displayMessage(message.toString()); }
+     */
 
     /**
      * Gets the view.
      *
      * @return the view
      */
-    public IView getView() {
+    public IBoulderDashView getView() {
         return this.view;
     }
 
@@ -84,7 +83,41 @@ public class ControllerFacade implements IController {
      *
      * @return the model
      */
-    public IModel getModel() {
+    public IBoulderDashModel getModel() {
         return this.model;
+    }
+
+    /*
+     * play is the methode who is going to start the game. This is the methode
+     * who is called in the main
+     */
+    @Override
+    public void play() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public IOrderPerformer getOrderPerformer() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void orderPerform(UserOrder userOrder) {
+        // TODO Auto-generated method stub
+
+    }
+
+    public void getOrderPile(UserOrder orderPile) {
+
+    }
+
+    public void setOrderPile(UserOrder orderPile) {
+
+    }
+
+    public void emptyOrderPile() {
+
     }
 }
