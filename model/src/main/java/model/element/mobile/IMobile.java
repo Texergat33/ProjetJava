@@ -18,4 +18,6 @@ public interface IMobile {
 	public boolean isKilled();
 
 	public Point getPosition();
+
+	// test
 }

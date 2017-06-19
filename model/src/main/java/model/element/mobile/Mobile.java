@@ -69,4 +69,5 @@ public abstract class Mobile implements IMobile {
 	protected void die() {
 
 	}
+	// test
 }

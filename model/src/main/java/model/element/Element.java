@@ -33,5 +33,5 @@ public abstract class Element {
 	private void setPermeability(Permeability permeability) {
 		this.permeability = permeability;
 	}
-
+	// test
 }
