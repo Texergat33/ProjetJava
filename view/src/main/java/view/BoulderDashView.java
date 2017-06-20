@@ -1,11 +1,15 @@
 package view;
 
+import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JOptionPane;
 
 import controller.IOrderPerformer;
 import controller.UserOrder;
+import fr.exia.showboard.BoardFrame;
 import model.IMap;
 import model.element.mobile.IMobile;
 
@@ -15,17 +19,21 @@ import model.element.mobile.IMobile;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public class BoulderDashView implements IBoulderDashView {
-    public int              frameView;
+public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener {
+    public int              view;
     private IOrderPerformer orderPerformer;
     private IMobile         miner;
     private IMap            map;
+    private Rectangle       closeView;
 
     /**
      * Instantiates a new view facade.
      */
     public BoulderDashView(final IMap map, final IMobile miner) {
-        super();
+        this.setMiner(miner);
+        this.setMap(map);
+        this.getMiner().getSprite().loadImage();
+        this.setCloseView(new Rectangle(0, 0, 0, 0));
     }
 
     /*
@@ -38,7 +46,17 @@ public class BoulderDashView implements IBoulderDashView {
         JOptionPane.showMessageDialog(null, message);
     }
 
+    @Override
     public void run() {
+        final BoardFrame boardFrame = new BoardFrame("Close view");
+        boardFrame.setDimension(new Dimension(this.getRoad().getWidth(), this.getRoad().getHeight()));
+        boardFrame.setDisplayFrame(this.closeView);
+        boardFrame.setSize(this.closeView.width * squareSize, this.closeView.height * squareSize);
+        boardFrame.setHeightLooped(true);
+        boardFrame.addKeyListener(this);
+        boardFrame.setFocusable(true);
+        boardFrame.setFocusTraversalKeysEnabled(false);
+        boardFrame.addPawn(this.getMiner());
 
     }
 
@@ -46,47 +64,77 @@ public class BoulderDashView implements IBoulderDashView {
 
     }
 
-    public UserOrder keyCodeToUserOrder(final int keyCode) {
-        return null;
-
+    private static UserOrder keyCodeToUserOrder(final int keyCode) {
+        UserOrder userOrder;
+        switch (keyCode) {
+        case KeyEvent.VK_RIGHT:
+            userOrder = UserOrder.RIGHT;
+            break;
+        case KeyEvent.VK_LEFT:
+            userOrder = UserOrder.LEFT;
+            break;
+        default:
+            userOrder = UserOrder.NOP;
+            break;
+        }
+        return userOrder;
     }
 
-    public void keyTyped(final KeyEvent keyEvent) {
-
+    public int getView() {
+        return this.view;
     }
 
-    public void keyPressed(final KeyEvent keyEvent) {
-
-    }
-
-    public void keyReleassed(final KeyEvent keyEven) {
-
-    }
-
-    public IMap getMap() {
-        return this.map;
-
-    }
-
-    public void setMap(final IMap map) {
-
-    }
-
-    public IMobile getMiner() {
-        return this.miner;
-
-    }
-
-    public void setMiner(final IMobile miner) {
-
+    public void setView(final int view) {
+        this.view = view;
     }
 
     public IOrderPerformer getOrderPerformer() {
         return this.orderPerformer;
-
     }
 
     public void setOrderPerformer(final IOrderPerformer orderPerformer) {
+        this.orderPerformer = orderPerformer;
+    }
+
+    public IMobile getMiner() {
+        return this.miner;
+    }
+
+    public void setMiner(final IMobile miner) {
+        this.miner = miner;
+    }
+
+    public IMap getMap() {
+        return this.map;
+    }
+
+    public void setMap(final IMap map) {
+        this.map = map;
+    }
+
+    public Rectangle getCloseView() {
+        return this.closeView;
+    }
+
+    public void setCloseView(final Rectangle closeView) {
+        this.closeView = closeView;
+    }
+
+    @Override
+    public void keyReleased(final KeyEvent e) {
+        // not used
+    }
+
+    @Override
+    public void keyTyped(final KeyEvent e) {
+        // not used
 
     }
+
+    @Override
+    public void keyPressed(final KeyEvent e) {
+        this.getOrderPerformer().orderPerform(BoulderDashView.keyCodeToUserOrder(e.getKeyCode()));
+
+    }
+
 }
