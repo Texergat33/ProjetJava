@@ -1,16 +1,12 @@
 package model.element.mobile;
 
-import java.awt.Point;
-
-import model.IMap;
 import model.element.Permeability;
 import model.element.Sprite;
 
-public class Boulder extends Mobile {
+public class Monster extends Mobile {
 
-	public Boulder(Point position, Sprite sprite, IMap map, Permeability permeability) {
+	public Monster(Sprite sprite, Permeability permeability) {
 		super(sprite, permeability);
 		// TODO Auto-generated constructor stub
 	}
-
 }
