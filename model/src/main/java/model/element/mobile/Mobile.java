@@ -50,13 +50,15 @@ public abstract class Mobile extends Element implements IMobile {
 
 	@Override
 	public void moveDown() {
-
+		this.setY(this.getY() - 1);
+		this.setHasChanged();
 		// met en place la position de Y
 		// montre que ça a bougé
 	}
 
 	@Override
 	public void moveLeft() {
+
 		// met en place la position de X
 		// montre que ça a bougé
 	}
