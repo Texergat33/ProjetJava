@@ -16,7 +16,10 @@ public class Miner extends Mobile {
 	@Override
 	protected void die() {
 		super.die();
-		this.setSprite(null);
+		while (true) {
+			this.setSprite("deadMiner1");
+			this.setSprite("deadMiner2");
+		}
 	}
 
 	@Override
