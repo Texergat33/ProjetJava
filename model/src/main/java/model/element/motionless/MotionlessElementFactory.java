@@ -35,4 +35,13 @@ public abstract class MotionlessElementFactory {
 	public static MotionlessElement createWall() {
 		return wall;
 	}
+
+	public static MotionlessElement getElementFromFileSymbol(char fileSymbol) {
+		for (MotionlessElement motionlessElement : motionlessElements) {
+			if (motionlessElement.getSprite().getConsoleImage() == fileSymbol) {
+				return motionlessElement;
+			}
+		}
+		return ground;
+	}
 }
