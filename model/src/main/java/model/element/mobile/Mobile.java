@@ -14,6 +14,8 @@ public abstract class Mobile extends Element implements IMobile {
 	private IBoard	board;
 	private IMap	map;
 	private Sprite	sprite;
+	private int		x;
+	private int		y;
 
 	public Mobile(Point position, Sprite sprite, IMap map, Permeability permeability) {
 		super(sprite, permeability);
@@ -48,6 +50,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	@Override
 	public void moveDown() {
+
 		// met en place la position de Y
 		// montre que ça a bougé
 	}
@@ -89,6 +92,22 @@ public abstract class Mobile extends Element implements IMobile {
 
 	private void setMap(IMap map) {
 		this.map = map;
+	}
+
+	private int getX() {
+		return this.x;
+	}
+
+	private void setX(int x) {
+		this.x = x;
+	}
+
+	private int getY() {
+		return this.y;
+	}
+
+	private void setY(int y) {
+		this.y = y;
 	}
 
 }
