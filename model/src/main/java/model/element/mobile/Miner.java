@@ -8,17 +8,6 @@ import model.element.Sprite;
 
 public class Miner extends Mobile {
 
-	private Sprite	sprite1;
-	private Sprite	sprite2;
-	private Sprite	spriteRight1;
-	private Sprite	spriteRight2;
-	private Sprite	spriteDown1;
-	private Sprite	spriteDown2;
-	private Sprite	spriteUp1;
-	private Sprite	spriteUp2;
-	private Sprite	spriteLeft1;
-	private Sprite	spriteLeft2;
-
 	public Miner(Point position, Sprite sprite, IMap map, Permeability permeability) {
 		super(sprite, permeability);
 		// TODO Auto-generated constructor stub
@@ -26,31 +15,37 @@ public class Miner extends Mobile {
 
 	@Override
 	protected void die() {
-
+		super.die();
+		this.setSprite(null);
 	}
 
 	@Override
 	public void doNothing() {
-
+		super.doNothing();
+		this.setSprite(null);
 	}
 
 	@Override
 	public void moveDown() {
-
+		super.moveDown();
+		this.setSprite(null);
 	}
 
 	@Override
 	public void moveLeft() {
-
+		super.moveLeft();
+		this.setSprite(null);
 	}
 
 	@Override
 	public void moveRight() {
-
+		super.moveRight();
+		this.setSprite(null);
 	}
 
 	@Override
 	public void moveUp() {
-
+		super.moveUp();
+		this.setSprite(null);
 	}
 }
