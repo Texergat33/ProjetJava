@@ -2,8 +2,6 @@ package model;
 
 import java.util.Observable;
 
-import model.element.IElement;
-
 public class Map implements IMap {
 	private int width;
 	private int height;
