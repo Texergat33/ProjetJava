@@ -2,9 +2,9 @@ package main;
 
 import java.sql.SQLException;
 
-import controller.ControllerFacade;
-import model.ModelFacade;
-import view.ViewFacade;
+import controller.BoulderDashController;
+import model.BoulderDashModel;
+import view.BoulderDashView;
 
 /**
  * <h1>The Class Main.</h1>
@@ -21,10 +21,11 @@ public abstract class Main {
      *            the arguments
      */
     public static void main(final String[] args) {
-        final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
+        final BoulderDashController controller = new BoulderDashController(new BoulderDashView(),
+                new BoulderDashModel(1, 2, 3));
 
         try {
-            controller.start();
+            controller.play();
         } catch (final SQLException exception) {
             exception.printStackTrace();
         }
