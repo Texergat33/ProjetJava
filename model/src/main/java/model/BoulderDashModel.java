@@ -1,33 +1,35 @@
 package model;
 
-import model.element.mobile.IMobile;
 import model.element.mobile.Miner;
 
-public class BoulderDashModel implements IBoulderDashModel{
-	private IMobile miner;
-	private IMap map;
-	public BoulderDashModel(int level, int minerStartX, int minerStartY){
-		this.setMap(new Map(level));
-		//met en place la route en créant la Map avec en paramètre le numéro de Map
-		this.setMiner(new Miner(minerStartY, minerStartY, this.getMap()));
-		//met en place le mineur en le créant avec sa position X et Y de départ, et récupère la Map
-	}
+public class BoulderDashModel implements IBoulderDashModel {
+    private IMobile miner;
+    private IMap    map;
 
-	@Override
-	public IMap getMap() {
-		return this.map;
-	}
+    public BoulderDashModel(final int level, final int minerStartX, final int minerStartY) {
+        this.setMap(new Map(level));
+        // met en place la route en créant la Map avec en paramètre le numéro de
+        // Map
+        this.setMiner(new Miner(minerStartY, minerStartY, this.getMap()));
+        // met en place le mineur en le créant avec sa position X et Y de
+        // départ, et récupère la Map
+    }
 
-	@Override
-	public IMobile getMiner() {
-		return this.miner;
-	}
+    @Override
+    public IMap getMap() {
+        return this.map;
+    }
 
-	private void setMap(IMap map){
-		this.map = map;
-	}
+    @Override
+    public IMobile getMiner() {
+        return this.miner;
+    }
 
-	private void setMiner(IMobile miner){
-		this.miner = miner;
-	}
+    private void setMap(final IMap map) {
+        this.map = map;
+    }
+
+    private void setMiner(final IMobile miner) {
+        this.miner = miner;
+    }
 }
