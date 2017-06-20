@@ -2,6 +2,7 @@ package controller;
 
 import model.IBoulderDashModel;
 import view.IBoulderDashView;
+import controller.UserOrder;
 
 /**
  * <h1>The Class ControllerFacade provides a facade of the Controller
@@ -98,7 +99,31 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
     @Override
     public void play() {
         // TODO Auto-generated method stub
-
+    	while (this.getModel().getMiner().isALive()){
+    		Thread.sleep(speed);
+    		switch(this.getOrderPile()){
+    		case UP:
+    			
+    			break;
+    			
+    		case DOWN:
+    			
+    			break;
+    			
+    		case RIGHT:
+    			
+    			break;
+    			
+    		case LEFT:
+    			
+    			break;
+    			
+    		case NOP:
+    			default:
+    				
+    			break;
+    		}
+    	}
     }
 
     @Override
@@ -113,8 +138,8 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 
     }
 
-    public void getOrderPile(UserOrder orderPile) {
-
+    public UserOrder getOrderPile() {
+    	return null;
     }
 
     public void setOrderPile(UserOrder orderPile) {
