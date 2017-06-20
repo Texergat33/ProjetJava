@@ -1,7 +1,5 @@
 package model;
 
-import model.element.mobile.IMobile;
-
 public class BoulderDashModel implements IBoulderDashModel{
 	private IMobile miner;
 	private IMap map;
