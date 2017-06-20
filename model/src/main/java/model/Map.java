@@ -13,32 +13,28 @@ public class Map extends Observable implements IMap {
 	public Map(int level){
 		super();
 		//récupère les informations du constructeur de la classe Observable
-
+		this.loadLevel();
 		//lance la méthode load level avec en paramètre le numéro du niveau
 	}
 
 	@Override
 	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.height;
 	}
 
 	@Override
 	public Observable getObservable() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public IElement[][] getOnTheMapXY(int x, int y) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.width;
 	}
 
 	private void loadLevel(){
@@ -52,13 +48,15 @@ public class Map extends Observable implements IMap {
 
 	@Override
 	public void setMobileHasChanged() {
+		this.setChanged();
+		this.notifyObservers();
 		// Met en place les changements qui sont dans le package mobile
 		// Notifie l'Observer des changements
 
 	}
 
-	private void setOnTheMapXY(IElement[][] onTheMap) {
-		this.onTheMap = onTheMap;
+	private void setOnTheMapXY(IElement element, int x, int y) {
+		this.onTheMap[x][y] = element;
 		//met l'élément dans le tableau de Map [x][y]
 	}
 
