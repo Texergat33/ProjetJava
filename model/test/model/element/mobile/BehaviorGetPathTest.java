@@ -1,3 +1,4 @@
+package model.element.mobile;
 
 
 import static org.junit.Assert.*;
