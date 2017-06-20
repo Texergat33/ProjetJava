@@ -1,6 +1,10 @@
 package model.element;
 
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Sprite {
 	private Image	image;
@@ -8,7 +12,8 @@ public class Sprite {
 	private boolean	imageLoaded;
 
 	public Sprite(String imageName) {
-		//met en place le nom de l'image
+		this.setImageName(imageName);
+		// met en place le nom de l'image
 	}
 
 	public Image getImage() {
@@ -23,8 +28,10 @@ public class Sprite {
 		return this.imageName;
 	}
 
-	public void loadImage() {
-		//met l'image lue en paramètre grâce à la récupération du nom de celle-ci
+	public void loadImage() throws IOException {
+		this.setImage(ImageIO.read(new File("images/" + this.getImageName())));
+		// met l'image lue en paramètre grâce à la récupération du nom de
+		// celle-ci
 	}
 
 	public void setImage(Image image) {
@@ -38,5 +45,4 @@ public class Sprite {
 	public void setImageName(String imageName) {
 		this.imageName = imageName;
 	}
-
 }
