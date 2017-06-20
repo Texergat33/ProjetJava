@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Observer;
 
 import javax.swing.JOptionPane;
 
@@ -19,12 +20,13 @@ import model.element.mobile.IMobile;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener {
-    public int              view;
-    private IOrderPerformer orderPerformer;
-    private IMobile         miner;
-    private IMap            map;
-    private Rectangle       closeView;
+public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener, Observer {
+    private static final int squareSize = 100;
+    public int               view;
+    private IOrderPerformer  orderPerformer;
+    private IMobile          miner;
+    private IMap             map;
+    private Rectangle        closeView;
 
     /**
      * Instantiates a new view facade.
@@ -32,7 +34,7 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener 
     public BoulderDashView(final IMap map, final IMobile miner) {
         this.setMiner(miner);
         this.setMap(map);
-        this.getMiner().getSprite().loadImage();
+        this.getMiner().getSprite().loadLevel();
         this.setCloseView(new Rectangle(0, 0, 0, 0));
     }
 
@@ -48,8 +50,8 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener 
 
     @Override
     public void run() {
-        final BoardFrame boardFrame = new BoardFrame("Close view");
-        boardFrame.setDimension(new Dimension(this.getRoad().getWidth(), this.getRoad().getHeight()));
+        final BoardFrame boardFrame = new BoardFrame("GAME");
+        boardFrame.setDimension(new Dimension(this.getMap().getWidth(), this.getMap().getHeight()));
         boardFrame.setDisplayFrame(this.closeView);
         boardFrame.setSize(this.closeView.width * squareSize, this.closeView.height * squareSize);
         boardFrame.setHeightLooped(true);
