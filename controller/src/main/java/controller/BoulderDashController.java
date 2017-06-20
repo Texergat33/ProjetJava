@@ -1,5 +1,8 @@
 package controller;
 
+import model.IBoulderDashModel;
+import view.IBoulderDashView;
+
 /**
  * <h1>The Class ControllerFacade provides a facade of the Controller
  * component.</h1>
@@ -32,6 +35,7 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
      * @param model
      *            the model
      */
+  
     /*
      * the main only call the controller who instanciate the view and the model
      */

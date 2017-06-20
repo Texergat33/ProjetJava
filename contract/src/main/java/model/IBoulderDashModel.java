@@ -1,8 +1,6 @@
 package model;
 
-import model.element.mobile.IMobile;
-
 public interface IBoulderDashModel {
-	public void getMap();
+	public IMap getMap();
 	public IMobile getMiner();
 }
