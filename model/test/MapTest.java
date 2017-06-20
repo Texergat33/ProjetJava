@@ -1,6 +1,6 @@
-package model;
 
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -27,11 +27,6 @@ public class MapTest {
 	}
 
 	@Test
-	public void testMap() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testGetHeight() {
 		fail("Not yet implemented");
 	}
@@ -48,6 +43,11 @@ public class MapTest {
 
 	@Test
 	public void testGetWidth() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testMap() {
 		fail("Not yet implemented");
 	}
 
