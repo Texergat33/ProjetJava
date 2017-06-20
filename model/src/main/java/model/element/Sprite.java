@@ -32,6 +32,7 @@ public class Sprite {
 		this.setImage(ImageIO.read(new File("images/" + this.getImageName())));
 		// met l'image lue en paramètre grâce à la récupération du nom de
 		// celle-ci
+		//
 	}
 
 	public void setImage(Image image) {
