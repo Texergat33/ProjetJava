@@ -1,6 +1,6 @@
 package model.element.mobile;
 
-public class MobileFactory  {
+public class MobileFactory {
 	private static Monster	monsterFAFTW;
 	private static Monster	monsterSAFTW;
 	private static Monster	monsterFAR;
@@ -21,8 +21,8 @@ public class MobileFactory  {
 	private static Miner	deadMiner1;
 	private static Miner	deadMiner2;
 
-	private static Mobile[]	mobilesElements			= { monsterFAFTW, monsterSAFTW, monsterFAR, monsterSAR, boulder,
-			diamondFront1, /* diamondFront2, */ defaultMiner1, defaultMiner2, minerUp1, /* minerUp2, */ minerDown1,
+	private static Mobile[]	mobilesElements	= { monsterFAFTW, monsterSAFTW, monsterFAR, monsterSAR, boulder,
+			diamondFront, /* diamondFront2, */ defaultMiner1, defaultMiner2, minerUp1, /* minerUp2, */ minerDown1,
 			minerDown2, minerLeft1, minerLeft2, minerRight1, minerRight2, deadMiner1, deadMiner2 };
 
 	public static Mobile createBoulder() {
@@ -32,12 +32,17 @@ public class MobileFactory  {
 	public static Mobile createDiamond(int front) {
 		switch (front) {
 		case 1:
-			return diamondFront1;
-			/*
-			 * case 2: return diamondFront2; break;
-			 */
+			return diamondFront;
+		/*
+		 * case 2: return diamondFront2; break;
+		 */
+
+		/*
+		 * default: return diamondFront2;
+		 */
 		default:
-			return diamondFront1;
+			return null;
+
 		}
 	}
 
@@ -49,9 +54,9 @@ public class MobileFactory  {
 			return defaultMiner2;
 		case "minerUp1":
 			return minerUp1;
-			/*
-			 * case "minerUp2": return minerUp2; break;
-			 */
+		/*
+		 * case "minerUp2": return minerUp2; break;
+		 */
 		case "minerDown1":
 			return minerDown1;
 		case "minerDown2":
