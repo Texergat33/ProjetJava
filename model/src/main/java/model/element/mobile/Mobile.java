@@ -15,9 +15,10 @@ public abstract class Mobile extends Element implements IMobile {
 	private IMap	map;
 	private Sprite	sprite;
 
-	public Mobile(Sprite sprite, Permeability permeability) {
+	public Mobile(Point position, Sprite sprite, IMap map, Permeability permeability) {
 		super(sprite, permeability);
-		// TODO Auto-generated constructor stub
+		this.setMap(map);
+		this.position = new Point();
 	}
 
 	protected void die() {
@@ -32,11 +33,6 @@ public abstract class Mobile extends Element implements IMobile {
 
 	protected IBoard getBoard() {
 		return this.board;
-	}
-
-	@Override
-	public Point getPosition() {
-		return this.position;
 	}
 
 	@Override
@@ -78,8 +74,21 @@ public abstract class Mobile extends Element implements IMobile {
 		this.getMap().setMobileHasChanged();
 	}
 
+	@Override
+	public Point getPosition() {
+		return this.position;
+	}
+
 	public void setPosition(Point position) {
 		this.position = position;
+	}
+
+	private IMap getMap() {
+		return this.map;
+	}
+
+	private void setMap(IMap map) {
+		this.map = map;
 	}
 
 }
