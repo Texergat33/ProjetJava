@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.dao.DAO;
-import model.element.mobile.IMobile;
 
 public class BoulderDashModel implements IBoulderDashModel, IModel {
     private IMobile miner;
