@@ -2,30 +2,31 @@ package model;
 
 import model.element.mobile.IMobile;
 
-public class BoulderDashModel implements IBoulderDashModel{
-	private IMobile miner;
-	private IMap map;
-	public BoulderDashModel(int level, int minerStartX, int minerStartY){
+public class BoulderDashModel implements IBoulderDashModel {
+    private IMobile miner;
+    private IMap    map;
 
-	}
+    public BoulderDashModel(final int level, final int minerStartX, final int minerStartY) {
 
-	@Override
-	public void getMap() {
-		// TODO Auto-generated method stub
+    }
 
-	}
+    @Override
+    public void getMap() {
+        // TODO Auto-generated method stub
 
-	@Override
-	public IMobile getMiner() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    }
 
-	private void setMap(IMap map){
+    @Override
+    public IMobile getMiner() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	}
+    private void setMap(final IMap map) {
 
-	private void setMiner(IMobile miner){
+    }
 
-	}
+    private void setMiner(final IMobile miner) {
+
+    }
 }

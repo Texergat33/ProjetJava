@@ -10,19 +10,19 @@ package controller;
 public class BoulderDashController implements IBoulderDashController, IOrderPerformer {
 
     /** The view. */
-    private final IBoulderDashView  view;
+    private final IBoulderDashView view;
 
     /** The model. */
     private final IBoulderDashModel model;
 
     /* this is the speed of all the mobile element */
-    private int                     speed;
+    private int speed;
 
     /*
      * this attribut is the order that the controler receive from the view and
      * will send to the model. This is the aggregation with the enum UserOrder
      */
-    private UserOrder               OrderPile;
+    private UserOrder OrderPile;
 
     /**
      * Instantiates a new controller facade.
@@ -104,16 +104,16 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
     }
 
     @Override
-    public void orderPerform(UserOrder userOrder) {
+    public void orderPerform(final UserOrder userOrder) {
         // TODO Auto-generated method stub
 
     }
 
-    public void getOrderPile(UserOrder orderPile) {
+    public void getOrderPile(final UserOrder orderPile) {
 
     }
 
-    public void setOrderPile(UserOrder orderPile) {
+    public void setOrderPile(final UserOrder orderPile) {
 
     }
 
