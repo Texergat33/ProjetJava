@@ -22,30 +22,45 @@ public class Miner extends Mobile {
 	@Override
 	public void doNothing() {
 		super.doNothing();
-		this.setSprite(null);
+		while (true) {
+			this.setSprite(defaultMiner1);
+			this.setSprite(defaultMiner2);
+		}
 	}
 
 	@Override
 	public void moveDown() {
 		super.moveDown();
-		this.setSprite(null);
+		while (true) {
+			this.setSprite(minerDown1);
+			this.setSprite(minerDown2);
+		}
 	}
 
 	@Override
 	public void moveLeft() {
 		super.moveLeft();
-		this.setSprite(null);
+		while (true) {
+			this.setSprite(minerLeft1);
+			this.setSprite(minerLeft2);
+		}
 	}
 
 	@Override
 	public void moveRight() {
 		super.moveRight();
-		this.setSprite(null);
+		while (true) {
+			this.setSprite(minerRight1);
+			this.setSprite(minerRight2);
+		}
 	}
 
 	@Override
 	public void moveUp() {
 		super.moveUp();
-		this.setSprite(null);
+		while (true) {
+			this.setSprite(minerUp1);
+			this.setSprite(minerUp2);
+		}
 	}
 }

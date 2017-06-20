@@ -13,6 +13,7 @@ public abstract class Mobile extends Element implements IMobile {
 	private boolean	alive	= true;
 	private IBoard	board;
 	private IMap	map;
+	private Sprite	sprite;
 
 	public Mobile(Sprite sprite, Permeability permeability) {
 		super(sprite, permeability);
