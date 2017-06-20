@@ -2,21 +2,22 @@ package model.element.mobile;
 
 import java.awt.Point;
 
+import fr.exia.showboard.IBoard;
 import model.IMap;
 import model.element.Element;
 import model.element.Permeability;
 import model.element.Sprite;
-import model.element.SpriteFactory;
+//import model.element.SpriteFactory;
 
 public abstract class Mobile extends Element implements IMobile {
 
-	private Point			position;
-	private boolean			alive	= true;
-	private IBoard			board;
-	private IMap			map;
-	private SpriteFactory	spriteFactory;
-	private int				x;
-	private int				y;
+	private Point	position;
+	private boolean	alive	= true;
+	private IBoard	board;
+	private IMap	map;
+	// private SpriteFactory spriteFactory;
+	private int		x;
+	private int		y;
 
 	public Mobile(Point position, Sprite sprite, IMap map, Permeability permeability) {
 		super(sprite, permeability);
@@ -25,12 +26,15 @@ public abstract class Mobile extends Element implements IMobile {
 	}
 
 	protected void die() {
+		this.alive = false;
+		this.setHasChanged();
 		// statue alive est faux
 		// informe du mouvement
 	}
 
 	@Override
 	public void doNothing() {
+		this.setHasChanged();
 		// informe du mouvement
 	}
 
@@ -45,6 +49,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	@Override
 	public boolean isKilled() {
+		return this.alive;
 		// récupère la map, et quand le mineur et le rocher/monstre se trouve à
 		// la même position lors d'une boucle,
 	}
