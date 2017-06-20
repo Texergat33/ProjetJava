@@ -7,6 +7,18 @@ import model.element.Permeability;
 import model.element.Sprite;
 
 public class Miner extends Mobile {
+	private static final Sprite defaultMiner1 = new Sprite("defaultMiner1.png");
+	private static final Sprite defaultMiner2 = new Sprite("defaultMiner2.png");
+	private static final Sprite minerUp1 = new Sprite("minerUp.png");
+	// private static final Sprite minerUp2 = new Sprite(minerUp2.png);
+	private static final Sprite minerDown1 = new Sprite("minerDown1.png");
+	private static final Sprite minerDown2 = new Sprite("minerDown2.png");
+	private static final Sprite minerLeft1 = new Sprite("minerLeft1.png");
+	private static final Sprite minerLeft2 = new Sprite("minerLeft2.png");
+	private static final Sprite minerRight1 = new Sprite("minerRight1.png");
+	private static final Sprite minerRight2 = new Sprite("minerRight2.png");
+	private static final Sprite deadMiner1 = new Sprite("deadMiner1");
+	private static final Sprite deadMiner2 = new Sprite("deadMiner2");
 
 	public Miner(Point position, Sprite sprite, IMap map, Permeability permeability) {
 		super(position, sprite, map, permeability);

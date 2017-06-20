@@ -2,7 +2,6 @@ package model.element.mobile;
 
 import java.awt.Point;
 
-import fr.exia.showboard.IBoard;
 import model.IMap;
 import model.element.Element;
 import model.element.Permeability;
@@ -40,6 +39,23 @@ public abstract class Mobile extends Element implements IMobile {
 
 	protected IBoard getBoard() {
 		return this.board;
+	}
+
+	private IMap getMap() {
+		return this.map;
+	}
+
+	@Override
+	public Point getPosition() {
+		return this.position;
+	}
+
+	private int getX() {
+		return this.x;
+	}
+
+	private int getY() {
+		return this.y;
 	}
 
 	@Override
@@ -90,33 +106,16 @@ public abstract class Mobile extends Element implements IMobile {
 		this.getMap().setMobileHasChanged();
 	}
 
-	@Override
-	public Point getPosition() {
-		return this.position;
+	private void setMap(IMap map) {
+		this.map = map;
 	}
 
 	public void setPosition(Point position) {
 		this.position = position;
 	}
 
-	private IMap getMap() {
-		return this.map;
-	}
-
-	private void setMap(IMap map) {
-		this.map = map;
-	}
-
-	private int getX() {
-		return this.x;
-	}
-
 	private void setX(int x) {
 		this.x = x;
-	}
-
-	private int getY() {
-		return this.y;
 	}
 
 	private void setY(int y) {
