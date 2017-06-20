@@ -6,8 +6,7 @@ import model.IMap;
 import model.element.Permeability;
 import model.element.Sprite;
 
-public class Boulder extends Mobile{
-	private Sprite spriteBoulder;
+public class Boulder extends Mobile {
 
 	public Boulder(Point position, Sprite sprite, IMap map, Permeability permeability) {
 		super(sprite, permeability);
@@ -15,23 +14,27 @@ public class Boulder extends Mobile{
 	}
 
 	@Override
-	public void doNothing(){
-
+	public void doNothing() {
+		super.doNothing();
+		this.setSprite(null);
 	}
 
 	@Override
-	public void moveDown(){
-
+	public void moveDown() {
+		super.moveDown();
+		this.setSprite(null);
 	}
 
 	@Override
-	public void moveLeft(){
-
+	public void moveLeft() {
+		super.moveLeft();
+		this.setSprite(null);
 	}
 
 	@Override
-	public void moveRight(){
-
+	public void moveRight() {
+		super.moveRight();
+		this.setSprite(null);
 	}
 
 }

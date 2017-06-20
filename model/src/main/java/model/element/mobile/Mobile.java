@@ -20,13 +20,13 @@ public abstract class Mobile extends Element implements IMobile {
 	}
 
 	protected void die() {
-		//statue alive est faux
-		//informe du mouvement
+		// statue alive est faux
+		// informe du mouvement
 	}
 
 	@Override
 	public void doNothing() {
-		//informe du mouvement
+		// informe du mouvement
 	}
 
 	protected IBoard getBoard() {
@@ -45,32 +45,36 @@ public abstract class Mobile extends Element implements IMobile {
 
 	@Override
 	public boolean isKilled() {
-		//récupère la map, et quand le mineur et le rocher/monstre se trouve à la même position lors d'une boucle,
+		// récupère la map, et quand le mineur et le rocher/monstre se trouve à
+		// la même position lors d'une boucle,
 	}
 
 	@Override
 	public void moveDown() {
-		//
+		// met en place la position de Y
+		// montre que ça a bougé
 	}
 
 	@Override
 	public void moveLeft() {
-
+		// met en place la position de X
+		// montre que ça a bougé
 	}
 
 	@Override
 	public void moveRight() {
-
+		// met en place la position de X
+		// montre que ça a bougé
 	}
 
 	@Override
 	public void moveUp() {
-		//met en place la position de Y
-		//montre que ça a bougé
+		// met en place la position de Y
+		// montre que ça a bougé
 	}
 
-	private void setMobileHasChanged() {
-
+	private void setHasChanged() {
+		this.getMap().setMobileHasChanged();
 	}
 
 	public void setPosition(Point position) {
