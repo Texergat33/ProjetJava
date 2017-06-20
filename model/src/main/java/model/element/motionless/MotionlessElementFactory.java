@@ -2,11 +2,11 @@ package model.element.motionless;
 
 public abstract class MotionlessElementFactory {
 
-	private static Background		background		= new Background(null, null);
-	private static Ground			ground			= new Ground(null, null);
-	private static Wall				wall			= new Wall(null, null);
-	private static DiamondCounter	diamondCounter	= new DiamondCounter(null, null);
-	private static DeathStar		deathStar		= new DeathStar(null, null);
+	private static Background		background		= new Background();
+	private static Ground			ground			= new Ground();
+	private static Wall				wall			= new Wall();
+	private static DiamondCounter	diamondCounter	= new DiamondCounter();
+	private static DeathStar		deathStar		= new DeathStar();
 
 	private static MotionlessElement[] motionlessElements = {
 			background,
