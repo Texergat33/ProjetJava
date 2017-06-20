@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 import controller.IOrderPerformer;
 import controller.UserOrder;
-import model.IMobile;
+import model.element.mobile.IMobile;
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>

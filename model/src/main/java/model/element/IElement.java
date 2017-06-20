@@ -1,9 +1,6 @@
-package model;
+package model.element;
 
 import java.awt.Image;
-
-import model.element.Permeability;
-import model.element.Sprite;
 
 public interface IElement {
 	public Sprite getSprite();

@@ -2,6 +2,8 @@ package model;
 
 import java.util.Observable;
 
+import model.element.IElement;
+
 public interface IMap {
     public int getHeight();
 

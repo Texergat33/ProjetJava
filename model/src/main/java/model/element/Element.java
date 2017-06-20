@@ -2,8 +2,6 @@ package model.element;
 
 import java.awt.Image;
 
-import model.IElement;
-
 public abstract class Element implements IElement {
 	private Permeability	permeability;
 	// private Sprite sprite;
