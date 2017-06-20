@@ -19,17 +19,42 @@ public abstract class Mobile extends Element implements IMobile {
 		// TODO Auto-generated constructor stub
 	}
 
-	private void setMobileHasChanged() {
-
+	protected void die() {
+		//statue alive est faux
+		//informe du mouvement
 	}
 
 	@Override
-	public void moveUp() {
+	public void doNothing() {
+		//informe du mouvement
+	}
 
+	protected IBoard getBoard() {
+		return this.board;
+	}
+
+	@Override
+	public Point getPosition() {
+		return this.position;
+	}
+
+	@Override
+	public boolean isALive() {
+		return this.alive;
+	}
+
+	@Override
+	public boolean isKilled() {
+		//récupère la map, et quand le mineur et le rocher/monstre se trouve à la même position lors d'une boucle,
 	}
 
 	@Override
 	public void moveDown() {
+		//
+	}
+
+	@Override
+	public void moveLeft() {
 
 	}
 
@@ -39,40 +64,17 @@ public abstract class Mobile extends Element implements IMobile {
 	}
 
 	@Override
-	public void moveLeft() {
-
+	public void moveUp() {
+		//met en place la position de Y
+		//montre que ça a bougé
 	}
 
-	@Override
-	public void doNothing() {
+	private void setMobileHasChanged() {
 
-	}
-
-	@Override
-	public boolean isALive() {
-
-	}
-
-	@Override
-	public boolean isKilled() {
-
-	}
-
-	@Override
-	public Point getPosition() {
-		return this.position;
 	}
 
 	public void setPosition(Point position) {
 		this.position = position;
-	}
-
-	protected IBoard getBoard() {
-
-	}
-
-	protected void die() {
-
 	}
 
 }

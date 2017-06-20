@@ -4,14 +4,17 @@ import java.util.Observable;
 
 import model.element.IElement;
 
-public class Map implements IMap {
+public class Map extends Observable implements IMap {
 	private int width;
 	private int height;
 	private int level;
 	private IElement onTheMap[][];
 
 	public Map(int level){
+		super();
+		//récupère les informations du constructeur de la classe Observable
 
+		//lance la méthode load level avec en paramètre le numéro du niveau
 	}
 
 	@Override
@@ -39,7 +42,8 @@ public class Map implements IMap {
 	}
 
 	private void loadLevel(){
-
+		//récupère les données de la map sélectionnée dans la BDD
+		//et transforme les caractères en instances d'éléments
 	}
 
 	private void setHeight(int height) {
@@ -48,12 +52,14 @@ public class Map implements IMap {
 
 	@Override
 	public void setMobileHasChanged() {
-		// TODO Auto-generated method stub
+		// Met en place les changements qui sont dans le package mobile
+		// Notifie l'Observer des changements
 
 	}
 
 	private void setOnTheMapXY(IElement[][] onTheMap) {
 		this.onTheMap = onTheMap;
+		//met l'élément dans le tableau de Map [x][y]
 	}
 
 	private void setWidth(int width) {

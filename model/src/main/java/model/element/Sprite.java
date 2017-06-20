@@ -8,35 +8,35 @@ public class Sprite {
 	private boolean	imageLoaded;
 
 	public Sprite(String imageName) {
-
-	}
-
-	public void loadImage() {
-
-	}
-
-	public String getImageName() {
-		return this.imageName;
-	}
-
-	public void setImageName(String imageName) {
-		this.imageName = imageName;
+		//met en place le nom de l'image
 	}
 
 	public Image getImage() {
 		return this.image;
 	}
 
-	public void setImage(Image image) {
-		this.image = image;
-	}
-
 	public boolean getImageLoaded() {
 		return this.imageLoaded;
 	}
 
+	public String getImageName() {
+		return this.imageName;
+	}
+
+	public void loadImage() {
+		//met l'image lue en paramètre grâce à la récupération du nom de celle-ci
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
+	}
+
 	public void setImageLoaded(boolean imageLoaded) {
 		this.imageLoaded = imageLoaded;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 
 }
