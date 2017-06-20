@@ -22,85 +22,69 @@ public class SpriteFactory {
 	private static Sprite	deadMiner2		= new Sprite("deadMiner2");
 
 	private static Sprite[]	sprites			= { monsterFAFTW, monsterSAFTW, monsterFAR, monsterSAR, boulder,
-			diamondFront1, diamondFront2, defaultMiner1, defaultMiner2, minerUp1, minerUp2, minerDown1, minerDown2,
-			minerLeft1, minerLeft2, minerRight1, minerRight2, deadMiner1, deadMiner2 };
+			diamondFront1, /* diamondFront2, */ defaultMiner1, defaultMiner2, minerUp1, /* minerUp2, */ minerDown1,
+			minerDown2, minerLeft1, minerLeft2, minerRight1, minerRight2, deadMiner1, deadMiner2 };
 
-	public Sprite createBoulder(){
+	public Sprite createBoulder() {
 		return boulder;
 	}
 
-	public Sprite createDiamond(int front){
-		switch(front){
+	public Sprite createDiamond(int front) {
+		switch (front) {
 		case 1:
 			return diamondFront1;
-			break;
-		case 2:
-			return diamondFront2;
-			break;
-		default :
+		/*
+		 * case 2: return diamondFront2; break;
+		 */
+		default:
 			return diamondFront1;
 		}
 	}
 
-	public Sprite createMiner(String minerPosition){
-		switch(minerPosition)
-	case "defaultMiner1":
-		return defaultMiner1;
-		break;
-	case "defaultMiner2":
-		return defaultMiner2;
-		break;
-	case "minerUp1":
-		return minerUp1;
-		break;
-	case "minerUp2":
-		return minerUp2;
-		break;
-	case "minerDown1":
-		return minerDown1;
-		break;
-	case "minerDown2":
-		return minerDown2;
-		break;
-	case "minerLeft1":
-		return minerLeft1;
-		break;
-	case "minerLeft2":
-		return minerLeft2;
-		break;
-	case "minerRight1":
-		return minerRight1;
-		break;
-	case "minerRight2":
-		return minerRight2;
-		break;
-	case "deadMiner1":
-		return deadMiner1;
-		break;
-	case "deadMiner2":
-		return deadMiner2;
-		break;
-	default:
-		return defaultMiner1;
+	public Sprite createMiner(String minerPosition) {
+		switch (minerPosition) {
+		case "defaultMiner1":
+			return defaultMiner1;
+		case "defaultMiner2":
+			return defaultMiner2;
+		case "minerUp1":
+			return minerUp1;
+		/*
+		 * case "minerUp2": return minerUp2; break;
+		 */
+		case "minerDown1":
+			return minerDown1;
+		case "minerDown2":
+			return minerDown2;
+		case "minerLeft1":
+			return minerLeft1;
+		case "minerLeft2":
+			return minerLeft2;
+		case "minerRight1":
+			return minerRight1;
+		case "minerRight2":
+			return minerRight2;
+		case "deadMiner1":
+			return deadMiner1;
+		case "deadMiner2":
+			return deadMiner2;
+		default:
+			return defaultMiner1;
+		}
 	}
 
-	public Sprite createMonster(String monsterName){
-		switch(monsterName){
+	public Sprite createMonster(String monsterName) {
+		switch (monsterName) {
 		case "monsterFAFTW":
 			return monsterFAFTW;
-			break;
 		case "monsterSAFTW":
 			return monsterSAFTW;
-			break;
 		case "monsterFAR":
 			return monsterFAR;
-			break;
 		case "monsterSAR":
 			return monsterSAR;
-			break;
 		default:
 			return monsterSAR;
-			break;
 		}
 	}
 }
