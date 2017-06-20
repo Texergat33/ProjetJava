@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 import controller.IOrderPerformer;
 import controller.UserOrder;
+import model.IMap;
 import model.element.mobile.IMobile;
 
 /**
@@ -46,6 +47,7 @@ public class BoulderDashView implements IBoulderDashView {
     }
 
     public UserOrder keyCodeToUserOrder(final int keyCode) {
+        return null;
 
     }
 
@@ -62,6 +64,7 @@ public class BoulderDashView implements IBoulderDashView {
     }
 
     public IMap getMap() {
+        return this.map;
 
     }
 
@@ -70,6 +73,7 @@ public class BoulderDashView implements IBoulderDashView {
     }
 
     public IMobile getMiner() {
+        return this.miner;
 
     }
 
@@ -78,6 +82,7 @@ public class BoulderDashView implements IBoulderDashView {
     }
 
     public IOrderPerformer getOrderPerformer() {
+        return this.orderPerformer;
 
     }
 
