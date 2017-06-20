@@ -9,7 +9,7 @@ import model.element.Sprite;
 public class Miner extends Mobile {
 
 	public Miner(Point position, Sprite sprite, IMap map, Permeability permeability) {
-		super(sprite, permeability);
+		super(position, sprite, map, permeability);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -3,20 +3,20 @@ package model.element.mobile;
 import java.awt.Point;
 
 import model.IMap;
-import model.IMobile;
 import model.element.Element;
 import model.element.Permeability;
 import model.element.Sprite;
+import model.element.SpriteFactory;
 
 public abstract class Mobile extends Element implements IMobile {
 
-	private Point	position;
-	private boolean	alive	= true;
-	private IBoard	board;
-	private IMap	map;
-	private Sprite	sprite;
-	private int		x;
-	private int		y;
+	private Point			position;
+	private boolean			alive	= true;
+	private IBoard			board;
+	private IMap			map;
+	private SpriteFactory	spriteFactory;
+	private int				x;
+	private int				y;
 
 	public Mobile(Point position, Sprite sprite, IMap map, Permeability permeability) {
 		super(sprite, permeability);
@@ -59,19 +59,24 @@ public abstract class Mobile extends Element implements IMobile {
 
 	@Override
 	public void moveLeft() {
-
+		this.setX(this.getX() - 1);
+		this.setHasChanged();
 		// met en place la position de X
 		// montre que ça a bougé
 	}
 
 	@Override
 	public void moveRight() {
+		this.setX(this.getX() + 1);
+		this.setHasChanged();
 		// met en place la position de X
 		// montre que ça a bougé
 	}
 
 	@Override
 	public void moveUp() {
+		this.setY(this.getY() + 1);
+		this.setHasChanged();
 		// met en place la position de Y
 		// montre que ça a bougé
 	}

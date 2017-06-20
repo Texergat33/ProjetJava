@@ -1,5 +1,6 @@
 package model;
 
+import model.element.mobile.IMobile;
 import model.element.mobile.Miner;
 
 public class BoulderDashModel implements IBoulderDashModel {
