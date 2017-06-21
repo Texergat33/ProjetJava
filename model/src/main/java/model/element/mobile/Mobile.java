@@ -12,6 +12,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	private Point				position;
 	private boolean				alive	= true;
+	private boolean				falling	= false;
 	private IBoard				board;
 	private IMap				map;
 	private int					x;
@@ -32,6 +33,16 @@ public abstract class Mobile extends Element implements IMobile {
 	}
 
 	@Override
+	public void setFalling(boolean falling) {
+		this.falling = falling;
+	}
+
+	@Override
+	public boolean isFalling() {
+		return this.falling;
+	}
+
+	@Override
 	public void doNothing() {
 		this.setHasChanged();
 		// informe du mouvement
@@ -42,7 +53,7 @@ public abstract class Mobile extends Element implements IMobile {
 	}
 
 	@Override
-	public boolean isALive() {
+	public boolean isAlive() {
 		return this.alive;
 	}
 
@@ -101,6 +112,7 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.board;
 	}
 
+	@Override
 	public IMap getMap() {
 		return this.map;
 	}

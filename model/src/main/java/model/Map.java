@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Observable;
 
 import model.element.IElement;
+import model.element.mobile.IMobile;
 
 public class Map extends Observable implements IMap {
 	private int			width;
@@ -34,6 +35,10 @@ public class Map extends Observable implements IMap {
 		return null;
 	}
 
+	public IMobile getMobileXY(int x, int y) {
+		return null;
+	}
+
 	@Override
 	public int getWidth() {
 		return this.width;
@@ -48,8 +53,8 @@ public class Map extends Observable implements IMap {
 		for (FillingMap fillingmap : objects) {
 			ConsoleMapTable[fillingmap.x][fillingmap.y] = fillingmap.type;
 		}
-		for(int x = 0; x<mapDimensions.getWidth(); x++){
-			for(int y = 0; y<mapDimensions.getLength(); y++){
+		for (int x = 0; x < mapDimensions.getWidth(); x++) {
+			for (int y = 0; y < mapDimensions.getLength(); y++) {
 				int j = ConsoleMapTable[x][y];
 			}
 		}

@@ -1,5 +1,7 @@
 package model.element.mobile;
 
+import model.element.Permeability;
+
 public class BehaviorFall extends BehaviorDoSomething {
 
 	@Override
@@ -7,11 +9,12 @@ public class BehaviorFall extends BehaviorDoSomething {
 		int x = this.mobile.getX();
 		int y = this.mobile.getY();
 
-		if(this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability();
+		if(this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLEFORBOULDER) {
+			this.mobile.moveDown();
+			this.mobile.setFalling(true);
 
-		if(getElement == background){
-			moveDown();
-			else doNothing();
+		}else if((this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.KILLABLE) && (this.mobile.isFalling() == true) ){
+			this.mobile.getMap().getOnTheMapXY(x, y + 1).die()
 		}
 
 	}
