@@ -10,15 +10,16 @@ public class Sprite {
 	private Image	image;
 	private String	imageName;
 	private boolean	imageLoaded;
-	private char consoleImage;
+	private int databaseIDImage;
 
-	public Sprite(String imageName) {
+	public Sprite(int databaseIDImage,String imageName) {
+		this.setDatabaseIDImage(databaseIDImage);
 		this.setImageName(imageName);
 		// met en place le nom de l'image
 	}
 
-	public char getConsoleImage() {
-		return this.consoleImage;
+	public int getDatabaseIDImage() {
+		return this.databaseIDImage;
 	}
 
 	public Image getImage() {
@@ -36,6 +37,10 @@ public class Sprite {
 	public void loadImage() throws IOException {
 		this.setImage(ImageIO.read(new File("images/" + this.getImageName())));
 		// met l'image lue en paramètre grâce à la récupération du nom de celle-ci
+	}
+
+	public void setDatabaseIDImage(int databaseIDImage) {
+		this.databaseIDImage = databaseIDImage;
 	}
 
 	public void setImage(Image image) {

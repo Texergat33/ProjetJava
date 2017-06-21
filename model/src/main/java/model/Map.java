@@ -4,12 +4,15 @@ import java.util.List;
 import java.util.Observable;
 
 import model.element.IElement;
-<<<<<<< HEAD
+import model.element.mobile.Boulder;
+import model.element.mobile.Diamond;
+import model.element.mobile.FastAndFollowTheWallsMonster;
+import model.element.mobile.FastAndRandomMonster;
 import model.element.mobile.IMobile;
-=======
-import model.element.mobile.MobileFactory;
+import model.element.mobile.Miner;
+import model.element.mobile.SlowAndFollowTheWallsMonster;
+import model.element.mobile.SlowAndRandomMonster;
 import model.element.motionless.MotionlessElementFactory;
->>>>>>> branch 'Model' of https://github.com/Texergat33/ProjetJava
 
 public class Map extends Observable implements IMap {
 	private int			width;
@@ -30,6 +33,10 @@ public class Map extends Observable implements IMap {
 		return this.height;
 	}
 
+	public IMobile getMobileXY(int x, int y) {
+		return null;
+	}
+
 	@Override
 	public Observable getObservable() {
 		return null;
@@ -37,10 +44,6 @@ public class Map extends Observable implements IMap {
 
 	@Override
 	public IElement getOnTheMapXY(int x, int y) {
-		return null;
-	}
-
-	public IMobile getMobileXY(int x, int y) {
 		return null;
 	}
 
@@ -58,11 +61,6 @@ public class Map extends Observable implements IMap {
 		for (FillingMap fillingmap : objects){
 			ConsoleMapTable[fillingmap.x][fillingmap.y] = fillingmap.type;
 		}
-<<<<<<< HEAD
-		for (int x = 0; x < mapDimensions.getWidth(); x++) {
-			for (int y = 0; y < mapDimensions.getLength(); y++) {
-				int j = ConsoleMapTable[x][y];
-=======
 		for(int x = 0; x<mapDimensions.getWidth(); x++){
 			for(int y = 0; y<mapDimensions.getLength(); y++){
 				int currentCell = ConsoleMapTable[x][y];
@@ -72,18 +70,23 @@ public class Map extends Observable implements IMap {
 				case 3 :
 				case 4 :
 					this.setOnTheMapXY(MotionlessElementFactory.getElementFromFileSymbol(currentCell), x, y);
-					break;
 				case 5 :
+					this.setOnTheMapXY(new Boulder(null, null, null, null), x, y);
 				case 6 :
+					this.setOnTheMapXY(new SlowAndFollowTheWallsMonster(null, null), x, y);
 				case 7 :
+					this.setOnTheMapXY(new SlowAndRandomMonster(null, null), x, y);
 				case 8 :
+					this.setOnTheMapXY(new Miner(null, null, null, null), x, y);
 				case 9 :
+					this.setOnTheMapXY(new Diamond(null, null, null, null), x, y);
 				case 10 :
+					this.setOnTheMapXY(new FastAndRandomMonster(null, null), x, y);
 				case 11 :
-					this.setOnTheMapXY(MobileFactory.getElementFromFileSymbol(currentCell), x, y);
-					break;
+					this.setOnTheMapXY(new FastAndFollowTheWallsMonster(null, null), x, y);
+				default :
+					this.setOnTheMapXY(MotionlessElementFactory.getElementFromFileSymbol(2), x, y);
 				}
->>>>>>> branch 'Model' of https://github.com/Texergat33/ProjetJava
 			}
 		}
 	}
