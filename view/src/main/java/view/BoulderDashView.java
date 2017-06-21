@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -15,8 +16,9 @@ import controller.UserOrder;
 import fr.exia.showboard.BoardFrame;
 import fr.exia.showboard.IPawn;
 import model.IMap;
+import model.element.IElement;
 import model.element.mobile.IMobile;
-import model.element.mobile.Miner;;
+import model.element.mobile.Miner;
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
@@ -25,19 +27,21 @@ import model.element.mobile.Miner;;
  * @version 1.0
  */
 public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener, Observer {
-    private static final int squareSize  = 10;
-    private static int       boulderView = 10;
-    public int               view;
-    private IOrderPerformer  orderPerformer;
-    private Miner            miner;
-    private IMobile          mobile;
-    private IMap             map;
-    private Rectangle        closeView;
+    private static final int    squareSize  = 10;
+    private static int          boulderView = 10;
+    public int                  view;
+    private IOrderPerformer     orderPerformer;
+    private Miner               miner;
+    private IMobile             mobile;
+    private IMap                map;
+    private Rectangle           closeView;
+    private ArrayList<IElement> objects;
 
     /**
      * Instantiates a new view facade.
      */
-    public BoulderDashView(final IMap map, final Miner miner) {
+    public BoulderDashView(final IMap map, final Miner miner, final ArrayList<IElement> objects) {
+        final ArrayList<IElement> mobiles = new ArrayList<IElement>();
         this.setMiner(miner);
         this.setMap(map);
         this.getMiner().getSprite().loadImage();
@@ -57,6 +61,9 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener,
         JOptionPane.showMessageDialog(null, message);
     }
 
+    /*
+     * the method will display on the screen the different element who constite
+     */
     @Override
     public void run() {
         final BoardFrame boardFrame = new BoardFrame("GAME");
@@ -73,16 +80,18 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener,
             }
         }
         boardFrame.addPawn((IPawn) this.getMiner());
+        boardFrame.setVisible(true);
     }
 
-    public void show(final int yStart, final int xStart) {
-        for (int view = 0; view < this.getMap().getHeight(); view++) {
-            for (int x = 0; x < this.getMap().getWidth(); x++) {
-
-            }
-        }
-
-    }
+    /*
+     * public void show(final int yStart, final int xStart) { for (int view = 0;
+     * view < this.getMap().getHeight(); view++) { for (int x = 0; x <
+     * this.getMap().getWidth(); x++) {
+     *
+     * } }
+     *
+     * }
+     */
 
     private static UserOrder keyCodeToUserOrder(final int keyCode) {
         UserOrder userOrder;
@@ -98,6 +107,11 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener,
             break;
         }
         return userOrder;
+    }
+
+    @Override
+    public void followMiner() {
+        this.closeView = new Rectangle(this.getMiner().getX(), this.getMiner().getY());
     }
 
     public int getView() {
@@ -132,7 +146,7 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener,
         this.map = map;
         for (int x = 0; x < this.getMap().getWidth(); x++) {
             for (int y = 0; y < this.getMap().getWidth(); y++) {
-                this.getMap().getOnTheMapXY(x, y).getSprite.loadImage();
+                this.getMap().getOnTheMapXY(x, y).getSprite().loadImage();
             }
         }
     }
@@ -169,4 +183,14 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener,
 
     }
 
+    public IMobile getMobile() {
+        return this.mobile;
+    }
+
+    public void setMobile(final IMobile mobile) {
+        this.mobile = mobile;
+        for (final IElement elements : this.objects) {
+            this.getMobile().getSprite().loadImage();
+        }
+    }
 }
