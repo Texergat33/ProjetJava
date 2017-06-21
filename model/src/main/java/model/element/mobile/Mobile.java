@@ -42,27 +42,6 @@ public abstract class Mobile extends Element implements IMobile {
 
 	}
 
-	protected IBoard getBoard() {
-		return this.board;
-	}
-
-	private IMap getMap() {
-		return this.map;
-	}
-
-	@Override
-	public Point getPosition() {
-		return this.position;
-	}
-
-	private int getX() {
-		return this.x;
-	}
-
-	private int getY() {
-		return this.y;
-	}
-
 	@Override
 	public boolean isALive() {
 		return this.alive;
@@ -117,6 +96,27 @@ public abstract class Mobile extends Element implements IMobile {
 
 	public void setPosition(Point position) {
 		this.position = position;
+	}
+
+	protected IBoard getBoard() {
+		return this.board;
+	}
+
+	private IMap getMap() {
+		return this.map;
+	}
+
+	@Override
+	public Point getPosition() {
+		return this.position;
+	}
+
+	public int getX() {
+		return this.x;
+	}
+
+	public int getY() {
+		return this.y;
 	}
 
 	private void setX(int x) {
