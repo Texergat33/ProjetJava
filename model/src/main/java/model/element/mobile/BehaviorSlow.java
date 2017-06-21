@@ -1,34 +1,35 @@
 package model.element.mobile;
 
-import model.element.Permeability;
-
 public class BehaviorSlow extends BehaviorDoSomething {
 	int position;
 
 	@Override
-	public void doSomething() {
+	/*-public void other() {
 		int x = this.mobile.getX();
 		int y = this.mobile.getY();
-
+	
 		if (this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLEFORMONSTER) {
-			this.direction(x, y);
+			this.direction();
 			this.mobile.moveDown();
 		} else if (this.mobile.getMap().getOnTheMapXY(x, y - 1)
 				.getPermeability() == Permeability.PENETRABLEFORMONSTER) {
+			this.direction();
 			this.mobile.moveUp();
 		} else if (this.mobile.getMap().getOnTheMapXY(x + 1, y)
 				.getPermeability() == Permeability.PENETRABLEFORMONSTER) {
+			this.direction();
 			this.mobile.moveRight();
 		} else if (this.mobile.getMap().getOnTheMapXY(x - 1, y)
 				.getPermeability() == Permeability.PENETRABLEFORMONSTER) {
+			this.direction();
 			this.mobile.moveLeft();
 		} else {
 			this.mobile.doNothing();
 		}
+	
+	}*/
 
-	}
-
-	public void direction() {
+	public void doSomething() {
 		switch (this.random(1, 4)) {
 		case 1:
 			this.position = this.mobile.getX() - 1;
