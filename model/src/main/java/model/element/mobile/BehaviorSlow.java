@@ -28,20 +28,25 @@ public class BehaviorSlow extends BehaviorDoSomething {
 
 	}
 
-	public void direction(int x, int y) {
-		if (this.random(4, 1) == 1) {
+	public void direction() {
+		switch (this.random(1, 4)) {
+		case 1:
 			this.position = this.mobile.getX() - 1;
-		} else if (this.random(4, 1) == 2) {
+			break;
+		case 2:
 			this.position = this.mobile.getX() + 1;
-		} else if (this.random(4, 1) == 3) {
+			break;
+		case 3:
 			this.position = this.mobile.getY() + 1;
-		} else if (this.random(4, 1) == 4) {
+			break;
+		case 4:
 			this.position = this.mobile.getY() - 1;
+			break;
 		}
 	}
 
 	public int random(int max, int min) {
-		int random = (int) ((Math.random() * 4) + 1);
+		int random = (int) ((Math.random() * max) + min);
 		return random;
 	}
 }
