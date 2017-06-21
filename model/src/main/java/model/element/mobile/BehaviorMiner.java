@@ -6,6 +6,9 @@ public class BehaviorMiner extends BehaviorDoSomething {
         final int x = this.mobile.getX();
         final int y = this.mobile.getY();
 
+        swith(userOrder)
+        case this.mobile.moveUp():
+
     }
 
 }
