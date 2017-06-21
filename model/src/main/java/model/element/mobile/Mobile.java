@@ -2,6 +2,7 @@ package model.element.mobile;
 
 import java.awt.Point;
 
+import fr.exia.showboard.IBoard;
 import model.IMap;
 import model.element.Element;
 import model.element.Permeability;
@@ -35,6 +36,10 @@ public abstract class Mobile extends Element implements IMobile {
 	public void doNothing() {
 		this.setHasChanged();
 		// informe du mouvement
+	}
+
+	public void doSomething() {
+
 	}
 
 	protected IBoard getBoard() {

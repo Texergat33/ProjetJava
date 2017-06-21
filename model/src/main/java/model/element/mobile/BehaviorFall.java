@@ -1,8 +1,10 @@
 package model.element.mobile;
 
 public class BehaviorFall extends BehaviorDoSomething {
-	public BehaviorFall() {
-		this.doSomething();
+
+	@Override
+	public void doSomething() {
 
 	}
+	// this.getMobile() pour voir si ya un truc en dessous si rien move down
 }
