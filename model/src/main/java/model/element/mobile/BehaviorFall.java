@@ -7,11 +7,11 @@ public class BehaviorFall extends BehaviorDoSomething {
 		int x = this.mobile.getX();
 		int y = this.mobile.getY();
 
-		this.mobile.getMap().getOnTheMapXY(x, y - 1);
+		if(this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability();
 
 		if(getElement == background){
 			moveDown();
-			else donothing();
+			else doNothing();
 		}
 
 	}

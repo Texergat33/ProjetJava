@@ -6,17 +6,17 @@ import java.util.Observable;
 import model.element.IElement;
 
 public class Map extends Observable implements IMap {
-	private int width;
-	private int height;
-	private int level;
-	private IElement onTheMap[][];
+	private int			width;
+	private int			height;
+	private int			level;
+	private IElement	onTheMap[][];
 
-	public Map(int level){
+	public Map(int level) {
 		super();
 		this.level = level;
-		//récupère les informations du constructeur de la classe Observable
+		// récupère les informations du constructeur de la classe Observable
 		this.loadLevel();
-		//lance la méthode load level avec en paramètre le numéro du niveau
+		// lance la méthode load level avec en paramètre le numéro du niveau
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class Map extends Observable implements IMap {
 	}
 
 	@Override
-	public IElement[][] getOnTheMapXY(int x, int y) {
+	public IElement getOnTheMapXY(int x, int y) {
 		return null;
 	}
 
@@ -40,8 +40,8 @@ public class Map extends Observable implements IMap {
 	}
 
 	private void loadLevel() {
-		//récupère les données de la map sélectionnée dans la BDD
-		//et transforme les caractères en instances d'éléments
+		// récupère les données de la map sélectionnée dans la BDD
+		// et transforme les caractères en instances d'éléments
 		MapDimensions mapDimensions = this.getModel().getMapSize(this.level);
 		int ConsoleMapTable[][] = new int[mapDimensions.getWidth()][mapDimensions.getLength()];
 		List<FillingMap> objects = this.getModel().getMapFilled(mapDimensions.getId());
@@ -65,7 +65,7 @@ public class Map extends Observable implements IMap {
 
 	private void setOnTheMapXY(IElement element, int x, int y) {
 		this.onTheMap[x][y] = element;
-		//met l'élément dans le tableau de Map [x][y]
+		// met l'élément dans le tableau de Map [x][y]
 	}
 
 	private void setWidth(int width) {
