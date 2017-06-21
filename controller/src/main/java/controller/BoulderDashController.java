@@ -164,4 +164,5 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 	public void emptyOrderPile() {
 		this.OrderPile = UserOrder.NOP;
 	}
+
 }
