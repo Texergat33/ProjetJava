@@ -14,16 +14,16 @@ import controller.UserOrder;
 public class BoulderDashController implements IBoulderDashController, IOrderPerformer {
 
     /** The view. */
-    private final IBoulderDashView  view;
+    private IBoulderDashView  view;
 
     /** The model. */
-    private final IBoulderDashModel model;
+    private IBoulderDashModel model;
 
     /* this is the speed of all the mobile element */
     private int                     speed;
 
     /*
-     * this attribut is the order that the controler receive from the view and
+     * this attribute is the order that the controller receive from the view and
      * will send to the model. This is the aggregation with the enum UserOrder
      */
     private UserOrder               OrderPile;
@@ -40,13 +40,23 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
     /*
      * the main only call the controller who instanciate the view and the model
      */
-    public BoulderDashController(final IBoulderDashView view, final IBoulderDashModel model) {
-        super();
-        this.view = view;
-        this.model = model;
+    public BoulderDashController(IBoulderDashView view, IBoulderDashModel model) {
+        this.setView(view);
+        this.setModel(model);
+        this.emptyOrderPile();
     }
 
-    /**
+    private void setModel(IBoulderDashModel model) {
+		// TODO Auto-generated method stub
+    	  this.model = model;
+	}
+
+	private void setView(IBoulderDashView view) {
+		// TODO Auto-generated method stub
+		  this.view = view;
+	}
+
+	/**
      * Start.
      *
      * @throws SQLException
@@ -97,30 +107,30 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
      * who is called in the main
      */
     @Override
-    public void play() {
+    public void play() throws InterruptedException {
         // TODO Auto-generated method stub
     	while (this.getModel().getMiner().isALive()){
     		Thread.sleep(speed);
     		switch(this.getOrderPile()){
     		case UP:
-    			
+    			this.getModel().getMiner().moveUp();
     			break;
     			
     		case DOWN:
-    			
+    			this.getModel().getMiner().moveDown();
     			break;
     			
     		case RIGHT:
-    			
+    			this.getModel().getMiner().moveRight();
     			break;
     			
     		case LEFT:
-    			
+    			this.getModel().getMiner().moveLeft();
     			break;
     			
     		case NOP:
     			default:
-    				
+    				this.getModel().getMiner().doNothing();;
     			break;
     		}
     	}
