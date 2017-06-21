@@ -15,7 +15,7 @@ public interface IMobile {
 
 	public void doNothing();
 
-	public boolean isALive();
+	public boolean isAlive();
 
 	public boolean isKilled();
 
@@ -26,5 +26,11 @@ public interface IMobile {
 	int getY();
 
 	IMap getMap();
+
+	boolean isFalling();
+
+	public void setFalling(boolean b);
+
+	void die();
 
 }

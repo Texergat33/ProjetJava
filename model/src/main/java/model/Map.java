@@ -8,6 +8,7 @@ import model.element.mobile.Boulder;
 import model.element.mobile.Diamond;
 import model.element.mobile.FastAndFollowTheWallsMonster;
 import model.element.mobile.FastAndRandomMonster;
+import model.element.mobile.IMobile;
 import model.element.mobile.Miner;
 import model.element.mobile.SlowAndFollowTheWallsMonster;
 import model.element.mobile.SlowAndRandomMonster;
@@ -30,6 +31,10 @@ public class Map extends Observable implements IMap {
 	@Override
 	public int getHeight() {
 		return this.height;
+	}
+
+	public IMobile getMobileXY(int x, int y) {
+		return null;
 	}
 
 	@Override
