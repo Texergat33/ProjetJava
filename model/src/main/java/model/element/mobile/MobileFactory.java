@@ -36,13 +36,8 @@ public class MobileFactory {
 		/*
 		 * case 2: return diamondFront2; break;
 		 */
-
-		/*
-		 * default: return diamondFront2;
-		 */
 		default:
-			return null;
-
+			return diamondFront;
 		}
 	}
 
