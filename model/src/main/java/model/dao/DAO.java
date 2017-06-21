@@ -25,7 +25,7 @@ public abstract class DAO extends AbstractDAO {
 
     /** The id column index. */
     private static int idColumnIndex     = 1;
-    private static int lenghtColumnIndex = 2;
+    private static int HeightColumnIndex = 2;
     private static int WidthColumnIndex  = 3;
     private static int XColumnIndex      = 1;
     private static int YColumnIndex      = 2;
@@ -44,7 +44,7 @@ public abstract class DAO extends AbstractDAO {
         if (callStatement.execute()) {
             final ResultSet result = callStatement.getResultSet();
             if (result.first()) {
-                dimension = new MapDimensions(result.getInt(idColumnIndex), result.getInt(lenghtColumnIndex),
+                dimension = new MapDimensions(result.getInt(idColumnIndex), result.getInt(HeightColumnIndex),
                         result.getInt(WidthColumnIndex));
             }
             result.close();

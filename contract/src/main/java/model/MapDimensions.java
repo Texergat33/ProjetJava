@@ -2,21 +2,21 @@ package model;
 
 public class MapDimensions {
     private int id;
-    public int  length;
+    public int  height;
     public int  width;
 
-    public MapDimensions(final int id, final int length, final int width) {
+    public MapDimensions(final int id, final int height, final int width) {
         this.id = id;
-        this.length = length;
+        this.height = height;
         this.width = width;
     }
 
     public int getLength() {
-        return this.length;
+        return this.height;
     }
 
-    protected void setLength(final int length) {
-        this.length = length;
+    protected void setLength(final int height) {
+        this.height = height;
     }
 
     public int getWidth() {
