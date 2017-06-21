@@ -33,19 +33,12 @@ public abstract class MobileFactory {
 		switch (front) {
 		case 1:
 			return diamondFront;
-<<<<<<< HEAD
-		/*
-		 * case 2: return diamondFront2; break;
-		 */
-=======
 			/*
 			 * case 2: return diamondFront2; break;
 			 */
-
 			/*
 			 * default: return diamondFront2;
 			 */
->>>>>>> branch 'Model' of https://github.com/Texergat33/ProjetJava
 		default:
 			return diamondFront;
 		}

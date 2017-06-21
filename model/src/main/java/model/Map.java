@@ -1,5 +1,6 @@
 package model;
 
+import java.util.List;
 import java.util.Observable;
 
 import model.element.IElement;
@@ -12,6 +13,7 @@ public class Map extends Observable implements IMap {
 
 	public Map(int level){
 		super();
+		this.level = level;
 		//récupère les informations du constructeur de la classe Observable
 		this.loadLevel();
 		//lance la méthode load level avec en paramètre le numéro du niveau
@@ -37,9 +39,15 @@ public class Map extends Observable implements IMap {
 		return this.width;
 	}
 
-	private void loadLevel(){
+	private void loadLevel() {
 		//récupère les données de la map sélectionnée dans la BDD
 		//et transforme les caractères en instances d'éléments
+		MapDimensions mapDimensions = this.getModel().getMapSize(this.level);
+		int ConsoleMapTable[][] = new int[mapDimensions.getWidth()][mapDimensions.getLength()];
+		List<FillingMap> objects = this.getModel().getMapFilled(mapDimensions.getId());
+		for (FillingMap fillingmap : objects) {
+			ConsoleMapTable[fillingmap.x][fillingmap.y] = fillingmap.type;
+		}
 	}
 
 	private void setHeight(int height) {
