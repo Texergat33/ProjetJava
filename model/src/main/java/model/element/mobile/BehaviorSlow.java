@@ -1,7 +1,7 @@
 package model.element.mobile;
 
-public class BehaviorSlow {
+public class BehaviorSlow extends BehaviorDoSomething {
 	public BehaviorSlow() {
-
+		this.doSomething();
 	}
 }

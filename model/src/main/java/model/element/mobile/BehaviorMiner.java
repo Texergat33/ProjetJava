@@ -1,7 +1,7 @@
 package model.element.mobile;
 
-public class BehaviorMiner {
+public class BehaviorMiner extends BehaviorDoSomething {
 	public BehaviorMiner() {
-
+		this.doSomething();
 	}
 }
