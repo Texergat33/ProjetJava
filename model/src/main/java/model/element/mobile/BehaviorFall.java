@@ -9,12 +9,16 @@ public class BehaviorFall extends BehaviorDoSomething {
 		int x = this.mobile.getX();
 		int y = this.mobile.getY();
 
-		if(this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLEFORBOULDER) {
+		if (this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLEFORBOULDER) {
 			this.mobile.moveDown();
 			this.mobile.setFalling(true);
 
-		}else if((this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.KILLABLE) && (this.mobile.isFalling() == true) ){
-			this.mobile.getMap().getOnTheMapXY(x, y + 1).die()
+		} else if ((this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.KILLABLE)
+				&& (this.mobile.isFalling() == true)) {
+			this.mobile.getMap().getMobileXY(x, y + 1).die();
+			this.mobile.moveDown();
+		}else if((this.mobile.getMap().getOnTheMapXY(x, y+1).getPermeability() == Permeability.PUSHABLE) || (this.mobile.getMap().getOnTheMapXY(x, y+1).getPermeability()x == Permeability.COLLECTABLE)){
+
 		}
 
 	}
