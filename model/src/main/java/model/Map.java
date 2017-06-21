@@ -48,6 +48,11 @@ public class Map extends Observable implements IMap {
 		for (FillingMap fillingmap : objects) {
 			ConsoleMapTable[fillingmap.x][fillingmap.y] = fillingmap.type;
 		}
+		for(int x = 0; x<mapDimensions.getWidth(); x++){
+			for(int y = 0; y<mapDimensions.getLength(); y++){
+				int j = ConsoleMapTable[x][y];
+			}
+		}
 	}
 
 	private void setHeight(int height) {
