@@ -2,14 +2,14 @@ package model;
 
 import java.util.Observable;
 
-import model.element.IElement;
+import fr.exia.showboard.ISquare;
 
 public interface IMap {
     public int getHeight();
 
     public Observable getObservable();
 
-    public IElement[][] getOnTheMapXY(int x, int y);
+    public ISquare getOnTheMapXY(int x, int y);
 
     public int getWidth();
 

@@ -15,7 +15,8 @@ import controller.UserOrder;
 import fr.exia.showboard.BoardFrame;
 import fr.exia.showboard.IPawn;
 import model.IMap;
-import model.element.mobile.IMobile;;
+import model.element.mobile.IMobile;
+import model.element.mobile.Miner;;
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
@@ -24,22 +25,26 @@ import model.element.mobile.IMobile;;
  * @version 1.0
  */
 public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener, Observer {
-    private static final int squareSize = 10;
+    private static final int squareSize  = 10;
+    private static int       boulderView = 10;
     public int               view;
     private IOrderPerformer  orderPerformer;
-    private IMobile          miner;
+    private Miner            miner;
+    private IMobile          mobile;
     private IMap             map;
     private Rectangle        closeView;
 
     /**
      * Instantiates a new view facade.
      */
-    public BoulderDashView(final IMap map, final IMobile miner) {
+    public BoulderDashView(final IMap map, final Miner miner) {
         this.setMiner(miner);
         this.setMap(map);
         this.getMiner().getSprite().loadImage();
-        this.setCloseView(new Rectangle(0, 0, 0, 0));
+        this.setCloseView(new Rectangle(this.getMiner().getX(), this.getMiner().getY(), BoulderDashView.boulderView,
+                BoulderDashView.boulderView));
         SwingUtilities.invokeLater(this);
+
     }
 
     /*
@@ -73,7 +78,7 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener,
     public void show(final int yStart, final int xStart) {
         for (int view = 0; view < this.getMap().getHeight(); view++) {
             for (int x = 0; x < this.getMap().getWidth(); x++) {
-                System.out.println(this.getMiner().getSprite());
+
             }
         }
 
@@ -115,7 +120,7 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener,
         return this.miner;
     }
 
-    public void setMiner(final IMobile miner) {
+    public void setMiner(final Miner miner) {
         this.miner = miner;
     }
 
