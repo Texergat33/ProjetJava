@@ -5,32 +5,32 @@ import java.awt.Point;
 import model.IMap;
 
 public interface IMobile {
-	public void moveUp();
-
-	public void moveDown();
-
-	public void moveRight();
-
-	public void moveLeft();
+	public void die();
 
 	public void doNothing();
 
-	public boolean isAlive();
-
-	public boolean isKilled();
+	public IMap getMap();
 
 	public Point getPosition();
 
-	int getX();
+	public int getX();
 
-	int getY();
+	public int getY();
 
-	IMap getMap();
+	public boolean isAlive();
 
-	boolean isFalling();
+	public boolean isFalling();
+
+	public boolean isKilled();
+
+	public void moveDown();
+
+	public void moveLeft();
+
+	public void moveRight();
+
+	public void moveUp();
 
 	public void setFalling(boolean b);
-
-	void die();
 
 }
