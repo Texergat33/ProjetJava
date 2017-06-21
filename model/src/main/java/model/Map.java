@@ -4,7 +4,13 @@ import java.util.List;
 import java.util.Observable;
 
 import model.element.IElement;
-import model.element.mobile.MobileFactory;
+import model.element.mobile.Boulder;
+import model.element.mobile.Diamond;
+import model.element.mobile.FastAndFollowTheWallsMonster;
+import model.element.mobile.FastAndRandomMonster;
+import model.element.mobile.Miner;
+import model.element.mobile.SlowAndFollowTheWallsMonster;
+import model.element.mobile.SlowAndRandomMonster;
 import model.element.motionless.MotionlessElementFactory;
 
 public class Map extends Observable implements IMap {
@@ -59,16 +65,22 @@ public class Map extends Observable implements IMap {
 				case 3 :
 				case 4 :
 					this.setOnTheMapXY(MotionlessElementFactory.getElementFromFileSymbol(currentCell), x, y);
-					break;
 				case 5 :
+					this.setOnTheMapXY(new Boulder(null, null, null, null), x, y);
 				case 6 :
+					this.setOnTheMapXY(new SlowAndFollowTheWallsMonster(null, null), x, y);
 				case 7 :
+					this.setOnTheMapXY(new SlowAndRandomMonster(null, null), x, y);
 				case 8 :
+					this.setOnTheMapXY(new Miner(null, null, null, null), x, y);
 				case 9 :
+					this.setOnTheMapXY(new Diamond(null, null, null, null), x, y);
 				case 10 :
+					this.setOnTheMapXY(new FastAndRandomMonster(null, null), x, y);
 				case 11 :
-					this.setOnTheMapXY(MobileFactory.getElementFromFileSymbol(currentCell), x, y);
-					break;
+					this.setOnTheMapXY(new FastAndFollowTheWallsMonster(null, null), x, y);
+				default :
+					this.setOnTheMapXY(MotionlessElementFactory.getElementFromFileSymbol(2), x, y);
 				}
 			}
 		}

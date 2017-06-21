@@ -4,12 +4,9 @@ import model.element.Permeability;
 import model.element.Sprite;
 
 public class Ground extends MotionlessElement {
-	private static final Sprite SPRITE = new Sprite(/*MettreCaractère*/, /*MettrenomImage*/);
+	private static final Sprite SPRITE = new Sprite(3, "ground.png");
 
 	public Ground() {
-		super(SPRITE, Permeability./*NOMPERMEABILITE*/); //mettre permeabilité
-		// TODO Auto-generated constructor stub
+		super(SPRITE, Permeability.PENETRABLEFOREVERYONE);
 	}
-
-}
 }
