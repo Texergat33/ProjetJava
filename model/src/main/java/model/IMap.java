@@ -16,5 +16,5 @@ public interface IMap {
 
 	public void setMobileHasChanged();
 
-	public IMobile getMobile();
+	public IMobile getMobileXY(int x, int y);
 }
