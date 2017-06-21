@@ -1,8 +1,11 @@
 package controller;
 
+import model.IBoulderDashModel;
+import view.IBoulderDashView;
+
 /**
- * <h1>The Class ControllerFacade provides a facade of the Controller
- * component.</h1>
+ * <h1>The Class ControllerFacade provides a facade of the Controller component.
+ * </h1>
  *
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
@@ -10,19 +13,19 @@ package controller;
 public class BoulderDashController implements IBoulderDashController, IOrderPerformer {
 
     /** The view. */
-    private final IBoulderDashView  view;
+    private IBoulderDashView view;
 
     /** The model. */
-    private final IBoulderDashModel model;
+    private IBoulderDashModel model;
 
     /* this is the speed of all the mobile element */
-    private int                     speed;
+    private int speed;
 
     /*
-     * this attribut is the order that the controler receive from the view and
+     * this attribute is the order that the controller receive from the view and
      * will send to the model. This is the aggregation with the enum UserOrder
      */
-    private UserOrder               OrderPile;
+    private UserOrder OrderPile;
 
     /**
      * Instantiates a new controller facade.
@@ -32,13 +35,24 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
      * @param model
      *            the model
      */
+
     /*
      * the main only call the controller who instanciate the view and the model
      */
     public BoulderDashController(final IBoulderDashView view, final IBoulderDashModel model) {
-        super();
-        this.view = view;
+        this.setView(view);
+        this.setModel(model);
+        this.emptyOrderPile();
+    }
+
+    private void setModel(final IBoulderDashModel model) {
+        // TODO Auto-generated method stub
         this.model = model;
+    }
+
+    private void setView(final IBoulderDashView view) {
+        // TODO Auto-generated method stub
+        this.view = view;
     }
 
     /**
@@ -57,9 +71,9 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
      * )); // Display exemple 1, by ID, We call the view and we display the
      * message // We send a id
      *
-     * this.getView().displayMessage(this.getModel().
-     * getExampleByName("Example 2").toString()); // Display exemple 2, by Name,
-     * We call the view and we display the // message
+     * this.getView().displayMessage(this.getModel(). getExampleByName(
+     * "Example 2").toString()); // Display exemple 2, by Name, We call the view
+     * and we display the // message
      *
      * final List<Example> examples = this.getModel().getAllExamples(); // we
      * put in a arraylist the result of the exemple 3 final StringBuilder
@@ -94,30 +108,61 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
     @Override
     public void play() {
         // TODO Auto-generated method stub
+        while (this.getModel().getMiner().isAlive()) {
+            Thread.sleep(this.speed);
+            switch (this.getOrderPile()) {
+            case UP:
+                this.getModel().getMiner().moveUp();
+                break;
 
+            case DOWN:
+                this.getModel().getMiner().moveDown();
+                break;
+
+            case RIGHT:
+                this.getModel().getMiner().moveRight();
+                break;
+
+            case LEFT:
+                this.getModel().getMiner().moveLeft();
+                break;
+
+            case NOP:
+            default:
+                this.getModel().getMiner().doNothing();
+                ;
+                break;
+            }
+
+            this.emptyOrderPile();
+            this.getView().notify();
+        }
+
+        this.getView().displayMessage("Game over");
     }
 
     @Override
     public IOrderPerformer getOrderPerformer() {
         // TODO Auto-generated method stub
-        return null;
+        return this;
     }
 
     @Override
-    public void orderPerform(UserOrder userOrder) {
+    public void orderPerform(final UserOrder orderPile) {
         // TODO Auto-generated method stub
-
+        this.setOrderPile(orderPile);
     }
 
-    public void getOrderPile(UserOrder orderPile) {
-
+    public UserOrder getOrderPile() {
+        return this.OrderPile;
     }
 
-    public void setOrderPile(UserOrder orderPile) {
-
+    public void setOrderPile(final UserOrder orderPile) {
+        this.OrderPile = orderPile;
     }
 
     public void emptyOrderPile() {
-
+        this.OrderPile = UserOrder.NOP;
     }
+
 }
