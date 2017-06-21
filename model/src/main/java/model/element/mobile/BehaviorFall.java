@@ -41,7 +41,15 @@ public class BehaviorFall extends BehaviorDoSomething {
 		case "left":
 			sideX = this.mobile.getX() - 1;
 			break;
+		case "both":
+			if (this.random(0, 1) == 0) {
+				sideX = this.mobile.getX() - 1;
+			} else {
+				sideX = this.mobile.getX() + 1;
+			}
+			break;
 		}
+
 		if ((this.mobile.getMap().getOnTheMapXY(sideX, this.mobile.getY())
 				.getPermeability() == Permeability.PENETRABLEFORBOULDER)
 				&& (this.mobile.getMap().getOnTheMapXY(sideX, this.mobile.getY() + 1)
@@ -49,5 +57,11 @@ public class BehaviorFall extends BehaviorDoSomething {
 			return true;
 		}
 		return false;
+	}
+
+	public int random(double mini, double maxi) {
+		mini = Math.ceil(mini);
+		maxi = Math.floor(maxi);
+		return (int) ((int) (Math.floor(((Math.random() * maxi) - mini) + 1)) + mini);
 	}
 }
