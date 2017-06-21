@@ -1,6 +1,6 @@
 package model.element.mobile;
 
-public class MobileFactory {
+public abstract class MobileFactory {
 	private static Monster	monsterFAFTW;
 	private static Monster	monsterSAFTW;
 	private static Monster	monsterFAR;
@@ -33,9 +33,19 @@ public class MobileFactory {
 		switch (front) {
 		case 1:
 			return diamondFront;
+<<<<<<< HEAD
 		/*
 		 * case 2: return diamondFront2; break;
 		 */
+=======
+			/*
+			 * case 2: return diamondFront2; break;
+			 */
+
+			/*
+			 * default: return diamondFront2;
+			 */
+>>>>>>> branch 'Model' of https://github.com/Texergat33/ProjetJava
 		default:
 			return diamondFront;
 		}
@@ -49,9 +59,9 @@ public class MobileFactory {
 			return defaultMiner2;
 		case "minerUp1":
 			return minerUp1;
-		/*
-		 * case "minerUp2": return minerUp2; break;
-		 */
+			/*
+			 * case "minerUp2": return minerUp2; break;
+			 */
 		case "minerDown1":
 			return minerDown1;
 		case "minerDown2":
