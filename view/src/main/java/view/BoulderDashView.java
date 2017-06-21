@@ -14,7 +14,6 @@ import javax.swing.SwingUtilities;
 import controller.IOrderPerformer;
 import controller.UserOrder;
 import fr.exia.showboard.BoardFrame;
-import fr.exia.showboard.IPawn;
 import model.IMap;
 import model.element.IElement;
 import model.element.mobile.IMobile;
@@ -112,7 +111,7 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener,
                 boardFrame.addSquare(this.map.getOnTheMapXY(x, y), x, y);
             }
         }
-        boardFrame.addPawn((IPawn) this.getMiner());
+        boardFrame.addPawn(this.getMiner());
         boardFrame.setVisible(true);
     }
 
