@@ -141,7 +141,11 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener,
             break;
         case KeyEvent.VK_LEFT:
             userOrder = UserOrder.LEFT;
+        case KeyEvent.VK_UP:
+            userOrder = UserOrder.UP;
             break;
+        case KeyEvent.VK_DOWN:
+            userOrder = UserOrder.DOWN;
         default:
             userOrder = UserOrder.NOP;
             break;
