@@ -36,9 +36,9 @@ public abstract class MotionlessElementFactory {
 		return wall;
 	}
 
-	public static MotionlessElement getElementFromFileSymbol(char fileSymbol) {
+	public static MotionlessElement getElementFromFileSymbol(int elementID) {
 		for (MotionlessElement motionlessElement : motionlessElements) {
-			if (motionlessElement.getSprite().getConsoleImage() == fileSymbol) {
+			if (motionlessElement.getSprite().getConsoleImage() == elementID) {
 				return motionlessElement;
 			}
 		}
