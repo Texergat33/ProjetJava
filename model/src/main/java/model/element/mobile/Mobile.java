@@ -25,21 +25,12 @@ public abstract class Mobile extends Element implements IMobile {
 		this.position = new Point();
 	}
 
+	@Override
 	protected void die() {
 		this.alive = false;
 		this.setHasChanged();
 		// statue alive est faux
 		// informe du mouvement
-	}
-
-	@Override
-	public void setFalling(boolean falling) {
-		this.falling = falling;
-	}
-
-	@Override
-	public boolean isFalling() {
-		return this.falling;
 	}
 
 	@Override
@@ -52,9 +43,38 @@ public abstract class Mobile extends Element implements IMobile {
 
 	}
 
+	protected IBoard getBoard() {
+		return this.board;
+	}
+
+	@Override
+	public IMap getMap() {
+		return this.map;
+	}
+
+	@Override
+	public Point getPosition() {
+		return this.position;
+	}
+
+	@Override
+	public int getX() {
+		return this.x;
+	}
+
+	@Override
+	public int getY() {
+		return this.y;
+	}
+
 	@Override
 	public boolean isAlive() {
 		return this.alive;
+	}
+
+	@Override
+	public boolean isFalling() {
+		return this.falling;
 	}
 
 	@Override
@@ -96,6 +116,11 @@ public abstract class Mobile extends Element implements IMobile {
 		// montre que ça a bougé
 	}
 
+	@Override
+	public void setFalling(boolean falling) {
+		this.falling = falling;
+	}
+
 	private void setHasChanged() {
 		this.getMap().setMobileHasChanged();
 	}
@@ -106,30 +131,6 @@ public abstract class Mobile extends Element implements IMobile {
 
 	public void setPosition(Point position) {
 		this.position = position;
-	}
-
-	protected IBoard getBoard() {
-		return this.board;
-	}
-
-	@Override
-	public IMap getMap() {
-		return this.map;
-	}
-
-	@Override
-	public Point getPosition() {
-		return this.position;
-	}
-
-	@Override
-	public int getX() {
-		return this.x;
-	}
-
-	@Override
-	public int getY() {
-		return this.y;
 	}
 
 	private void setX(int x) {
