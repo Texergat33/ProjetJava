@@ -91,9 +91,9 @@ public abstract class MobileFactory {
 		}
 	}
 
-	public static Mobile getElementFromFileSymbol(char fileSymbol) {
+	public static Mobile getElementFromFileSymbol(int elementID) {
 		for (Mobile mobileElement : mobilesElements) {
-			if (mobileElement.getSprite().getConsoleImage() == fileSymbol) {
+			if (mobileElement.getSprite().getConsoleImage() == elementID) {
 				return mobileElement;
 			}
 		}
