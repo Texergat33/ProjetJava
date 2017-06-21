@@ -2,6 +2,8 @@ package model.element.mobile;
 
 import java.awt.Point;
 
+import model.IMap;
+
 public interface IMobile {
 	public void moveUp();
 
@@ -18,5 +20,11 @@ public interface IMobile {
 	public boolean isKilled();
 
 	public Point getPosition();
+
+	int getX();
+
+	int getY();
+
+	IMap getMap();
 
 }

@@ -7,17 +7,16 @@ import model.IMap;
 import model.element.Element;
 import model.element.Permeability;
 import model.element.Sprite;
-//import model.element.SpriteFactory;
 
 public abstract class Mobile extends Element implements IMobile {
 
-	private Point	position;
-	private boolean	alive	= true;
-	private IBoard	board;
-	private IMap	map;
-	// private SpriteFactory spriteFactory;
-	private int		x;
-	private int		y;
+	private Point				position;
+	private boolean				alive	= true;
+	private IBoard				board;
+	private IMap				map;
+	private int					x;
+	private int					y;
+	private BehaviorDoSomething	behaviorDoSomething;
 
 	public Mobile(Point position, Sprite sprite, IMap map, Permeability permeability) {
 		super(sprite, permeability);
@@ -102,7 +101,7 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.board;
 	}
 
-	private IMap getMap() {
+	public IMap getMap() {
 		return this.map;
 	}
 
@@ -111,10 +110,12 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.position;
 	}
 
+	@Override
 	public int getX() {
 		return this.x;
 	}
 
+	@Override
 	public int getY() {
 		return this.y;
 	}
