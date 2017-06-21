@@ -7,9 +7,14 @@ import model.element.Permeability;
 import model.element.Sprite;
 
 public class Diamond extends Boulder {
-	private static final Sprite SPRITE = new Sprite(9, "boulder.png");
+    private static final Sprite SPRITE = new Sprite(9, "boulder.png");
 
-	public Diamond(Point position, Sprite sprite, IMap map, Permeability permeability) {
-		super(position, SPRITE, map, permeability);
-	}
+    public Diamond(final Point position, final Sprite sprite, final IMap map, final Permeability permeability) {
+        super(position, SPRITE, map, permeability);
+    }
+
+    public void collect() {
+        this.getMap().setDiamondCounter(this.getMap().getDiamondCounter() - 1);
+        this.die();
+    }
 }

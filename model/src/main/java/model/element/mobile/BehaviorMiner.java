@@ -16,70 +16,74 @@ public class BehaviorMiner extends BehaviorDoSomething {
                     .getPermeability() == Permeability.BLOCKINGFOREVERYONE) {
                 this.mobile.doNothing();
             } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.COLLECTABLE) {
-                this.mobile.collect();
+                this.mobile.position(x + 1, y).collect();
                 this.mobile.moveUp();
 
             } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.KILLABLE) {
                 this.mobile.die();
 
             } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PUSHABLE) {
+                this.mobile.position(x + 1, y).moveLeft();
                 this.mobile.moveUp();
             } else {
                 this.mobile.doNothing();
             }
             break;
         case Down:
-            if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PENETRABLEFOREVERYONE) {
+            if (this.mobile.getMap().getOnTheMapXY(x - 1, y).getPermeability() == Permeability.PENETRABLEFOREVERYONE) {
                 this.mobile.moveDown();
-            } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y)
+            } else if (this.mobile.getMap().getOnTheMapXY(x - 1, y)
                     .getPermeability() == Permeability.BLOCKINGFOREVERYONE) {
                 this.mobile.doNothing();
-            } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.COLLECTABLE) {
-                this.mobile.collect();
+            } else if (this.mobile.getMap().getOnTheMapXY(x - 1, y).getPermeability() == Permeability.COLLECTABLE) {
+                this.mobile.position(x - 1, y).collect();
                 this.mobile.moveDown();
 
-            } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.KILLABLE) {
+            } else if (this.mobile.getMap().getOnTheMapXY(x - 1, y).getPermeability() == Permeability.KILLABLE) {
                 this.mobile.die();
 
-            } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PUSHABLE) {
+            } else if (this.mobile.getMap().getOnTheMapXY(x - 1, y).getPermeability() == Permeability.PUSHABLE) {
+                this.mobile.position(x - 1, y).moveDown();
                 this.mobile.moveDown();
             } else {
                 this.mobile.doNothing();
             }
             break;
         case Right:
-            if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PENETRABLEFOREVERYONE) {
+            if (this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLEFOREVERYONE) {
                 this.mobile.moveRight();
-            } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y)
+            } else if (this.mobile.getMap().getOnTheMapXY(x, y + 1)
                     .getPermeability() == Permeability.BLOCKINGFOREVERYONE) {
                 this.mobile.doNothing();
-            } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.COLLECTABLE) {
-                this.mobile.collect();
+            } else if (this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.COLLECTABLE) {
+                this.mobile.position(x, y + 1).collect();
                 this.mobile.moveRight();
 
-            } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.KILLABLE) {
+            } else if (this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.KILLABLE) {
                 this.mobile.die();
 
-            } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PUSHABLE) {
+            } else if (this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PUSHABLE) {
+                this.mobile.position(x, y + 1).moveRight();
                 this.mobile.moveRight();
             } else {
                 this.mobile.doNothing();
             }
             break;
         case Left:
-            if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PENETRABLEFOREVERYONE) {
+            if (this.mobile.getMap().getOnTheMapXY(x, y - 1).getPermeability() == Permeability.PENETRABLEFOREVERYONE) {
                 this.mobile.moveLeft();
-            } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y)
+            } else if (this.mobile.getMap().getOnTheMapXY(x, y - 1)
                     .getPermeability() == Permeability.BLOCKINGFOREVERYONE) {
                 this.mobile.doNothing();
-            } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.COLLECTABLE) {
-                this.mobile.collect();
+            } else if (this.mobile.getMap().getOnTheMapXY(x, y - 1).getPermeability() == Permeability.COLLECTABLE) {
+                this.mobile.position(x, y - 1).collect();
                 this.mobile.moveLeft();
 
-            } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.KILLABLE) {
+            } else if (this.mobile.getMap().getOnTheMapXY(x, y - 1).getPermeability() == Permeability.KILLABLE) {
                 this.mobile.die();
 
-            } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PUSHABLE) {
+            } else if (this.mobile.getMap().getOnTheMapXY(x, y - 1).getPermeability() == Permeability.PUSHABLE) {
+                this.mobile.position(x, y - 1).moveLeft();
                 this.mobile.moveLeft();
             } else {
                 this.mobile.doNothing();
