@@ -133,30 +133,31 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
     				this.getModel().getMiner().doNothing();;
     			break;
     		}
+    		this.emptyOrderPile();
     	}
     }
 
     @Override
     public IOrderPerformer getOrderPerformer() {
         // TODO Auto-generated method stub
-        return null;
+        return this;
     }
 
     @Override
-    public void orderPerform(UserOrder userOrder) {
+    public void orderPerform(UserOrder orderPile) {
         // TODO Auto-generated method stub
-
+    	this.setOrderPile(orderPile);
     }
 
     public UserOrder getOrderPile() {
-    	return null;
+    	return this.OrderPile;
     }
 
     public void setOrderPile(UserOrder orderPile) {
-
+    	this.OrderPile = orderPile;
     }
 
     public void emptyOrderPile() {
-
+    	this.OrderPile = UserOrder.NOP;
     }
 }
