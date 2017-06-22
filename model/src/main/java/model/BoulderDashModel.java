@@ -5,6 +5,9 @@ import java.util.Observable;
 import java.util.Observer;
 
 import model.element.mobile.IMobile;
+import model.dao.DAO;
+import model.element.mobile.IMobile;
+import model.element.mobile.Miner;
 
 public class BoulderDashModel extends Observable implements IBoulderDashModel {
     private IMobile                   miner;
@@ -13,6 +16,12 @@ public class BoulderDashModel extends Observable implements IBoulderDashModel {
 
     public BoulderDashModel(final int level, final int minerStartX, final int minerStartY) {
         this.observers = new ArrayList<Observer>();
+        this.setMap(new Map(level));
+        // met en place la route en créant la Map avec en paramètre le numéro de
+        // Map
+        this.setMiner(new Miner(minerStartY, minerStartY, this.getMap()));
+        // met en place le mineur en le créant avec sa position X et Y de
+        // départ, et récupère la Map
     }
 
     @Override
@@ -33,25 +42,33 @@ public class BoulderDashModel extends Observable implements IBoulderDashModel {
         }
 
     }
-
-    @Override
-    public void getMap() {
-        // TODO Auto-generated method stub
-
-    }
-
+  
     @Override
     public IMobile getMiner() {
-        // TODO Auto-generated method stub
-        return null;
+        return this.miner;
     }
 
-    private void setMap(final IMap map) {
+  @Override
+    public IMap getMap() {
+        return this.map;
+    }
 
+    @Override
+    public MapDimensions getMapSize(final int id) throws SQLException {
+        return DAO.getMapSize(id);
+    }
+
+    @Override
+    public List<FillingMap> getMapFilled(final int id) throws SQLException {
+        return DAO.getMapFilled(id);
+    }
+  
+    private void setMap(final IMap map) {
+        this.map = map;
     }
 
     private void setMiner(final IMobile miner) {
-
+        this.miner = miner;
     }
 
 }

@@ -5,6 +5,7 @@ import model.IBoulderDashModel;
 import view.IBoulderDashView;
 import controller.UserOrder;
 
+
 /**
  * <h1>The Class ControllerFacade provides a facade of the Controller component.
  * </h1>
@@ -25,7 +26,6 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
     private int speed;
 
     /*
-
      * this attribute is the order that the controller receive from the view and
      * will send to the model. This is the aggregation with the enum UserOrder
      */
@@ -77,7 +77,6 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
      * this.getView().displayMessage(this.getModel(). getExampleByName(
      * "Example 2").toString()); // Display exemple 2, by Name, We call the view
      * and we display the // message
-     *
      * final List<Example> examples = this.getModel().getAllExamples(); // we
      * put in a arraylist the result of the exemple 3 final StringBuilder
      * message = new StringBuilder(); // create a string list of 16 caractere
@@ -144,6 +143,7 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 		this.getView().displayMessage("Game over");
 	}
 
+
     @Override
     public IOrderPerformer getOrderPerformer() {
         // TODO Auto-generated method stub
@@ -168,5 +168,4 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
     public void emptyOrderPile() {
         this.OrderPile = UserOrder.NOP;
     }
-
 }

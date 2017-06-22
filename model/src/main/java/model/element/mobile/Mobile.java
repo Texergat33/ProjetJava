@@ -11,91 +11,137 @@ import model.element.Sprite;
 
 public abstract class Mobile extends Element implements IMobile {
 
-    private Point         position;
-    private final boolean alive = true;
-    private IBoard        board;
-    private IMap          map;
-    private int           x;
-    private int           y;
 
+	private Point	position;
+	private boolean	alive	= true;
+	private boolean	falling	= false;
+	private IBoard	board;
+	private IMap	map;
+	private int		x;
+	private int		y;
 
-    public Mobile(final Sprite sprite, final Permeability permeability) {
-        super(sprite, permeability);
-        // TODO Auto-generated constructor stub
-    }
+	public Mobile(Point position, Sprite sprite, IMap map, Permeability permeability) {
+		super(sprite, permeability);
+		this.setMap(map);
+		this.position = new Point();
+	}
 
-    private void setMobileHasChanged() {
+	@Override
+	public void die() {
+		this.alive = false;
+		this.setHasChanged();
+		// statue alive est faux
+		// informe du mouvement
+	}
 
-    }
+	@Override
+	public void setFalling(boolean falling) {
+		this.falling = falling;
+	}
 
-    @Override
-    public void moveUp() {
+	@Override
+	public boolean isFalling() {
+		return this.falling;
+	}
 
-    }
+	@Override
+	public void doNothing() {
+		this.setHasChanged();
+		// informe du mouvement
+	}
+
+	public void doSomething() {
 
     @Override
     public void moveDown() {
 
-    }
 
-    @Override
-    public void moveRight() {
+	@Override
+	public boolean isAlive() {
+		return this.alive;
+	}
 
-    }
+	@Override
+	public boolean isKilled() {
+		return this.alive;
+		// récupère la map, et quand le mineur et le rocher/monstre se trouve à
+		// la même position lors d'une boucle,
+	}
 
-    @Override
-    public void moveLeft() {
+	@Override
+	public void moveDown() {
+		this.setY(this.getY() - 1);
+		this.setHasChanged();
+		// met en place la position de Y
+		// montre que ça a bougé
+	}
 
-    }
+	@Override
+	public void moveLeft() {
+		this.setX(this.getX() - 1);
+		this.setHasChanged();
+		// met en place la position de X
+		// montre que ça a bougé
+	}
 
-    @Override
-    public void doNothing() {
+	@Override
+	public void moveRight() {
+		this.setX(this.getX() + 1);
+		this.setHasChanged();
+		// met en place la position de X
+		// montre que ça a bougé
+	}
 
-    }
+	@Override
+	public void moveUp() {
+		this.setY(this.getY() + 1);
+		this.setHasChanged();
+		// met en place la position de Y
+		// montre que ça a bougé
+	}
 
-    @Override
-    public boolean isALive() {
-        return this.alive;
-    }
+	private void setHasChanged() {
+		this.getMap().setMobileHasChanged();
+	}
 
-    @Override
-    public boolean isKilled() {
-        return this.alive;
-    }
+	private void setMap(IMap map) {
+		this.map = map;
+	}
 
-    @Override
-    public Point getPosition() {
-        return this.position;
-    }
+	public void setPosition(Point position) {
+		this.position = position;
+	}
 
+	protected IBoard getBoard() {
+		return this.board;
+	}
+
+	@Override
+	public IMap getMap() {
+		return this.map;
+	}
+      
     public void setPosition(final Point position) {
         this.position = position;
     }
 
-    protected IBoard getBoard() {
-        return this.board;
 
-    }
+	@Override
+	public int getX() {
+		return this.x;
+	}
 
-    protected void die() {
+	@Override
+	public int getY() {
+		return this.y;
+	}
 
-    }
+	private void setX(int x) {
+		this.x = x;
+	}
 
-    @Override
-    public int getX() {
-        return this.x;
-    }
+	private void setY(int y) {
+		this.y = y;
+	}
 
-    public void setX(final int x) {
-        this.x = x;
-    }
-
-    @Override
-    public int getY() {
-        return this.y;
-    }
-
-    public void setY(final int y) {
-        this.y = y;
-    }
 }

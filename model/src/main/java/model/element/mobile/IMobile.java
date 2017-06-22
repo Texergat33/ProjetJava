@@ -2,30 +2,37 @@ package model.element.mobile;
 
 import java.awt.Point;
 
-import fr.exia.showboard.IPawn;
-import model.element.Sprite;
+import model.IMap;
 
-public interface IMobile extends IPawn {
-    public void moveUp();
+public interface IMobile {
 
-    public void moveDown();
-
-    public void moveRight();
-
-    public void moveLeft();
-
-    public void doNothing();
-
-    public boolean isALive();
+    public boolean isAlive();
 
     public boolean isKilled();
 
     public Point getPosition();
 
-    public Sprite getSprite();
+    int getX();
 
-    public int getX();
+    int getY();
 
-    public int getY();
+    IMap getMap();
 
+	public boolean isFalling();
+
+	public void moveDown();
+
+	public void moveLeft();
+
+	public void moveRight();
+
+	public void moveUp();
+
+    public void setFalling(boolean b);
+
+    void die();
+
+    public void collect();
+
+    public IMobile position(int i, int y);
 }

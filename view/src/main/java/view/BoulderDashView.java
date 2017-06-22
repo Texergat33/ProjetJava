@@ -20,6 +20,7 @@ import model.element.mobile.IMobile;
 import model.element.mobile.Miner;
 
 // TODO: Auto-generated Javadoc
+
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *

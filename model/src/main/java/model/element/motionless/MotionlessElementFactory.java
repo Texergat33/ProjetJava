@@ -2,29 +2,46 @@ package model.element.motionless;
 
 public abstract class MotionlessElementFactory {
 
-	private static Background		background		= new Background(null, null);
-	private static Ground			ground			= new Ground(null, null);
+	private static Background		background		= new Background();
+	private static Ground			ground			= new Ground();
 	private static Wall				wall			= new Wall();
-	private static DiamondCounter	diamondCounter	= new DiamondCounter(null, null);
-	private static DeathStar		deathStar		= new DeathStar(null, null);
+	private static DiamondCounter	diamondCounter	= new DiamondCounter();
+	private static DeathStar		deathStar		= new DeathStar();
+
+	private static MotionlessElement[] motionlessElements = {
+			background,
+			ground,
+			wall,
+			diamondCounter,
+			deathStar
+	};
 
 	public static MotionlessElement createBackground() {
-		return null;
+		return background;
 	}
 
 	public static MotionlessElement createDeathStar() {
-		return null;
+		return deathStar;
 	}
 
 	public static MotionlessElement createDiamondCounter() {
-		return null;
+		return diamondCounter;
 	}
 
 	public static MotionlessElement createGround() {
-		return null;
+		return ground;
 	}
 
 	public static MotionlessElement createWall() {
-		return null;
+		return wall;
+	}
+
+	public static MotionlessElement getElementFromFileSymbol(int elementID) {
+		for (MotionlessElement motionlessElement : motionlessElements) {
+			if (motionlessElement.getSprite().getConsoleImage() == elementID) {
+				return motionlessElement;
+			}
+		}
+		return ground;
 	}
 }
