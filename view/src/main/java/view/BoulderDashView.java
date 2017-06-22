@@ -4,6 +4,9 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JOptionPane;
 
+import controller.IOrderPerformer;
+import controller.UserOrder;
+
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *

@@ -39,5 +39,4 @@ public interface IMobile {
     public void collect();
 
     public IMobile position(int i, int y);
-
 }
