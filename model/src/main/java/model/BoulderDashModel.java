@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -56,12 +57,24 @@ public class BoulderDashModel extends Observable implements IBoulderDashModel {
 
     @Override
     public MapDimensions getMapSize(final int id) {
-        return DAO.getMapSize(id);
+        try {
+            return DAO.getMapSize(id);
+        } catch (final SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
     public List<FillingMap> getMapFilled(final int id) {
-        return DAO.getMapFilled(id);
+        try {
+            return DAO.getMapFilled(id);
+        } catch (final SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
     }
 
     private void setMap(final IMap map) {

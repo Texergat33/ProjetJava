@@ -27,7 +27,7 @@
 			<attribute name="javadoc_location" value="jar:file:/C:/Users/laula/Documents/Exia/Projets/Projet%20BoulderDash/Bibliothèque%20affichage/showboard.doc.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
 	<classpathentry kind="lib" path="C:/Users/Laura/Documents/Exia/1ère année (2016-2017)/prosit/2.3 - Java/cer 6.3 - Interfaces/biblio Emilie/showboard.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Agathe/Documents/CESI A1/6 - Conception et Programmation Objet/6.03 - Mécanisme des interfaces/Fichiers complémentaires/showboard.jar"/>
-	<classpathentry kind="output" path="target/classes"/>
 </classpath>
