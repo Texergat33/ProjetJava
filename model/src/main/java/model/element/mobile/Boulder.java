@@ -6,32 +6,12 @@ import model.IMap;
 import model.element.Permeability;
 import model.element.Sprite;
 
-public class Boulder extends Mobile{
-	private Sprite spriteBoulder;
+public class Boulder extends Mobile {
+	private static final Sprite SPRITE = new Sprite("diamond.png");
 
 	public Boulder(Point position, Sprite sprite, IMap map, Permeability permeability) {
-		super(sprite, permeability);
+		super(position, SPRITE, map, permeability);
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void doNothing(){
-
-	}
-
-	@Override
-	public void moveDown(){
-
-	}
-
-	@Override
-	public void moveLeft(){
-
-	}
-
-	@Override
-	public void moveRight(){
-
 	}
 
 }

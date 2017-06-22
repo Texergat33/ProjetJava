@@ -8,9 +8,15 @@ import model.element.Sprite;
 
 public class Diamond extends Boulder {
 
-	public Diamond(Point position, Sprite sprite, IMap map, Permeability permeability) {
-		super(position, sprite, map, permeability);
-		// TODO Auto-generated constructor stub
-	}
+    private static final Sprite SPRITE = new Sprite(9, "boulder.png");
+
+    public Diamond(final Point position, final Sprite sprite, final IMap map, final Permeability permeability) {
+        super(position, SPRITE, map, permeability);
+    }
+
+    public void collect() {
+        this.getMap().setDiamondCounter(this.getMap().getDiamondCounter() - 1);
+        this.die();
+    }
 
 }
