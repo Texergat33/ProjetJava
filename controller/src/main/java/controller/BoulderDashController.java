@@ -114,7 +114,7 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 			Thread.sleep(this.speed);
 			switch (this.getOrderPile()) {
 			case UP:
-				this.getModel().getMiner().;
+				this.getModel().getMiner().moveUp();
 				break;
 
 			case DOWN:
