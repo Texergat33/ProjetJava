@@ -32,6 +32,10 @@ public abstract class Mobile extends Element implements IMobile {
         // informe du mouvement
     }
 
+    public void ruin() {
+        this.getMap().getOnTheMapXY(this.x, this.y).createBackground();
+    }
+
     @Override
     public void setFalling(final boolean falling) {
         this.falling = falling;

@@ -23,13 +23,14 @@ public abstract class DAO extends AbstractDAO {
     private static String sqlFillMap = "{call FillMap(?)}";
 
     /** The id column index. */
-    private static int idColumnIndex     = 1;
-    private static int HeightColumnIndex = 2;
-    private static int WidthColumnIndex  = 3;
-    private static int XColumnIndex      = 1;
-    private static int YColumnIndex      = 2;
-    private static int TypeColumnIndex   = 4;
-    private static int IDMAPColumnIndex  = 3;
+    private static int idColumnIndex             = 1;
+    private static int HeightColumnIndex         = 2;
+    private static int WidthColumnIndex          = 3;
+    private static int DiamondCounterColumnIndex = 4;
+    private static int XColumnIndex              = 1;
+    private static int YColumnIndex              = 2;
+    private static int TypeColumnIndex           = 4;
+    private static int IDMAPColumnIndex          = 3;
 
     /*
      * Once we have the length and the width of our map, we can use the method
@@ -64,7 +65,7 @@ public abstract class DAO extends AbstractDAO {
             final ResultSet result = callStatement.getResultSet();
             if (result.first()) {
                 dimension = new MapDimensions(result.getInt(idColumnIndex), result.getInt(HeightColumnIndex),
-                        result.getInt(WidthColumnIndex));
+                        result.getInt(WidthColumnIndex), result.getInt(DiamondCounterColumnIndex));
             }
             result.close();
         }

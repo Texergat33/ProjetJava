@@ -60,6 +60,7 @@ public class Map extends Observable implements IMap {
         final MapDimensions mapDimensions = this.getModel().getMapSize(this.level);
         final int ConsoleMapTable[][] = new int[mapDimensions.getWidth()][mapDimensions.getLength()];
         final List<FillingMap> objects = this.getModel().getMapFilled(mapDimensions.getId());
+        this.setDiamondCounter(mapDimensions.getCounterDiamond());
         for (final FillingMap fillingmap : objects) {
             ConsoleMapTable[fillingmap.x][fillingmap.y] = fillingmap.type;
         }
@@ -124,4 +125,5 @@ public class Map extends Observable implements IMap {
     public void setDiamondCounter(final int diamondCounter) {
         this.DiamondCounter = diamondCounter;
     }
+
 }
