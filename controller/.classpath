@@ -25,7 +25,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/laula/Documents/Exia/Projets/Projet BoulderDash/showboard (1).jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/laula/Documents/Exia/Projets/Projet%20BoulderDash/showboard%20(1).jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/laula/Documents/Exia/Projets/Projet%20BoulderDash/Bibliothèque%20affichage/showboard.doc.jar!/"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>

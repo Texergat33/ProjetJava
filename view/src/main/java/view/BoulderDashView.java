@@ -66,8 +66,9 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener,
      *            the miner
      * @param objects
      *            the objects
+     * @throws IOException
      */
-    public BoulderDashView(final IMap map, final Miner miner, final ArrayList<IElement> objects) {
+    public BoulderDashView(final IMap map, final Miner miner, final ArrayList<IElement> objects) throws IOException {
         final ArrayList<IElement> mobiles = new ArrayList<IElement>();
         this.setMiner(miner);
         this.setMap(map);
