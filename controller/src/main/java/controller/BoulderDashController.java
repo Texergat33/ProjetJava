@@ -1,5 +1,6 @@
 package controller;
 
+
 import model.IBoulderDashModel;
 import view.IBoulderDashView;
 import controller.UserOrder;
@@ -14,6 +15,7 @@ import controller.UserOrder;
 public class BoulderDashController implements IBoulderDashController, IOrderPerformer {
 
     /** The view. */
+
     private IBoulderDashView view;
 
     /** The model. */
@@ -23,6 +25,7 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
     private int speed;
 
     /*
+
      * this attribute is the order that the controller receive from the view and
      * will send to the model. This is the aggregation with the enum UserOrder
      */
@@ -36,11 +39,11 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
      * @param model
      *            the model
      */
-
     /*
      * the main only call the controller who instanciate the view and the model
      */
     public BoulderDashController(final IBoulderDashView view, final IBoulderDashModel model) {
+
         this.setView(view);
         this.setModel(model);
         this.emptyOrderPile();
@@ -71,7 +74,6 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
      * this.getView().displayMessage(this.getModel().getExampleById(1).toString(
      * )); // Display exemple 1, by ID, We call the view and we display the
      * message // We send a id
-     *
      * this.getView().displayMessage(this.getModel(). getExampleByName(
      * "Example 2").toString()); // Display exemple 2, by Name, We call the view
      * and we display the // message
@@ -107,6 +109,7 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
      * who is called in the main
      */
     @Override
+
 	public void play() throws InterruptedException {
 		// TODO Auto-generated method stub
 		while (this.getModel().getMiner().isALive()) {
@@ -144,6 +147,7 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
     @Override
     public IOrderPerformer getOrderPerformer() {
         // TODO Auto-generated method stub
+
         return this;
     }
 

@@ -18,6 +18,7 @@ public abstract class Mobile extends Element implements IMobile {
     private int           x;
     private int           y;
 
+
     public Mobile(final Sprite sprite, final Permeability permeability) {
         super(sprite, permeability);
         // TODO Auto-generated constructor stub
@@ -55,13 +56,11 @@ public abstract class Mobile extends Element implements IMobile {
     @Override
     public boolean isALive() {
         return this.alive;
-
     }
 
     @Override
     public boolean isKilled() {
         return this.alive;
-
     }
 
     @Override
@@ -99,5 +98,4 @@ public abstract class Mobile extends Element implements IMobile {
     public void setY(final int y) {
         this.y = y;
     }
-
 }
