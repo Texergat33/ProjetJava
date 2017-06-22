@@ -15,11 +15,23 @@ public class Miner extends Mobile {
 	}
 
 	@Override
-	protected void die() {
+	public void die() {
 		super.die();
 		while (true) {
 			this.setSprite(SpriteFactory.createMiner("deadMiner1"));
+			try {
+				Thread.sleep(350);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			this.setSprite(SpriteFactory.createMiner("deadMiner2"));
+			try {
+				Thread.sleep(350);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
