@@ -333,6 +333,6 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener,
         this.mobile = mobile;
         for (final IElement elements : this.objects) {
             this.getMobile().getSprite().loadImage();
-        }
+        } // Je test
     }
 }
