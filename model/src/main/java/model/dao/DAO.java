@@ -16,7 +16,6 @@ import model.MapDimensions;
  * @version 1.0
  */
 public abstract class DAO extends AbstractDAO {
-
     /** The sql query which give us the map's size */
     private static String sqlMapSize = "{call MapSize(?)}";
 
@@ -71,5 +70,4 @@ public abstract class DAO extends AbstractDAO {
         }
         return objects;
     }
-
 }
