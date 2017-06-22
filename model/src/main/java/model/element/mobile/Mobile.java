@@ -11,7 +11,6 @@ import model.element.Sprite;
 
 public abstract class Mobile extends Element implements IMobile {
 
-
 	private Point	position;
 	private boolean	alive	= true;
 	private boolean	falling	= false;
@@ -52,9 +51,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	public void doSomething() {
 
-    @Override
-    public void moveDown() {
-
+	}
 
 	@Override
 	public boolean isAlive() {
@@ -64,7 +61,8 @@ public abstract class Mobile extends Element implements IMobile {
 	@Override
 	public boolean isKilled() {
 		return this.alive;
-		// récupère la map, et quand le mineur et le rocher/monstre se trouve à
+		// récupère la map, et quand le mineur et le rocher/monstre se trouve
+		// à
 		// la même position lors d'une boucle,
 	}
 
@@ -120,11 +118,6 @@ public abstract class Mobile extends Element implements IMobile {
 	public IMap getMap() {
 		return this.map;
 	}
-      
-    public void setPosition(final Point position) {
-        this.position = position;
-    }
-
 
 	@Override
 	public int getX() {
