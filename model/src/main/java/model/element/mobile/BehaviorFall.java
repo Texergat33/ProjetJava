@@ -24,7 +24,8 @@ public class BehaviorFall extends BehaviorDoSomething {
 			} else if (this.glide(this.mobile.getX(), this.mobile.getY(), "left")) {
 				this.mobile.moveLeft();
 			} else {
-				this.mobile.;
+				this.mobile.doNothing();
+				;
 			}
 		} else {
 			this.mobile.doNothing();
