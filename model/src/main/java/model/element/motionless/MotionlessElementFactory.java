@@ -38,7 +38,7 @@ public abstract class MotionlessElementFactory {
 
 	public static MotionlessElement getElementFromFileSymbol(int elementID) {
 		for (MotionlessElement motionlessElement : motionlessElements) {
-			if (motionlessElement.getSprite().getConsoleImage() == elementID) {
+			if (motionlessElement.getSprite().getDatabaseIDImage() == elementID) {
 				return motionlessElement;
 			}
 		}
