@@ -4,6 +4,7 @@ import java.awt.Point;
 
 import fr.exia.showboard.IBoard;
 import model.IMap;
+import model.IMobile;
 import model.element.Element;
 import model.element.Permeability;
 import model.element.Sprite;
