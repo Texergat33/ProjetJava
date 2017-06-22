@@ -2,43 +2,43 @@ package model.element.mobile;
 
 import java.awt.Point;
 
-import fr.exia.showboard.IPawn;
 import model.IMap;
+import showboard.IPawn;
 
 public interface IMobile extends IPawn {
 
-	public boolean isAlive();
+    public boolean isAlive();
 
-	public boolean isKilled();
+    public boolean isKilled();
 
-	@Override
-	public Point getPosition();
+    @Override
+    public Point getPosition();
 
-	@Override
-	public int getX();
+    @Override
+    public int getX();
 
-	@Override
-	public int getY();
+    @Override
+    public int getY();
 
-	public IMap getMap();
+    public IMap getMap();
 
-	public boolean isFalling();
+    public boolean isFalling();
 
-	public void moveDown();
+    public void moveDown();
 
-	public void moveLeft();
+    public void moveLeft();
 
-	public void moveRight();
+    public void moveRight();
 
-	public void moveUp();
+    public void moveUp();
 
-	public void setFalling(boolean b);
+    public void setFalling(boolean b);
 
-	public void die();
+    public void die();
 
-	public void collect();
+    public void collect();
 
-	public IMobile position(int i, int y);
+    public IMobile position(int i, int y);
 
-	void doNothing();
+    void doNothing();
 }

@@ -14,11 +14,11 @@ import javax.swing.SwingUtilities;
 
 import controller.IOrderPerformer;
 import controller.UserOrder;
-import fr.exia.showboard.BoardFrame;
 import model.IMap;
 import model.element.IElement;
 import model.element.mobile.IMobile;
 import model.element.mobile.Miner;
+import showboard.BoardFrame;
 
 // TODO: Auto-generated Javadoc
 
