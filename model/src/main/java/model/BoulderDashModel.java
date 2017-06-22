@@ -1,29 +1,57 @@
 package model;
 
-public class BoulderDashModel implements IBoulderDashModel{
-	private IMobile miner;
-	private IMap map;
-	public BoulderDashModel(int level, int minerStartX, int minerStartY){
+import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 
-	}
+import model.element.mobile.IMobile;
 
-	@Override
-	public void getMap() {
-		// TODO Auto-generated method stub
+public class BoulderDashModel extends Observable implements IBoulderDashModel {
+    private IMobile                   miner;
+    private IMap                      map;
+    private final ArrayList<Observer> observers;
 
-	}
+    public BoulderDashModel(final int level, final int minerStartX, final int minerStartY) {
+        this.observers = new ArrayList<Observer>();
+    }
 
-	@Override
-	public IMobile getMiner() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public void addObserver(final Observer observer) {
+        this.observers.add(observer);
 
-	private void setMap(IMap map){
+    }
 
-	}
+    @Override
+    public void deleteObserver(final Observer observer) {
+        this.observers.remove(observer);
+    }
 
-	private void setMiner(IMobile miner){
+    @Override
+    public void notifyObservers() {
+        for (final Observer observer : this.observers) {
+            observer.perform();
+        }
 
-	}
+    }
+
+    @Override
+    public void getMap() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public IMobile getMiner() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    private void setMap(final IMap map) {
+
+    }
+
+    private void setMiner(final IMobile miner) {
+
+    }
+
 }
