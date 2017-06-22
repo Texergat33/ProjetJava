@@ -15,6 +15,9 @@ public abstract class Mobile extends Element implements IMobile {
     private final boolean alive = true;
     private IBoard        board;
     private IMap          map;
+    private int           x;
+    private int           y;
+
 
     public Mobile(final Sprite sprite, final Permeability permeability) {
         super(sprite, permeability);
@@ -52,12 +55,12 @@ public abstract class Mobile extends Element implements IMobile {
 
     @Override
     public boolean isALive() {
-
+        return this.alive;
     }
 
     @Override
     public boolean isKilled() {
-
+        return this.alive;
     }
 
     @Override
@@ -70,6 +73,7 @@ public abstract class Mobile extends Element implements IMobile {
     }
 
     protected IBoard getBoard() {
+        return this.board;
 
     }
 
@@ -77,4 +81,21 @@ public abstract class Mobile extends Element implements IMobile {
 
     }
 
+    @Override
+    public int getX() {
+        return this.x;
+    }
+
+    public void setX(final int x) {
+        this.x = x;
+    }
+
+    @Override
+    public int getY() {
+        return this.y;
+    }
+
+    public void setY(final int y) {
+        this.y = y;
+    }
 }
