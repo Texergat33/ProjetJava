@@ -115,10 +115,12 @@ public class Map extends Observable implements IMap {
         this.width = width;
     }
 
+    @Override
     public int getDiamondCounter() {
         return this.DiamondCounter;
     }
 
+    @Override
     public void setDiamondCounter(final int diamondCounter) {
         this.DiamondCounter = diamondCounter;
     }
