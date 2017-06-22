@@ -2,9 +2,10 @@ package model.element.mobile;
 
 import java.awt.Point;
 
+import fr.exia.showboard.IPawn;
 import model.IMap;
 
-public interface IMobile {
+public interface IMobile extends IPawn {
 
     public boolean isAlive();
 
@@ -18,15 +19,15 @@ public interface IMobile {
 
     IMap getMap();
 
-	public boolean isFalling();
+    public boolean isFalling();
 
-	public void moveDown();
+    public void moveDown();
 
-	public void moveLeft();
+    public void moveLeft();
 
-	public void moveRight();
+    public void moveRight();
 
-	public void moveUp();
+    public void moveUp();
 
     public void setFalling(boolean b);
 
