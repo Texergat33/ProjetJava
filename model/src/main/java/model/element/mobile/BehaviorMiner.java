@@ -8,16 +8,16 @@ public class BehaviorMiner extends BehaviorDoSomething {
 		final int x = this.mobile.getX();
 		final int y = this.mobile.getY();
 
-        switch (getOrderPile) {
-        case UP:
-            if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PENETRABLEFOREVERYONE) {
-                this.mobile.moveUp();
-            } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y)
-                    .getPermeability() == Permeability.BLOCKINGFOREVERYONE) {
-                this.mobile.doNothing();
-            } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.COLLECTABLE) {
-                this.mobile.position(x + 1, y).collect();
-                this.mobile.moveUp();
+		switch (getOrderPile) {
+		case Up:
+			if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PENETRABLEFOREVERYONE) {
+				this.mobile.moveUp();
+			} else if (this.mobile.getMap().getOnTheMapXY(x + 1, y)
+					.getPermeability() == Permeability.BLOCKINGFOREVERYONE) {
+				this.mobile.doNothing();
+			} else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.COLLECTABLE) {
+				this.mobile.position(x + 1, y).collect();
+				this.mobile.moveUp();
 			} else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.KILLABLE) {
 				this.mobile.die();
 
