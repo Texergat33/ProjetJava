@@ -5,7 +5,7 @@ import java.awt.Image;
 public abstract class Element implements IElement {
 
 	private Permeability	permeability;
-	// private Sprite sprite;
+	private Sprite			sprite;
 
 	public Element(Sprite sprite, Permeability permeability) {
 		this.setSprite(sprite);
