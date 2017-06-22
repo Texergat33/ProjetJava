@@ -2,10 +2,13 @@ package model.element;
 
 import java.awt.Image;
 
-public interface IElement {
-	public Sprite getSprite();
+import fr.exia.showboard.ISquare;
 
-	public Permeability getPermeability();
+public interface IElement extends ISquare {
+    public Sprite getSprite();
 
-	public Image getImage();
+    public Permeability getPermeability();
+
+    @Override
+    public Image getImage();
 }

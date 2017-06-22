@@ -18,11 +18,7 @@ public interface IMobile {
 
     IMap getMap();
 
-    boolean isFalling();
-
 	public boolean isFalling();
-
-	public boolean isKilled();
 
 	public void moveDown();
 

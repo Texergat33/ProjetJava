@@ -21,4 +21,5 @@ public interface IMap {
     public int getDiamondCounter();
 
     public void setDiamondCounter(final int diamondCounter);
+
 }

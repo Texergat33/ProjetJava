@@ -3,11 +3,12 @@ package controller;
 
 import model.IBoulderDashModel;
 import view.IBoulderDashView;
+import controller.UserOrder;
+
 
 /**
  * <h1>The Class ControllerFacade provides a facade of the Controller component.
  * </h1>
-
  *
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
@@ -38,7 +39,6 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
      * @param model
      *            the model
      */
-
     /*
      * the main only call the controller who instanciate the view and the model
      */
@@ -59,7 +59,6 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
         this.view = view;
     }
 
-
     /**
      * Start.
      *
@@ -75,13 +74,9 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
      * this.getView().displayMessage(this.getModel().getExampleById(1).toString(
      * )); // Display exemple 1, by ID, We call the view and we display the
      * message // We send a id
-     *
-
      * this.getView().displayMessage(this.getModel(). getExampleByName(
      * "Example 2").toString()); // Display exemple 2, by Name, We call the view
      * and we display the // message
-
-     *
      * final List<Example> examples = this.getModel().getAllExamples(); // we
      * put in a arraylist the result of the exemple 3 final StringBuilder
      * message = new StringBuilder(); // create a string list of 16 caractere
@@ -113,41 +108,41 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
      * who is called in the main
      */
     @Override
-    public void play() {
-        // TODO Auto-generated method stub
 
-        while (this.getModel().getMiner().isAlive()) {
-            Thread.sleep(this.speed);
-            switch (this.getOrderPile()) {
-            case UP:
-                this.getModel().getMiner().moveUp();
-                break;
+	public void play() throws InterruptedException {
+		// TODO Auto-generated method stub
+		while (this.getModel().getMiner().isALive()) {
+			Thread.sleep(this.speed);
+			switch (this.getOrderPile()) {
+			case UP:
+				this.getModel().getMiner().;
+				break;
 
-            case DOWN:
-                this.getModel().getMiner().moveDown();
-                break;
+			case DOWN:
+				this.getModel().getMiner().moveDown();
+				break;
 
-            case RIGHT:
-                this.getModel().getMiner().moveRight();
-                break;
+			case RIGHT:
+				this.getModel().getMiner().moveRight();
+				break;
 
-            case LEFT:
-                this.getModel().getMiner().moveLeft();
-                break;
+			case LEFT:
+				this.getModel().getMiner().moveLeft();
+				break;
 
-            case NOP:
-            default:
-                this.getModel().getMiner().doNothing();
-                ;
-                break;
-            }
+			case NOP:
+			default:
+				this.getModel().getMiner().doNothing();
+				;
+				break;
+			}
+			this.emptyOrderPile();
+			this.getView().notify();
+		}
 
-            this.emptyOrderPile();
-            this.getView().notify();
-        }
+		this.getView().displayMessage("Game over");
+	}
 
-        this.getView().displayMessage("Game over");
-    }
 
     @Override
     public IOrderPerformer getOrderPerformer() {
@@ -173,6 +168,4 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
     public void emptyOrderPile() {
         this.OrderPile = UserOrder.NOP;
     }
-
-
 }
