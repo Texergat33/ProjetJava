@@ -1,11 +1,13 @@
 package controller;
 
+
 import model.IBoulderDashModel;
 import view.IBoulderDashView;
 
 /**
  * <h1>The Class ControllerFacade provides a facade of the Controller component.
  * </h1>
+
  *
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
@@ -13,6 +15,7 @@ import view.IBoulderDashView;
 public class BoulderDashController implements IBoulderDashController, IOrderPerformer {
 
     /** The view. */
+
     private IBoulderDashView view;
 
     /** The model. */
@@ -40,6 +43,7 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
      * the main only call the controller who instanciate the view and the model
      */
     public BoulderDashController(final IBoulderDashView view, final IBoulderDashModel model) {
+
         this.setView(view);
         this.setModel(model);
         this.emptyOrderPile();
@@ -54,6 +58,7 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
         // TODO Auto-generated method stub
         this.view = view;
     }
+
 
     /**
      * Start.
@@ -71,9 +76,11 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
      * )); // Display exemple 1, by ID, We call the view and we display the
      * message // We send a id
      *
+
      * this.getView().displayMessage(this.getModel(). getExampleByName(
      * "Example 2").toString()); // Display exemple 2, by Name, We call the view
      * and we display the // message
+
      *
      * final List<Example> examples = this.getModel().getAllExamples(); // we
      * put in a arraylist the result of the exemple 3 final StringBuilder
@@ -108,6 +115,7 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
     @Override
     public void play() {
         // TODO Auto-generated method stub
+
         while (this.getModel().getMiner().isAlive()) {
             Thread.sleep(this.speed);
             switch (this.getOrderPile()) {
@@ -144,6 +152,7 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
     @Override
     public IOrderPerformer getOrderPerformer() {
         // TODO Auto-generated method stub
+
         return this;
     }
 
@@ -164,5 +173,6 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
     public void emptyOrderPile() {
         this.OrderPile = UserOrder.NOP;
     }
+
 
 }
