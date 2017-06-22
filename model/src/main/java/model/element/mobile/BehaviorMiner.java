@@ -22,9 +22,6 @@ public class BehaviorMiner extends BehaviorDoSomething {
             } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.KILLABLE) {
                 this.mobile.die();
 
-            } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PUSHABLE) {
-                this.mobile.position(x + 1, y).moveLeft();
-                this.mobile.moveUp();
             } else {
                 this.mobile.doNothing();
             }
@@ -42,9 +39,6 @@ public class BehaviorMiner extends BehaviorDoSomething {
             } else if (this.mobile.getMap().getOnTheMapXY(x - 1, y).getPermeability() == Permeability.KILLABLE) {
                 this.mobile.die();
 
-            } else if (this.mobile.getMap().getOnTheMapXY(x - 1, y).getPermeability() == Permeability.PUSHABLE) {
-                this.mobile.position(x - 1, y).moveDown();
-                this.mobile.moveDown();
             } else {
                 this.mobile.doNothing();
             }
