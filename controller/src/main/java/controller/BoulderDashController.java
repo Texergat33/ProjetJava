@@ -1,6 +1,5 @@
 package controller;
 
-
 import model.IBoulderDashModel;
 import view.IBoulderDashView;
 import controller.UserOrder;
@@ -168,4 +167,5 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
     public void emptyOrderPile() {
         this.OrderPile = UserOrder.NOP;
     }
+
 }
