@@ -9,10 +9,10 @@ import model.element.SpriteFactory;
 
 public class Miner extends Mobile {
 
-	public Miner(Point position, Sprite sprite, IMap map, Permeability permeability) {
-		super(position, sprite, map, permeability);
-		// TODO Auto-generated constructor stub
-	}
+    public Miner(final Point position, final Sprite sprite, final IMap map, final Permeability permeability) {
+        super(position, sprite, map, permeability);
+        // TODO Auto-generated constructor stub
+    }
 
 	@Override
 	public void die() {
@@ -78,4 +78,5 @@ public class Miner extends Mobile {
 			this.setSprite(SpriteFactory.createMiner("minerUp1"));
 		}
 	}
+
 }
