@@ -2,6 +2,8 @@ package model;
 
 import java.util.List;
 
+import model.element.mobile.IMobile;
+
 public interface IBoulderDashModel {
 	public IMap getMap();
 
