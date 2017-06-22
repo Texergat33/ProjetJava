@@ -1,10 +1,10 @@
 package model;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-import model.element.mobile.IMobile;
 import model.dao.DAO;
 import model.element.mobile.IMobile;
 import model.element.mobile.Miner;
@@ -17,7 +17,8 @@ public class BoulderDashModel extends Observable implements IBoulderDashModel {
     public BoulderDashModel(final int level, final int minerStartX, final int minerStartY) {
         this.observers = new ArrayList<Observer>();
         this.setMap(new Map(level));
-        // met en place la route en créant la Map avec en paramètre le numéro de
+        // met en place la route en créant la Map avec en paramètre le numéro
+        // de
         // Map
         this.setMiner(new Miner(minerStartY, minerStartY, this.getMap()));
         // met en place le mineur en le créant avec sa position X et Y de
@@ -42,13 +43,13 @@ public class BoulderDashModel extends Observable implements IBoulderDashModel {
         }
 
     }
-  
+
     @Override
     public IMobile getMiner() {
         return this.miner;
     }
 
-  @Override
+    @Override
     public IMap getMap() {
         return this.map;
     }
@@ -62,7 +63,7 @@ public class BoulderDashModel extends Observable implements IBoulderDashModel {
     public List<FillingMap> getMapFilled(final int id) throws SQLException {
         return DAO.getMapFilled(id);
     }
-  
+
     private void setMap(final IMap map) {
         this.map = map;
     }

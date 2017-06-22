@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
@@ -238,8 +239,9 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener,
      *
      * @param map
      *            the new map
+     * @throws IOException
      */
-    public void setMap(final IMap map) {
+    public void setMap(final IMap map) throws IOException {
         this.map = map;
         for (int x = 0; x < this.getMap().getWidth(); x++) {
             for (int y = 0; y < this.getMap().getWidth(); y++) {
