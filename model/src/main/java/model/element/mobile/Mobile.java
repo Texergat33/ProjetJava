@@ -10,14 +10,13 @@ import model.element.Sprite;
 
 public abstract class Mobile extends Element implements IMobile {
 
-	private Point				position;
-	private boolean				alive	= true;
-	private boolean				falling	= false;
-	private IBoard				board;
-	private IMap				map;
-	private int					x;
-	private int					y;
-	private BehaviorDoSomething	behaviorDoSomething;
+	private Point	position;
+	private boolean	alive	= true;
+	private boolean	falling	= false;
+	private IBoard	board;
+	private IMap	map;
+	private int		x;
+	private int		y;
 
 	public Mobile(Point position, Sprite sprite, IMap map, Permeability permeability) {
 		super(sprite, permeability);
@@ -25,7 +24,8 @@ public abstract class Mobile extends Element implements IMobile {
 		this.position = new Point();
 	}
 
-	protected void die() {
+	@Override
+	public void die() {
 		this.alive = false;
 		this.setHasChanged();
 		// statue alive est faux

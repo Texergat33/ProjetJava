@@ -17,10 +17,51 @@ public class BehaviorFall extends BehaviorDoSomething {
 				&& (this.mobile.isFalling() == true)) {
 			this.mobile.getMap().getMobileXY(x, y + 1).die();
 			this.mobile.moveDown();
-		}else if((this.mobile.getMap().getOnTheMapXY(x, y+1).getPermeability() == Permeability.PUSHABLE) || (this.mobile.getMap().getOnTheMapXY(x, y+1).getPermeability()x == Permeability.COLLECTABLE)){
-
+		} else if ((this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PUSHABLE)
+				|| (this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.COLLECTABLE)) {
+			if (this.glide(this.mobile.getX(), this.mobile.getY(), "right")) {
+				this.mobile.moveRight();
+			} else if (this.glide(this.mobile.getX(), this.mobile.getY(), "left")) {
+				this.mobile.moveLeft();
+			} else {
+				this.mobile.doNothing();
+			}
+		} else {
+			this.mobile.doNothing();
 		}
 
 	}
-	// this.getMobile() pour voir si ya un truc en dessous si rien move down
+
+	public boolean glide(int x, int y, final String direction) {
+		int sideX = 0;
+		switch (direction) {
+		case "right":
+			sideX = this.mobile.getX() + 1;
+			break;
+		case "left":
+			sideX = this.mobile.getX() - 1;
+			break;
+		case "both":
+			if (this.random(0, 1) == 0) {
+				sideX = this.mobile.getX() - 1;
+			} else {
+				sideX = this.mobile.getX() + 1;
+			}
+			break;
+		}
+
+		if ((this.mobile.getMap().getOnTheMapXY(sideX, this.mobile.getY())
+				.getPermeability() == Permeability.PENETRABLEFORBOULDER)
+				&& (this.mobile.getMap().getOnTheMapXY(sideX, this.mobile.getY() + 1)
+						.getPermeability() == Permeability.PENETRABLEFORBOULDER)) {
+			return true;
+		}
+		return false;
+	}
+
+	public int random(double mini, double maxi) {
+		mini = Math.ceil(mini);
+		maxi = Math.floor(maxi);
+		return (int) ((int) (Math.floor(((Math.random() * maxi) - mini) + 1)) + mini);
+	}
 }
