@@ -299,10 +299,15 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener,
 	 *            the new mobile
 	 * @throws IOException
 	 */
-	public void setMobile(final IMobile mobile) throws IOException {
+	public void setMobile(final IMobile mobile) {
 		this.mobile = mobile;
 		for (final IElement elements : this.objects) {
-			this.getMobile().getSprite().loadImage();
+			try {
+				this.getMobile().getSprite().loadImage();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
