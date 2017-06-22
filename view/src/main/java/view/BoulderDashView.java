@@ -112,7 +112,9 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener,
             }
         }
         boardFrame.addPawn(this.getMiner());
+        boardFrame.addPawn(this.getMobile());
         boardFrame.setVisible(true);
+        this.getMap().getObservable().addObserver(boardFrame.getObserver());
     }
 
     /*
