@@ -4,11 +4,13 @@ import java.awt.Point;
 
 import fr.exia.showboard.IBoard;
 import model.IMap;
+import model.IMobile;
 import model.element.Element;
 import model.element.Permeability;
 import model.element.Sprite;
 
 public abstract class Mobile extends Element implements IMobile {
+
 
 	private Point	position;
 	private boolean	alive	= true;
@@ -50,7 +52,9 @@ public abstract class Mobile extends Element implements IMobile {
 
 	public void doSomething() {
 
-	}
+    @Override
+    public void moveDown() {
+
 
 	@Override
 	public boolean isAlive() {
@@ -60,8 +64,8 @@ public abstract class Mobile extends Element implements IMobile {
 	@Override
 	public boolean isKilled() {
 		return this.alive;
-		// récupère la map, et quand le mineur et le rocher/monstre se trouve à
-		// la même position lors d'une boucle,
+		// rÃ©cupÃ¨re la map, et quand le mineur et le rocher/monstre se trouve Ã 
+		// la mÃªme position lors d'une boucle,
 	}
 
 	@Override
@@ -69,7 +73,7 @@ public abstract class Mobile extends Element implements IMobile {
 		this.setY(this.getY() - 1);
 		this.setHasChanged();
 		// met en place la position de Y
-		// montre que ça a bougé
+		// montre que Ã§a a bougÃ©
 	}
 
 	@Override
@@ -77,7 +81,7 @@ public abstract class Mobile extends Element implements IMobile {
 		this.setX(this.getX() - 1);
 		this.setHasChanged();
 		// met en place la position de X
-		// montre que ça a bougé
+		// montre que Ã§a a bougÃ©
 	}
 
 	@Override
@@ -85,7 +89,7 @@ public abstract class Mobile extends Element implements IMobile {
 		this.setX(this.getX() + 1);
 		this.setHasChanged();
 		// met en place la position de X
-		// montre que ça a bougé
+		// montre que Ã§a a bougÃ©
 	}
 
 	@Override
@@ -93,7 +97,7 @@ public abstract class Mobile extends Element implements IMobile {
 		this.setY(this.getY() + 1);
 		this.setHasChanged();
 		// met en place la position de Y
-		// montre que ça a bougé
+		// montre que Ã§a a bougÃ©
 	}
 
 	private void setHasChanged() {
@@ -116,11 +120,11 @@ public abstract class Mobile extends Element implements IMobile {
 	public IMap getMap() {
 		return this.map;
 	}
+      
+    public void setPosition(final Point position) {
+        this.position = position;
+    }
 
-	@Override
-	public Point getPosition() {
-		return this.position;
-	}
 
 	@Override
 	public int getX() {

@@ -22,7 +22,5 @@
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Laura/Documents/Exia/1ère année (2016-2017)/prosit/2.3 - Java/cer 6.3 - Interfaces/biblio Emilie/showboard.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

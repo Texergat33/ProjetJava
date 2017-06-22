@@ -3,14 +3,15 @@ package model.element;
 import java.awt.Image;
 
 public abstract class Element implements IElement {
+
 	private Permeability	permeability;
 	// private Sprite sprite;
 
 	public Element(Sprite sprite, Permeability permeability) {
 		this.setSprite(sprite);
 		this.setPermeability(permeability);
-		// met en place le sprite de l'élément
-		// met en place la permeabilité
+		// met en place le sprite de l'Ã©lÃ©ment
+		// met en place la permeabilitÃ©
 	}
 
 	@Override
