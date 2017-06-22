@@ -4,10 +4,12 @@ import model.element.Permeability;
 import model.element.Sprite;
 
 public class DiamondCounter extends MotionlessElement {
+	private static final Sprite SPRITE = new Sprite(/*MettreCaractère*/, /*MettrenomImage*/);
 
-	public DiamondCounter(Sprite sprite, Permeability permeability) {
-		super(sprite, permeability);
+	public DiamondCounter() {
+		super(SPRITE, Permeability./*NOMPERMEABILITE*/); //mettre permeabilité
 		// TODO Auto-generated constructor stub
 	}
 
+}
 }

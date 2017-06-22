@@ -4,10 +4,9 @@ import model.element.Permeability;
 import model.element.Sprite;
 
 public class Background extends MotionlessElement {
+	private static final Sprite SPRITE = new Sprite(2, "background.png");
 
-	public Background(Sprite sprite, Permeability permeability) {
-		super(sprite, permeability);
-		// TODO Auto-generated constructor stub
+	public Background() {
+		super(SPRITE, Permeability.PENETRABLEFOREVERYONE);
 	}
-
 }

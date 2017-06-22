@@ -2,21 +2,41 @@ package model.element.mobile;
 
 import java.awt.Point;
 
+import model.IMap;
+
 public interface IMobile {
-	public void moveUp();
 
-	public void moveDown();
+    public boolean isAlive();
 
-	public void moveRight();
+    public boolean isKilled();
 
-	public void moveLeft();
+    public Point getPosition();
 
-	public void doNothing();
+    int getX();
 
-	public boolean isALive();
+    int getY();
+
+    IMap getMap();
+
+    boolean isFalling();
+
+	public boolean isFalling();
 
 	public boolean isKilled();
 
-	public Point getPosition();
+	public void moveDown();
 
+	public void moveLeft();
+
+	public void moveRight();
+
+	public void moveUp();
+
+    public void setFalling(boolean b);
+
+    void die();
+
+    public void collect();
+
+    public IMobile position(int i, int y);
 }
