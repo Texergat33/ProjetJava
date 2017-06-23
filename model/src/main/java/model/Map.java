@@ -91,28 +91,27 @@ public class Map extends Observable implements IMap {
                 case 4:
                     this.setOnTheMapXY(MotionlessElementFactory.getElementFromFileSymbol(currentCell), x, y);
                 case 5:
-                    this.setOnTheMapXY(
-                            new Boulder(x, y, SpriteFactory.createBoulder(), this.getMap(), Permeability.PUSHABLE), x,
+                    this.setOnTheMapXY(new Boulder(x, y, SpriteFactory.createBoulder(), this, Permeability.PUSHABLE), x,
                             y);
                 case 6:
                     this.setOnTheMapXY(new SlowAndFollowTheWallsMonster(x, y,
-                            SpriteFactory.createMonster("monsterFAFTW"), this.getMap(), Permeability.KILLABLE), x, y);
+                            SpriteFactory.createMonster("monsterFAFTW"), this, Permeability.KILLABLE), x, y);
                 case 7:
-                    this.setOnTheMapXY(new SlowAndRandomMonster(x, y, SpriteFactory.createMonster("monsterSAFTW"),
-                            this.getMap(), Permeability.KILLABLE), x, y);
-                case 8:
-                    this.setOnTheMapXY(new Miner(x, y, SpriteFactory.createMiner("defaultMiner1"), this.getMap(),
+                    this.setOnTheMapXY(new SlowAndRandomMonster(x, y, SpriteFactory.createMonster("monsterSAFTW"), this,
                             Permeability.KILLABLE), x, y);
-                case 9:
+                case 8:
                     this.setOnTheMapXY(
-                            new Diamond(x, y, SpriteFactory.createDiamond(), this.getMap(), Permeability.COLLECTABLE),
+                            new Miner(x, y, SpriteFactory.createMiner("defaultMiner1"), this, Permeability.KILLABLE), x,
+                            y);
+                case 9:
+                    this.setOnTheMapXY(new Diamond(x, y, SpriteFactory.createDiamond(), this, Permeability.COLLECTABLE),
                             x, y);
                 case 10:
-                    this.setOnTheMapXY(new FastAndRandomMonster(x, y, SpriteFactory.createMonster("monsterSAR"),
-                            this.getMap(), Permeability.KILLABLE), x, y);
+                    this.setOnTheMapXY(new FastAndRandomMonster(x, y, SpriteFactory.createMonster("monsterSAR"), this,
+                            Permeability.KILLABLE), x, y);
                 case 11:
                     this.setOnTheMapXY(new FastAndFollowTheWallsMonster(x, y, SpriteFactory.createMonster("monsterFAR"),
-                            this.getMap(), Permeability.KILLABLE), x, y);
+                            this, Permeability.KILLABLE), x, y);
                 default:
                     this.setOnTheMapXY(MotionlessElementFactory.getElementFromFileSymbol(2), x, y);
                 }

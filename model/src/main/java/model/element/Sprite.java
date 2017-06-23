@@ -36,7 +36,7 @@ public class Sprite {
 
     public void loadImage() {
         try {
-            this.setImage(ImageIO.read(new File("images/" + this.getImageName())));
+            this.setImage(ImageIO.read(new File("Sprites/" + this.getImageName())));
         } catch (final IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
