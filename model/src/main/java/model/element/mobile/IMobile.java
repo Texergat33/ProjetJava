@@ -43,4 +43,9 @@ public interface IMobile extends IElement, IPawn {
 
 	public void setFalling(boolean b);
 
+
+    void doNothing();
+
+    public void shift(int i);
+
 }

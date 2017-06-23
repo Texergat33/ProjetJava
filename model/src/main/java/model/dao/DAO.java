@@ -22,14 +22,17 @@ public abstract class DAO extends AbstractDAO {
 	/** The sql query which the different object of fill the map */
 	private static String sqlFillMap = "{call FillMap(?)}";
 
-	/** The id column index. */
-	private static int idColumnIndex     = 1;
-	private static int HeightColumnIndex = 2;
-	private static int WidthColumnIndex  = 3;
-	private static int XColumnIndex      = 1;
-	private static int YColumnIndex      = 2;
-	private static int TypeColumnIndex   = 4;
-	private static int IDMAPColumnIndex  = 3;
+
+    /** The id column index. */
+    private static int idColumnIndex             = 1;
+    private static int HeightColumnIndex         = 2;
+    private static int WidthColumnIndex          = 3;
+    private static int DiamondCounterColumnIndex = 4;
+    private static int XColumnIndex              = 1;
+    private static int YColumnIndex              = 2;
+    private static int TypeColumnIndex           = 4;
+    private static int IDMAPColumnIndex          = 3;
+
 
 	/*
 	 * Once we have the length and the width of our map, we can use the method
@@ -70,5 +73,25 @@ public abstract class DAO extends AbstractDAO {
 		}
 		return dimension;
 	}
+
+    /**
+     * This first method will send us the width and the length of the map. We
+     * get this values in a Array list. The Array list type is a Map.
+     *
+     */
+    public static MapDimensions getMapSize(final int id) throws SQLException {
+        final CallableStatement callStatement = prepareCall(sqlMapSize);
+        MapDimensions dimension = null;
+        callStatement.setInt(1, id);
+        if (callStatement.execute()) {
+            final ResultSet result = callStatement.getResultSet();
+            if (result.first()) {
+                dimension = new MapDimensions(result.getInt(idColumnIndex), result.getInt(HeightColumnIndex),
+                        result.getInt(WidthColumnIndex), result.getInt(DiamondCounterColumnIndex));
+            }
+            result.close();
+        }
+        return dimension;
+    }
 
 }

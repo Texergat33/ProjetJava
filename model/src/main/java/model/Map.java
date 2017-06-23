@@ -15,6 +15,7 @@ import model.element.mobile.SlowAndRandomMonster;
 import model.element.motionless.MotionlessElementFactory;
 
 public class Map extends Observable implements IMap {
+
 	private int       width;
 	private int       height;
 	private final int level;
@@ -24,9 +25,9 @@ public class Map extends Observable implements IMap {
 	public Map(final int level) {
 		super();
 		this.level = level;
-		// récupère les informations du constructeur de la classe Observable
+		// rÃ©cupÃ¨re les informations du constructeur de la classe Observable
 		this.loadLevel();
-		// lance la méthode load level avec en paramètre le numéro du niveau
+		// lance la mÃ©thode load level avec en paramÃ¨tre le numÃ©ro du niveau
 	}
 
 	@Override
@@ -60,8 +61,8 @@ public class Map extends Observable implements IMap {
 	}
 
 	private void loadLevel() {
-		// récupère les données de la map sélectionnée dans la BDD
-		// et transforme les caractères en instances d'éléments
+		// rÃ©cupÃ¨re les donnÃ©es de la map sÃ©lectionnÃ©e dans la BDD
+		// et transforme les caractÃ¨res en instances d'Ã©lÃ©ments
 		final MapDimensions mapDimensions = this.getModel().getMapSize(this.level);
 		final int ConsoleMapTable[][] = new int[mapDimensions.getWidth()][mapDimensions.getLength()];
 		final List<FillingMap> objects = this.getModel().getMapFilled(mapDimensions.getId());
@@ -118,10 +119,11 @@ public class Map extends Observable implements IMap {
 
 	private void setOnTheMapXY(final IElement element, final int x, final int y) {
 		this.onTheMap[x][y] = element;
-		// met l'élément dans le tableau de Map [x][y]
+		// met l'Ã©lÃ©ment dans le tableau de Map [x][y]
 	}
 
 	private void setWidth(final int width) {
 		this.width = width;
 	}
+
 }
