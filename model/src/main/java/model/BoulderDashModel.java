@@ -6,14 +6,14 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import model.dao.DAO;
+import model.dao.NewDAO;
 import model.element.mobile.IMobile;
 import model.element.mobile.Miner;
 
 public class BoulderDashModel extends Observable implements IBoulderDashModel {
-	private IMobile                   miner;
-	private IMap                      map;
-	private final ArrayList<Observer> observers;
+	private IMobile miner; //vérifier utilité
+	private IMap map; //vérifier utilité
+	private ArrayList<Observer> observers;
 
 	public BoulderDashModel(final int level, final int minerStartX, final int minerStartY) {
 		this.observers = new ArrayList<Observer>();
@@ -29,7 +29,6 @@ public class BoulderDashModel extends Observable implements IBoulderDashModel {
 	@Override
 	public void addObserver(final Observer observer) {
 		this.observers.add(observer);
-
 	}
 
 	@Override
@@ -38,51 +37,30 @@ public class BoulderDashModel extends Observable implements IBoulderDashModel {
 	}
 
 	@Override
+	public List<FillingMap> getAllPositionsById(final int levelID) throws SQLException {
+		return NewDAO.getMapFilledByID(levelID);
+	}
+
+	@Override
+	public GamingMap getLevelByID(int levelID) throws SQLException {
+		return NewDAO.getLevelByID(levelID);
+	}
+
+	@Override
 	public IMap getMap() {
 		return this.map;
 	}
 
 	@Override
-	public List<FillingMap> getMapFilled(final int id) {
-		try {
-			return DAO.getMapFilled(id);
-		} catch (final SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	@Override
-	public MapDimensions getMapSize(final int id) {
-		try {
-			return DAO.getMapSize(id);
-		} catch (final SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	@Override
 	public IMobile getMiner() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.miner;
 	}
 
-	@Override
-	public void notifyObservers() {
-		for (final Observer observer : this.observers) {
-			observer.perform();
-		}
-	}
-
-	private void setMap(final IMap map) {
+	public void setMap(IMap map) {
 		this.map = map;
 	}
 
-	private void setMiner(final IMobile miner) {
+	public void setMiner(IMobile miner) {
 		this.miner = miner;
 	}
-
 }
