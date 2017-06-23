@@ -11,7 +11,7 @@ public class FastAndFollowTheWallsMonster extends Monster {
 
     public FastAndFollowTheWallsMonster(final int x, final int y, final Sprite sprite, final IMap map,
             final Permeability permeability) {
-        super(x, y, SPRITE, map, permeability);
+        super(x, y, sprite, map, permeability);
     }
 
     @Override

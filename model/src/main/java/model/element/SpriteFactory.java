@@ -44,19 +44,10 @@ public abstract class SpriteFactory {
         return wall;
     }
 
-    public static Sprite createDiamond(final int front) {
-        switch (front) {
-        case 1:
-            return diamondFront;
-        /*
-         * case 2: return diamondFront2; break;
-         */
-        /*
-         * default: return diamondFront2;
-         */
-        default:
-            return diamondFront;
-        }
+    public static Sprite createDiamond() {
+        diamondFront.loadImage();
+        return diamondFront;
+
     }
 
     public static Sprite createMiner(final String minerPosition) {
