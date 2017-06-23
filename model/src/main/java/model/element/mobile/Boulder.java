@@ -8,34 +8,24 @@ import model.element.Sprite;
 import model.element.motionless.MotionlessElement;
 
 public class Boulder extends Mobile {
-    private static final Sprite SPRITE = new Sprite(5, "boulder.png");
 
-    public Boulder(final Point position, final Sprite sprite, final IMap map, final Permeability permeability) {
-        super(position, SPRITE, map, permeability);
+    public Boulder(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
+        super(x, y, sprite, map, permeability);
         // TODO Auto-generated constructor stub
     }
 
-    @Override
-    private void shift(final int direction) {
-        int test = 0;
-        switch (direction) {
-        case 1:
-            test = this.getX() + 1;
-
-        case 2:
-            test = this.getX() - 1;
-        }
-        if ((this.getMap().getOnTheMapXY(test, this.getY()).getPermeability() == Permeability.PENETRABLEFORBOULDER)) {
-            switch (direction) {
-            case 1:
-                this.moveRight();
-            case 2:
-                this.moveLeft();
-            }
-
-        }
-
-    }
+    /*
+     * @Override private void shift(final int direction) { int test = 0; switch
+     * (direction) { case 1: test = this.getX() + 1;
+     *
+     * case 2: test = this.getX() - 1; } if ((this.getMap().getOnTheMapXY(test,
+     * this.getY()).getPermeability() == Permeability.PENETRABLEFOROTHERS)) {
+     * switch (direction) { case 1: this.moveRight(); case 2: this.moveLeft(); }
+     *
+     * }
+     *
+     * }
+     */
 
     @Override
     public void collect() {
@@ -50,7 +40,7 @@ public class Boulder extends Mobile {
     }
 
     @Override
-    public IMobile position(final int i, final int y) {
+    public Point position(final int i, final int y) {
         // TODO Auto-generated method stub
         return null;
     }

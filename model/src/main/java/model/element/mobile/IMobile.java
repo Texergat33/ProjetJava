@@ -43,6 +43,4 @@ public interface IMobile extends IElement, IPawn {
 
     public Point position(int i, int y);
 
-    public void shift(int i);
-
 }
