@@ -15,7 +15,6 @@ import controller.UserOrder;
 import model.IMap;
 import model.element.IElement;
 import model.element.mobile.IMobile;
-import model.element.mobile.Miner;
 import showboard.BoardFrame;
 
 // TODO: Auto-generated Javadoc
@@ -29,7 +28,7 @@ import showboard.BoardFrame;
 public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener {
 
     /** The Constant squareSize. */
-    private static final int squareSize = 10;
+    private static final int squareSize = 100;
 
     /** The boulder view. */
     private static int boulderView = 10;
@@ -39,12 +38,6 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener 
 
     /** The order performer. */
     private IOrderPerformer orderPerformer;
-
-    /** The miner. */
-    private Miner miner;
-
-    /** The mobile. */
-    private IMobile mobile;
 
     /** The map. */
     private IMap map;
@@ -68,7 +61,7 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener 
      */
     public BoulderDashView(final IMap map) throws IOException {
         final ArrayList<IElement> mobiles = new ArrayList<IElement>();
-        this.setMiner(this.miner);
+
         this.setMap(map);
         // this.getMiner().getPosition();
         /*-this.setCloseView(new Rectangle(this.getMiner().getX(), this.getMiner().getY(), BoulderDashView.boulderView,
@@ -104,20 +97,23 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener 
         boardFrame.setDimension(new Dimension(this.getMap().getWidth(), this.getMap().getHeight()));
         boardFrame.setDisplayFrame(this.closeView);
         boardFrame.setSize(this.closeView.width * squareSize, this.closeView.height * squareSize);
-        boardFrame.setHeightLooped(true);
+        // boardFrame.setHeightLooped(true);
         boardFrame.addKeyListener(this);
         boardFrame.setFocusable(true);
         boardFrame.setFocusTraversalKeysEnabled(false);
         for (int x = 0; x < this.getMap().getWidth(); x++) {
             for (int y = 0; y < this.getMap().getHeight(); y++) {
+                // System.out.print(this.map.getOnTheMapXY(x,
+                // y).getSprite().getDatabaseIDImage());
                 boardFrame.addSquare(this.map.getOnTheMapXY(x, y), x, y);
             }
+            System.out.println("");
         }
-        boardFrame.addPawn(this.getMiner());
-        boardFrame.addPawn(this.getMobile());
+        for (final IMobile element : this.getMap().getMobiles()) {
+            boardFrame.addPawn(element);
+        }
         this.getMap().getObservable().addObserver(boardFrame.getObserver());
         boardFrame.setVisible(true);
-
     }
 
     /*
@@ -166,7 +162,8 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener 
     /* this method will make the view follow the player. */
     @Override
     public void followMiner() {
-        this.closeView = new Rectangle(this.getMiner().getX(), this.getMiner().getY());
+        // this.closeView = new Rectangle(this.getMiner().getX(),
+        // this.getMiner().getY());
     }
 
     /**
@@ -206,25 +203,6 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener 
     @Override
     public void setOrderPerformer(final IOrderPerformer orderPerformer) {
         this.orderPerformer = orderPerformer;
-    }
-
-    /**
-     * Gets the miner.
-     *
-     * @return the miner
-     */
-    public IMobile getMiner() {
-        return this.miner;
-    }
-
-    /**
-     * Sets the miner.
-     *
-     * @param miner
-     *            the new miner
-     */
-    public void setMiner(final Miner miner) {
-        this.miner = miner;
     }
 
     /**
@@ -302,29 +280,6 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener 
     public void keyReleased(final KeyEvent e) {
         // TODO Auto-generated method stub
 
-    }
-
-    /**
-     * Gets the mobile.
-     *
-     * @return the mobile
-     */
-    public IMobile getMobile() {
-        return this.mobile;
-    }
-
-    /**
-     * Sets the mobile.
-     *
-     * @param mobile
-     *            the new mobile
-     * @throws IOException
-     */
-    public void setMobile(final IMobile mobile) throws IOException {
-        this.mobile = mobile;
-        for (final IElement elements : this.objects) {
-            this.getMobile().getSprite().loadImage();
-        } // Je test
     }
 
 }

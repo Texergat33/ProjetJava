@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Observable;
 
 import model.element.IElement;
@@ -23,5 +24,7 @@ public interface IMap {
     public void setDiamondCounter(final int diamondCounter);
 
     public IMobile getMiner();
+
+    public ArrayList<IMobile> getMobiles();
 
 }

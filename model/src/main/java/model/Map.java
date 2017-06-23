@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
@@ -20,27 +21,23 @@ import model.element.motionless.MotionlessElementFactory;
 
 public class Map extends Observable implements IMap {
 
-    private int        width;
-    private int        height;
-    private int        levelID;
-    private IElement   onTheMap[][];
-    private int        diamondCounter;
-    private IMobile    miner;
-    private Observable observable;
-    private IMobile    mobile;
+    private int                width;
+    private int                height;
+    private int                levelID;
+    private IElement           onTheMap[][];
+    private ArrayList<IMobile> mobiles;
+    private int                diamondCounter;
+    private IMobile            miner;
+    private IMobile            mobile;
 
     public Map(final int levelID) {
-        // super();
-        System.out.println("bjr");
+        this.mobiles = new ArrayList<IMobile>();
         this.setLevelID(levelID);
-        // récupère les informations du constructeur de la classe Observable
         try {
             this.loadLevel();
         } catch (final SQLException e) {
-            System.out.println("sql bug");
             e.printStackTrace();
         }
-        // lance la méthode load level avec en paramètre le numéro du niveau
     }
 
     @Override
@@ -64,7 +61,7 @@ public class Map extends Observable implements IMap {
 
     @Override
     public Observable getObservable() {
-        return this.observable;
+        return this;
     }
 
     @Override
@@ -90,43 +87,47 @@ public class Map extends Observable implements IMap {
         for (int y = 0; y < gamingMap.getHeight(); y++) {
             for (int x = 0; x < gamingMap.getWidth(); x++) {
                 final int currentCell = consoleMapTable[y][x];
-                System.out.println(x + ":" + y + ":" + currentCell);
                 switch (currentCell) {
                 case 1:
                 case 2:
-                case 3:
-                case 4:
                     this.setOnTheMapXY(MotionlessElementFactory.getElementFromFileSymbol(currentCell), x, y);
                     break;
+                case 3:
+                    this.getMobiles()
+                            .add(new Boulder(x, y, SpriteFactory.createBoulder(), this, Permeability.PUSHABLE));
+                    break;
+                case 4:
+                    this.getMobiles()
+                            .add(new Boulder(x, y, SpriteFactory.createBoulder(), this, Permeability.PUSHABLE));
+                    break;
                 case 5:
-                    this.setOnTheMapXY(new Boulder(x, y, SpriteFactory.createBoulder(), this, Permeability.PUSHABLE), x,
-                            y);
+                    this.getMobiles()
+                            .add(new Boulder(x, y, SpriteFactory.createBoulder(), this, Permeability.PUSHABLE));
                     break;
                 case 6:
-                    this.setOnTheMapXY(new SlowAndFollowTheWallsMonster(x, y,
-                            SpriteFactory.createMonster("monsterFAFTW"), this, Permeability.KILLABLE), x, y);
+                    this.getMobiles().add(new SlowAndFollowTheWallsMonster(x, y,
+                            SpriteFactory.createMonster("monsterFAFTW"), this, Permeability.KILLABLE));
                     break;
                 case 7:
-                    this.setOnTheMapXY(new SlowAndRandomMonster(x, y, SpriteFactory.createMonster("monsterSAFTW"), this,
-                            Permeability.KILLABLE), x, y);
+                    this.getMobiles().add(new SlowAndRandomMonster(x, y, SpriteFactory.createMonster("monsterSAFTW"),
+                            this, Permeability.KILLABLE));
                     break;
                 case 8:
                     this.setMiner(
                             new Miner(x, y, SpriteFactory.createMiner("defaultMiner1"), this, Permeability.KILLABLE));
-                    this.setOnTheMapXY(this.getMiner(), x, y);
-
+                    this.getMobiles().add(this.getMiner());
                     break;
                 case 9:
-                    this.setOnTheMapXY(new Diamond(x, y, SpriteFactory.createDiamond(), this, Permeability.COLLECTABLE),
-                            x, y);
+                    this.getMobiles()
+                            .add(new Diamond(x, y, SpriteFactory.createDiamond(), this, Permeability.COLLECTABLE));
                     break;
                 case 10:
-                    this.setOnTheMapXY(new FastAndRandomMonster(x, y, SpriteFactory.createMonster("monsterSAR"), this,
-                            Permeability.KILLABLE), x, y);
+                    this.getMobiles().add(new FastAndRandomMonster(x, y, SpriteFactory.createMonster("monsterSAR"),
+                            this, Permeability.KILLABLE));
                     break;
                 case 11:
-                    this.setOnTheMapXY(new FastAndFollowTheWallsMonster(x, y, SpriteFactory.createMonster("monsterFAR"),
-                            this, Permeability.KILLABLE), x, y);
+                    this.getMobiles().add(new FastAndFollowTheWallsMonster(x, y,
+                            SpriteFactory.createMonster("monsterFAR"), this, Permeability.KILLABLE));
                     break;
                 default:
                     this.setOnTheMapXY(MotionlessElementFactory.getElementFromFileSymbol(2), x, y);
@@ -176,8 +177,13 @@ public class Map extends Observable implements IMap {
         this.miner = miner;
     }
 
-    public void setObservable(final Observable observable) {
-        this.observable = observable;
+    @Override
+    public ArrayList<IMobile> getMobiles() {
+        return this.mobiles;
+    }
+
+    public void setMobiles(final ArrayList<IMobile> mobiles) {
+        this.mobiles = mobiles;
     }
 
 }

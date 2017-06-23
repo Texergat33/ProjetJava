@@ -9,21 +9,21 @@ public abstract class SpriteFactory {
     private static Sprite diamondFront = new Sprite(9, "diamond.png");
     // private static Sprite diamondFront2 = new Sprite();
     private static Sprite defaultMiner1 = new Sprite(8, "defaultMiner1.png");
-    private static Sprite defaultMiner2 = new Sprite(8, "defaultMiner2.png");
-    private static Sprite minerUp       = new Sprite(8, "minerUp.png");
-    // private static Sprite minerUp2 = new Sprite(minerUp2.png);
-    private static Sprite minerDown1  = new Sprite(8, "minerDown1.png");
-    private static Sprite minerDown2  = new Sprite(8, "minerDown2.png");
-    private static Sprite minerLeft1  = new Sprite(8, "minerLeft1.png");
-    private static Sprite minerLeft2  = new Sprite(8, "minerLeft2.png");
-    private static Sprite minerRight1 = new Sprite(8, "minerRight1.png");
-    private static Sprite minerRight2 = new Sprite(8, "minerRight2.png");
-    private static Sprite deadMiner1  = new Sprite(8, "deadMiner1.png");
-    private static Sprite deadMiner2  = new Sprite(8, "deadMiner2.png");
-    private static Sprite background  = new Sprite(2, "background.png");
-    private static Sprite ground      = new Sprite(3, "ground.png");
-    private static Sprite wall        = new Sprite(4, "wall.png");
-    private static Sprite ironWall    = new Sprite(1, "IronWall.png");
+    private static Sprite defaultMiner2 = new Sprite(81, "defaultMiner2.png");
+    private static Sprite minerUp       = new Sprite(82, "minerUp.png");
+    private static Sprite minerUp2      = new Sprite(8, "minerUp2.png");
+    private static Sprite minerDown1    = new Sprite(83, "minerDown1.png");
+    private static Sprite minerDown2    = new Sprite(84, "minerDown2.png");
+    private static Sprite minerLeft1    = new Sprite(85, "minerLeft1.png");
+    private static Sprite minerLeft2    = new Sprite(86, "minerLeft2.png");
+    private static Sprite minerRight1   = new Sprite(87, "minerRight1.png");
+    private static Sprite minerRight2   = new Sprite(88, "minerRight2.png");
+    private static Sprite deadMiner1    = new Sprite(89, "deadMiner1.png");
+    private static Sprite deadMiner2    = new Sprite(810, "deadMiner2.png");
+    private static Sprite background    = new Sprite(2, "background.png");
+    private static Sprite ground        = new Sprite(3, "ground.png");
+    private static Sprite wall          = new Sprite(4, "wall.png");
+    private static Sprite ironWall      = new Sprite(1, "IronWall.png");
 
     public static Sprite createBoulder() {
         boulder.loadImage();
@@ -53,7 +53,7 @@ public abstract class SpriteFactory {
 
     public static Sprite createIronWall() {
         ironWall.loadImage();
-        return diamondFront;
+        return ironWall;
 
     }
 
@@ -69,9 +69,11 @@ public abstract class SpriteFactory {
         case "minerUp":
             minerUp.loadImage();
             return minerUp;
-        /*
-         * case "minerUp2": return minerUp2; break;
-         */
+
+        case "minerUp2":
+            minerUp2.loadImage();
+            return minerUp2;
+
         case "minerDown1":
             minerDown1.loadImage();
             return minerDown1;
