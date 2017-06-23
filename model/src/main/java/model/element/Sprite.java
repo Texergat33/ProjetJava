@@ -7,51 +7,57 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Sprite {
-	private Image	image;
-	private String	imageName;
-	private boolean	imageLoaded;
-	private int databaseIDImage;
+    private Image   image;
+    private String  imageName;
+    private boolean imageLoaded;
+    private int     databaseIDImage;
 
-	public Sprite(int databaseIDImage,String imageName) {
-		this.setDatabaseIDImage(databaseIDImage);
-		this.setImageName(imageName);
-		// met en place le nom de l'image
-	}
+    public Sprite(final int databaseIDImage, final String imageName) {
+        this.setDatabaseIDImage(databaseIDImage);
+        this.setImageName(imageName);
+        // met en place le nom de l'image
+    }
 
-	public int getDatabaseIDImage() {
-		return this.databaseIDImage;
-	}
+    public int getDatabaseIDImage() {
+        return this.databaseIDImage;
+    }
 
-	public Image getImage() {
-		return this.image;
-	}
+    public Image getImage() {
+        return this.image;
+    }
 
-	public boolean getImageLoaded() {
-		return this.imageLoaded;
-	}
+    public boolean getImageLoaded() {
+        return this.imageLoaded;
+    }
 
-	public String getImageName() {
-		return this.imageName;
-	}
+    public String getImageName() {
+        return this.imageName;
+    }
 
-	public void loadImage() throws IOException {
-		this.setImage(ImageIO.read(new File("images/" + this.getImageName())));
-		// met l'image lue en paramètre grâce à la récupération du nom de celle-ci
-	}
+    public void loadImage() {
+        try {
+            this.setImage(ImageIO.read(new File("images/" + this.getImageName())));
+        } catch (final IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        // met l'image lue en paramètre grâce à la récupération du nom de
+        // celle-ci
+    }
 
-	public void setDatabaseIDImage(int databaseIDImage) {
-		this.databaseIDImage = databaseIDImage;
-	}
+    public void setDatabaseIDImage(final int databaseIDImage) {
+        this.databaseIDImage = databaseIDImage;
+    }
 
-	public void setImage(Image image) {
-		this.image = image;
-	}
+    public void setImage(final Image image) {
+        this.image = image;
+    }
 
-	public void setImageLoaded(boolean imageLoaded) {
-		this.imageLoaded = imageLoaded;
-	}
+    public void setImageLoaded(final boolean imageLoaded) {
+        this.imageLoaded = imageLoaded;
+    }
 
-	public void setImageName(String imageName) {
-		this.imageName = imageName;
-	}
+    public void setImageName(final String imageName) {
+        this.imageName = imageName;
+    }
 }

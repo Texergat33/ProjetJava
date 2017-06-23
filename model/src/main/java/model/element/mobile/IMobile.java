@@ -39,10 +39,8 @@ public interface IMobile extends IElement, IPawn {
 
     public void moveUp();
 
-    public IMobile position(int i, int y);
-
     public void setFalling(boolean b);
 
-    public void shift(int i);
+    public Point position(int i, int y);
 
 }

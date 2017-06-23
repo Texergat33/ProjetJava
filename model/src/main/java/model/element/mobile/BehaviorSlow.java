@@ -12,22 +12,22 @@ public class BehaviorSlow extends BehaviorDoSomething {
 
 		switch (this.random(1, 4)) {
 		case 1:
-			if (this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLEFORMONSTER) {
+			if (this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLEFOROTHERS) {
 				this.mobile.moveDown();
 			}
 			break;
 		case 2:
-			if (this.mobile.getMap().getOnTheMapXY(x, y - 1).getPermeability() == Permeability.PENETRABLEFORMONSTER) {
+			if (this.mobile.getMap().getOnTheMapXY(x, y - 1).getPermeability() == Permeability.PENETRABLEFOROTHERS) {
 				this.mobile.moveUp();
 			}
 			break;
 		case 3:
-			if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PENETRABLEFORMONSTER) {
+			if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.PENETRABLEFOROTHERS) {
 				this.mobile.moveRight();
 			}
 			break;
 		case 4:
-			if (this.mobile.getMap().getOnTheMapXY(x - 1, y).getPermeability() == Permeability.PENETRABLEFORMONSTER) {
+			if (this.mobile.getMap().getOnTheMapXY(x - 1, y).getPermeability() == Permeability.PENETRABLEFOROTHERS) {
 				this.mobile.moveLeft();
 			}
 			break;

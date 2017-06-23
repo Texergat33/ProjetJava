@@ -11,8 +11,8 @@ import model.element.mobile.IMobile;
 import model.element.mobile.Miner;
 
 public class BoulderDashModel extends Observable implements IBoulderDashModel {
-	private IMobile miner; //vérifier utilité
-	private IMap map; //vérifier utilité
+	private IMobile miner; //vï¿½rifier utilitï¿½
+	private IMap map; //vï¿½rifier utilitï¿½
 	private ArrayList<Observer> observers;
 
 	public BoulderDashModel(final int level, final int minerStartX, final int minerStartY) {
@@ -57,6 +57,8 @@ public class BoulderDashModel extends Observable implements IBoulderDashModel {
 	}
 
 	public void setMap(IMap map) {
+
+	private void setMap(final IMap map) {
 		this.map = map;
 	}
 
