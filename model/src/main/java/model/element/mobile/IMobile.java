@@ -41,4 +41,6 @@ public interface IMobile extends IPawn {
     public IMobile position(int i, int y);
 
     void doNothing();
+
+    public void shift(int i);
 }

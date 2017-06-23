@@ -4,11 +4,13 @@ public class MapDimensions {
     private int id;
     public int  height;
     public int  width;
+    public int  counterDiamond;
 
-    public MapDimensions(final int id, final int height, final int width) {
+    public MapDimensions(final int id, final int height, final int width, final int counterDiamond) {
         this.id = id;
         this.height = height;
         this.width = width;
+        this.setCounterDiamond(counterDiamond);
     }
 
     public int getLength() {
@@ -33,6 +35,14 @@ public class MapDimensions {
 
     protected void setId(final int id) {
         this.id = id;
+    }
+
+    public int getCounterDiamond() {
+        return this.counterDiamond;
+    }
+
+    public void setCounterDiamond(final int counterDiamond) {
+        this.counterDiamond = counterDiamond;
     }
 
 }
