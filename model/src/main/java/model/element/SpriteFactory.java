@@ -1,7 +1,5 @@
 package model.element;
 
-import java.io.IOException;
-
 public abstract class SpriteFactory {
     private static Sprite monsterFAFTW = new Sprite(0, null);
     private static Sprite monsterSAFTW = new Sprite(0, null);
@@ -22,10 +20,28 @@ public abstract class SpriteFactory {
     private static Sprite minerRight2 = new Sprite(8, "minerRight2.png");
     private static Sprite deadMiner1  = new Sprite(8, "deadMiner1");
     private static Sprite deadMiner2  = new Sprite(8, "deadMiner2");
+    private static Sprite background  = new Sprite(2, "background.png");
+    private static Sprite ground      = new Sprite(3, "ground.png");
+    private static Sprite wall        = new Sprite(4, "wall.png");
 
-    public static Sprite createBoulder() throws IOException {
+    public static Sprite createBoulder() {
         boulder.loadImage();
         return boulder;
+    }
+
+    public static Sprite createBackground() {
+        background.loadImage();
+        return background;
+    }
+
+    public static Sprite createGround() {
+        ground.loadImage();
+        return ground;
+    }
+
+    public static Sprite createWall() {
+        wall.loadImage();
+        return wall;
     }
 
     public static Sprite createDiamond(final int front) {
@@ -43,7 +59,7 @@ public abstract class SpriteFactory {
         }
     }
 
-    public static Sprite createMiner(final String minerPosition) throws IOException {
+    public static Sprite createMiner(final String minerPosition) {
 
         switch (minerPosition) {
         case "defaultMiner1":

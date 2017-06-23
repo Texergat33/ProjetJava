@@ -6,8 +6,8 @@ import model.element.Sprite;
 public class Wall extends MotionlessElement {
     private static final Sprite SPRITE = new Sprite(4, "wall.png");
 
-    public Wall() {
-        super(SPRITE, Permeability.BLOCKINGFOREVERYONE);
+    public Wall(final Sprite sprite, final Permeability permeability) {
+        super(sprite, permeability);
     }
 
     @Override

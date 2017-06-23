@@ -1,10 +1,14 @@
 package model.element.motionless;
 
+import model.element.Permeability;
+import model.element.SpriteFactory;
+
 public abstract class MotionlessElementFactory {
 
-    private static Background background = new Background();
-    private static Ground     ground     = new Ground();
-    private static Wall       wall       = new Wall();
+    private static Background background = new Background(SpriteFactory.createBackground(),
+            Permeability.PENETRABLEFOREVERYONE);
+    private static Ground     ground     = new Ground(SpriteFactory.createGround(), Permeability.PENETRABLEFORMINER);
+    private static Wall       wall       = new Wall(SpriteFactory.createWall(), Permeability.BLOCKINGFOREVERYONE);
 
     private static MotionlessElement[] motionlessElements = { background, ground, wall,
 
