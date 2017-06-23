@@ -5,6 +5,7 @@ import java.awt.Point;
 import model.IMap;
 import model.element.Permeability;
 import model.element.Sprite;
+import model.element.motionless.MotionlessElement;
 
 public class Boulder extends Mobile {
     private static final Sprite SPRITE = new Sprite(5, "boulder.png");
@@ -14,6 +15,7 @@ public class Boulder extends Mobile {
         // TODO Auto-generated constructor stub
     }
 
+    @Override
     private void shift(final int direction) {
         int test = 0;
         switch (direction) {
@@ -33,6 +35,30 @@ public class Boulder extends Mobile {
 
         }
 
+    }
+
+    @Override
+    public void collect() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public Point getPosition() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public IMobile position(final int i, final int y) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public MotionlessElement createBackground() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }
