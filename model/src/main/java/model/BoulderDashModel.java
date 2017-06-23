@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import model.dao.NewDAO;
+import model.dao.DAO;
 import model.element.mobile.IMobile;
 import model.element.mobile.Miner;
 
@@ -38,12 +38,12 @@ public class BoulderDashModel extends Observable implements IBoulderDashModel {
 
 	@Override
 	public List<FillingMap> getAllPositionsById(final int levelID) throws SQLException {
-		return NewDAO.getMapFilledByID(levelID);
+		return DAO.getMapFilledByID(levelID);
 	}
 
 	@Override
 	public GamingMap getLevelByID(int levelID) throws SQLException {
-		return NewDAO.getLevelByID(levelID);
+		return DAO.getLevelByID(levelID);
 	}
 
 	@Override
