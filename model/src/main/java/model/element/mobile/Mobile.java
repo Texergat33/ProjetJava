@@ -9,6 +9,7 @@ import model.element.Sprite;
 import showboard.IBoard;
 
 public abstract class Mobile extends Element implements IMobile {
+
 	@Override
 	public Point getPosition() {
 		return this.position;
@@ -30,6 +31,7 @@ public abstract class Mobile extends Element implements IMobile {
 		super(sprite, permeability);
 		this.setMap(map);
 		this.position = new Point(x, y);
+
 	}
 
 	@Override
@@ -38,6 +40,11 @@ public abstract class Mobile extends Element implements IMobile {
 		this.setHasChanged();
 		// statue alive est faux
 		// informe du mouvement
+	}
+
+
+	public void ruin() {
+		this.getMap().getOnTheMapXY(this.x, this.y).createBackground();
 	}
 
 	@Override
@@ -75,7 +82,8 @@ public abstract class Mobile extends Element implements IMobile {
 
 	@Override
 	public void moveDown() {
-		this.setY(this.getY() - 1);
+		this.setY(this.getY() + 1);
+
 		this.setHasChanged();
 		// met en place la position de Y
 		// montre que ça a bougé
@@ -99,13 +107,17 @@ public abstract class Mobile extends Element implements IMobile {
 
 	@Override
 	public void moveUp() {
+
 		this.setY(this.getY() + 1);
+
 		this.setHasChanged();
 		// met en place la position de Y
 		// montre que ça a bougé
 	}
 
 	protected void setHasChanged() {
+
+
 		this.getMap().setMobileHasChanged();
 	}
 
@@ -128,11 +140,13 @@ public abstract class Mobile extends Element implements IMobile {
 
 	@Override
 	public int getX() {
-		return this.position.x;
+return this.position.x;
+
 	}
 
 	@Override
 	public int getY() {
+
 		return this.position.y;
 	}
 
@@ -142,6 +156,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	protected void setY(final int y) {
 		this.position.y = y;
+
 	}
 
 }

@@ -244,11 +244,11 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener,
 	 */
 	public void setMap(final IMap map) throws IOException {
 		this.map = map;
-		for (int x = 0; x < this.getMap().getWidth(); x++) {
+	/*	for (int x = 0; x < this.getMap().getWidth(); x++) {
 			for (int y = 0; y < this.getMap().getWidth(); y++) {
 				this.getMap().getOnTheMapXY(x, y).getSprite().loadImage();
 			}
-		}
+		}*/
 	}
 
 	/**
@@ -336,4 +336,5 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener,
 			this.getMobile().getSprite().loadImage();
 		} // Je test
 	}
+
 }

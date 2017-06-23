@@ -6,11 +6,16 @@ import model.IMap;
 import model.element.IElement;
 import showboard.IPawn;
 
-public interface IMobile extends IPawn, IElement {
 
-	public boolean isAlive();
+public interface IMobile extends IElement, IPawn {
 
-	public boolean isKilled();
+    public void collect();
+
+    public void die();
+
+    void doNothing();
+
+    public IMap getMap();
 
 	@Override
 	public Point getPosition();
@@ -21,17 +26,21 @@ public interface IMobile extends IPawn, IElement {
 	@Override
 	public int getY();
 
-	public IMap getMap();
+    public boolean isAlive();
 
 	public boolean isFalling();
 
-	public void moveDown();
+    public boolean isKilled();
+
+    public void moveDown();
+
 
 	public void moveLeft();
 
 	public void moveRight();
 
 	public void moveUp();
+
 
 	public void setFalling(boolean b);
 
@@ -40,4 +49,11 @@ public interface IMobile extends IPawn, IElement {
 	public void collect();
 
 	void doNothing();
+
+    public IMobile position(int i, int y);
+
+    
+    public void shift(int i);
+
+
 }

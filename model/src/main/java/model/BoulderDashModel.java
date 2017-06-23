@@ -11,6 +11,7 @@ import model.element.mobile.IMobile;
 import model.element.mobile.Miner;
 
 public class BoulderDashModel extends Observable implements IBoulderDashModel {
+
 	private IMobile miner;
 	private IMap map;
 	private final ArrayList<Observer> observers;
