@@ -12,7 +12,7 @@ public interface IMobile extends IElement, IPawn {
 
 	public void die();
 
-	void doNothing();
+	public void doNothing();
 
 	public IMap getMap();
 
@@ -43,9 +43,6 @@ public interface IMobile extends IElement, IPawn {
 
 	public void setFalling(boolean b);
 
-
-    void doNothing();
-
-    public void shift(int i);
+	public void shift(int i);
 
 }
