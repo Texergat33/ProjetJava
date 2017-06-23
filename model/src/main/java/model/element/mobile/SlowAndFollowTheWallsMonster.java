@@ -10,9 +10,9 @@ import model.element.motionless.MotionlessElement;
 public class SlowAndFollowTheWallsMonster extends Monster {
     private static final Sprite SPRITE = new Sprite(6, "monster2");
 
-    public SlowAndFollowTheWallsMonster(final Point position, final Sprite sprite, final IMap map,
+    public SlowAndFollowTheWallsMonster(final int x, final int y, final Sprite sprite, final IMap map,
             final Permeability permeability) {
-        super(position, SPRITE, map, permeability);
+        super(x, y, SPRITE, map, permeability);
     }
 
     @Override
@@ -28,15 +28,9 @@ public class SlowAndFollowTheWallsMonster extends Monster {
     }
 
     @Override
-    public IMobile position(final int i, final int y) {
+    public Point position(final int i, final int y) {
         // TODO Auto-generated method stub
         return null;
-    }
-
-    @Override
-    public void shift(final int i) {
-        // TODO Auto-generated method stub
-
     }
 
     @Override
