@@ -23,7 +23,7 @@ public abstract class SpriteFactory {
     private static Sprite background  = new Sprite(2, "background.png");
     private static Sprite ground      = new Sprite(3, "ground.png");
     private static Sprite wall        = new Sprite(4, "wall.png");
-    private static Sprite ironWall    = new Sprite(1, "ironWall.png");
+    private static Sprite ironWall    = new Sprite(1, "IronWall.png");
 
     public static Sprite createBoulder() {
         boulder.loadImage();

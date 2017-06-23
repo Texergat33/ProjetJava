@@ -20,12 +20,14 @@ import model.element.motionless.MotionlessElementFactory;
 
 public class Map extends Observable implements IMap {
 
-    private int      width;
-    private int      height;
-    private int      levelID;
-    private IElement onTheMap[][];
-    private int      diamondCounter;
-    private IMobile  miner;
+    private int        width;
+    private int        height;
+    private int        levelID;
+    private IElement   onTheMap[][];
+    private int        diamondCounter;
+    private IMobile    miner;
+    private Observable observable;
+    private IMobile    mobile;
 
     public Map(final int levelID) {
         // super();
@@ -56,16 +58,6 @@ public class Map extends Observable implements IMap {
     }
 
     @Override
-    public IMobile getMobileXY(final int x, final int y) {
-        return null;
-    }
-
-    @Override
-    public Observable getObservable() {
-        return null;
-    }
-
-    @Override
     public IElement getOnTheMapXY(final int x, final int y) {
         return this.onTheMap[y][x];
     }
@@ -78,6 +70,8 @@ public class Map extends Observable implements IMap {
     public void loadLevel() throws SQLException {
         final GamingMap gamingMap = DAO.getLevelByID(this.levelID);
         final int consoleMapTable[][] = new int[gamingMap.getHeight()][gamingMap.getWidth()];
+        this.setHeight(gamingMap.getHeight());
+        this.setWidth(gamingMap.getWidth());
         this.onTheMap = new IElement[this.getHeight()][this.getWidth()];
         final List<FillingMap> objects = DAO.getMapFilledByID(gamingMap.getLevelID());
         for (final FillingMap fillingMap : objects) {
@@ -170,5 +164,25 @@ public class Map extends Observable implements IMap {
 
     public void setMiner(final IMobile miner) {
         this.miner = miner;
+    }
+
+    /*
+     * public void setObservable(final Observable observable) { this.observable
+     * = observable; }
+     */
+
+    public IElement[][] getOnTheMap() {
+        return this.onTheMap;
+    }
+
+    @Override
+    public Observable getObservable() {
+        return this;
+    }
+
+    @Override
+    public IMobile getMobileXY(final int x, final int y) {
+
+        return this.mobile;
     }
 }
