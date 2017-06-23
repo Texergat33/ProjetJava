@@ -1,8 +1,10 @@
 package model;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Observable;
 
+import model.dao.NewDAO;
 import model.element.IElement;
 import model.element.mobile.Boulder;
 import model.element.mobile.Diamond;
@@ -16,62 +18,60 @@ import model.element.motionless.MotionlessElementFactory;
 
 public class NewMap {
 
-	private int       width;
-	private int       height;
-	private int level;
-	private IElement  onTheMap[][];
-	private int       DiamondCounter;
+	private int width;
+	private int height;
+	private int levelID;
+	private IElement onTheMap[][];
+	private int diamondCounter;
 
-	public Map(final int level) {
+	public NewMap(final int levelID) {
 		super();
-		this.level = level;
+		this.setLevelID(levelID);
 		// récupère les informations du constructeur de la classe Observable
 		this.loadLevel();
 		// lance la méthode load level avec en paramètre le numéro du niveau
 	}
 
-	@Override
 	public int getDiamondCounter() {
-		return this.DiamondCounter;
+		return this.diamondCounter;
 	}
 
-	@Override
 	public int getHeight() {
 		return this.height;
 	}
 
-	@Override
+	public int getLevelID() {
+		return this.levelID;
+	}
+
 	public IMobile getMobileXY(final int x, final int y) {
 		return null;
 	}
 
-	@Override
 	public Observable getObservable() {
 		return null;
 	}
 
-	@Override
 	public IElement getOnTheMapXY(final int x, final int y) {
 		return null;
 	}
 
-	@Override
 	public int getWidth() {
 		return this.width;
 	}
 
-	private void loadLevel() {
-		// récupère les données de la map sélectionnée dans la BDD
-		// et transforme les caractères en instances d'éléments
-		final MapDimensions mapDimensions = this.getModel().getMapSize(this.level);
-		final int ConsoleMapTable[][] = new int[mapDimensions.getWidth()][mapDimensions.getLength()];
-		final List<FillingMap> objects = this.getModel().getMapFilled(mapDimensions.getId());
-		for (final FillingMap fillingmap : objects) {
-			ConsoleMapTable[fillingmap.x][fillingmap.y] = fillingmap.type;
+	public void loadLevel() throws SQLException {
+		final GamingMap gamingMap = NewDAO.getLevelByID(this.levelID);
+		final int consoleMapTable[][] = new int[gamingMap.getWidth()][gamingMap.getHeight()];
+		this.onTheMap = new IElement[this.getHeight()][this.getWidth()];
+		final List<FillingMap> objects = NewDAO.getMapFilledByID(gamingMap.getLevelID());
+		for (final FillingMap fillingMap : objects) {
+			consoleMapTable[fillingMap.getY()][fillingMap.getX()] = fillingMap
+					.getObjectType();
 		}
-		for (int x = 0; x < mapDimensions.getWidth(); x++) {
-			for (int y = 0; y < mapDimensions.getLength(); y++) {
-				final int currentCell = ConsoleMapTable[x][y];
+		for (int y = 0; y < this.getHeight(); y++) {
+			for (int x = 0; x < this.getWidth(); x++) {
+				final int currentCell = consoleMapTable[x][y];
 				switch (currentCell) {
 				case 1:
 				case 2:
@@ -99,16 +99,18 @@ public class NewMap {
 		}
 	}
 
-	@Override
 	public void setDiamondCounter(final int diamondCounter) {
-		this.DiamondCounter = diamondCounter;
+		this.diamondCounter = diamondCounter;
 	}
 
 	private void setHeight(final int height) {
 		this.height = height;
 	}
 
-	@Override
+	public void setLevelID(int levelID) {
+		this.levelID = levelID;
+	}
+
 	public void setMobileHasChanged() {
 		this.setChanged();
 		this.notifyObservers();
@@ -125,8 +127,4 @@ public class NewMap {
 	private void setWidth(final int width) {
 		this.width = width;
 	}
-
-}
-
-
 }

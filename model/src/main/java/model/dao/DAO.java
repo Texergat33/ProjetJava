@@ -22,7 +22,6 @@ public abstract class DAO extends AbstractDAO {
 	/** The sql query which the different object of fill the map */
 	private static String sqlFillMap = "{call FillMap(?)}";
 
-
 	/** The id column index. */
 	private static int idColumnIndex             = 1;
 	private static int HeightColumnIndex         = 2;

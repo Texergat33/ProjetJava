@@ -1,49 +1,48 @@
 package model;
 
 public class FillingMap {
-    private int idimage;
-    public int  x;
-    public int  y;
+	private int idimage;
+	public int  x;
+	public int  y;
+	public int type;
 
-    public int type;
+	public FillingMap(final int x, final int y, final int idimage, final int type) {
+		this.idimage = idimage;
+		this.x = x;
+		this.y = y;
+		this.type = type;
+	}
 
-    public FillingMap(final int x, final int y, final int idimage, final int type) {
-        this.idimage = idimage;
-        this.x = x;
-        this.y = y;
-        this.type = type;
-    }
+	protected int getIdimage() {
+		return this.idimage;
+	}
 
-    protected int getX() {
-        return this.x;
-    }
+	protected int getType() {
+		return this.type;
+	}
 
-    protected void setX(final int x) {
-        this.x = x;
-    }
+	protected int getX() {
+		return this.x;
+	}
 
-    protected int getY() {
-        return this.y;
-    }
+	protected int getY() {
+		return this.y;
+	}
 
-    protected void setY(final int y) {
-        this.y = y;
-    }
+	protected void setIdimage(final int idimage) {
+		this.idimage = idimage;
+	}
 
-    protected int getType() {
-        return this.type;
-    }
+	protected void setType(final int type) {
+		this.type = type;
+	}
 
-    protected void setType(final int type) {
-        this.type = type;
-    }
+	protected void setX(final int x) {
+		this.x = x;
+	}
 
-    protected int getIdimage() {
-        return this.idimage;
-    }
-
-    protected void setIdimage(final int idimage) {
-        this.idimage = idimage;
-    }
+	protected void setY(final int y) {
+		this.y = y;
+	}
 
 }
