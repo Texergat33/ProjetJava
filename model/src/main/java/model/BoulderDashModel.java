@@ -65,6 +65,12 @@ public class BoulderDashModel extends Observable implements IBoulderDashModel {
 	}
 
 	@Override
+	public IMobile getMiner() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public void notifyObservers() {
 		for (final Observer observer : this.observers) {
 			observer.perform();
@@ -78,5 +84,7 @@ public class BoulderDashModel extends Observable implements IBoulderDashModel {
 	private void setMiner(final IMobile miner) {
 		this.miner = miner;
 	}
+
+
 
 }
