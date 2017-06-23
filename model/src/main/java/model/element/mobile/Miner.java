@@ -45,12 +45,12 @@ public class Miner extends Mobile {
         }
     }
 
-    /*- Pour le déplacement, dans chaque méthode, il faut tester la permeabilité de l'objet dans la direction dans laquelle on veut 
-     * aller. Ca va beaucoup ressembler aux déplacement des monstres. 
-     * Pour pousser un rocher, il faut faire plusieurs tests (CHEZ LE MINEUR, PAS LE ROCHER, ou alors il faut appeller une fonction du rocher depuis le 
-     * mineur, c'est chiant). Le premier test, c'est celle de la perméabilité de l'objet en face. Encore. Si c'est celle d'un rocher, faut tester celle 
+    /*- Pour le déplacement, dans chaque méthode, il faut tester la permeabilité de l'objet dans la direction dans laquelle on veut
+     * aller. Ca va beaucoup ressembler aux déplacement des monstres.
+     * Pour pousser un rocher, il faut faire plusieurs tests (CHEZ LE MINEUR, PAS LE ROCHER, ou alors il faut appeller une fonction du rocher depuis le
+     * mineur, c'est chiant). Le premier test, c'est celle de la perméabilité de l'objet en face. Encore. Si c'est celle d'un rocher, faut tester celle
      * de la case juste après. Si le tout est faisable, tu bouges le rocher d'une case dans la direction voulue, puis le mineur, puis tu lances
-     * les méthodes fall et glide du rocher (qui ne font rien si ce n'est pas possible). 
+     * les méthodes fall et glide du rocher (qui ne font rien si ce n'est pas possible).
      * VOILA VOILA. Encore désolé pour mes conneries les filles ^^'
      * (non-Javadoc)
      * @see model.element.mobile.Mobile#moveDown()

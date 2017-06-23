@@ -1,12 +1,47 @@
 package model.element.mobile;
 
+import java.awt.Point;
+
+import model.IMap;
 import model.element.Permeability;
 import model.element.Sprite;
+import model.element.motionless.MotionlessElement;
 
 public class SlowAndFollowTheWallsMonster extends Monster {
-	private static final Sprite SPRITE = new Sprite(6, "monster2");
+    private static final Sprite SPRITE = new Sprite(6, "monster2");
 
-	public SlowAndFollowTheWallsMonster(Sprite sprite, Permeability permeability) {
-		super(this.position, SPRITE, this.map, permeability);
-	}
+    public SlowAndFollowTheWallsMonster(final Point position, final Sprite sprite, final IMap map,
+            final Permeability permeability) {
+        super(position, SPRITE, map, permeability);
+    }
+
+    @Override
+    public void collect() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public Point getPosition() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public IMobile position(final int i, final int y) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void shift(final int i) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public MotionlessElement createBackground() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }
