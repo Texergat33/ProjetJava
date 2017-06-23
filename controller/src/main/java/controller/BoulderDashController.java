@@ -70,7 +70,7 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
      * public void start() throws SQLException {
      * this.getView().displayMessage(this.getModel().getExampleById(1).toString(
      * )); // Display exemple 1, by ID, We call the view and we display the
-     * 
+     *
      * message // We send a id this.getView().displayMessage(this.getModel().
      * getExampleByName( "Example 2").toString()); // Display exemple 2, by
      * Name, We call the view and we display the // message final List<Example>
@@ -78,7 +78,7 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
      * result of the exemple 3 final StringBuilder message = new
      * StringBuilder(); // create a string list of 16 caractere empty //
      * a.append(" bar); for (final Example example : examples) {
-     * 
+     *
      * message.append(example); message.append('\n'); }
      * this.getView().displayMessage(message.toString()); }
      */
@@ -151,7 +151,6 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 
     @Override
     public void orderPerform(final UserOrder orderPile) {
-        // TODO Auto-generated method stub
         this.setOrderPile(orderPile);
     }
 

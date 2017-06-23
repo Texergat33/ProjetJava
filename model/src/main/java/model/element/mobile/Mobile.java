@@ -30,7 +30,7 @@ public abstract class Mobile extends Element implements IMobile {
     public Mobile(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
         super(sprite, permeability);
         this.setMap(map);
-        this.position = new Point(x, y);
+        this.setPosition(new Point(x, y));
 
     }
 
@@ -115,7 +115,6 @@ public abstract class Mobile extends Element implements IMobile {
     }
 
     protected void setHasChanged() {
-
         this.getMap().setMobileHasChanged();
     }
 
@@ -144,7 +143,6 @@ public abstract class Mobile extends Element implements IMobile {
 
     @Override
     public int getY() {
-
         return this.position.y;
     }
 

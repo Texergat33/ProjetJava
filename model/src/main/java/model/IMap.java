@@ -22,4 +22,6 @@ public interface IMap {
 
     public void setDiamondCounter(final int diamondCounter);
 
+    public IMobile getMiner();
+
 }

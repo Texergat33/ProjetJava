@@ -2,16 +2,12 @@ package main;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import controller.BoulderDashController;
 import model.BoulderDashModel;
-import model.Map;
-import model.element.IElement;
-import model.element.Permeability;
-import model.element.Sprite;
-import model.element.mobile.Miner;
+import model.IBoulderDashModel;
 import view.BoulderDashView;
+import view.IBoulderDashView;
 
 /**
  * <h1>The Class Main.</h1>
@@ -20,21 +16,24 @@ import view.BoulderDashView;
  * @version 1.0
  */
 public abstract class Main {
+    private static int LEVELNAME = 1;
 
-	/**
-	 * The main method.
-	 *
-	 * @param args
-	 *            the arguments
-	 * @throws IOException
-	 * @throws InterruptedException
-	 */
-	public static void main(final String[] args) throws IOException, InterruptedException, SQLException {
-		final BoulderDashController controller = new BoulderDashController(new BoulderDashView(new Map(1),
-				new Miner(0, 0, new Sprite(1, "defaultMiner1"), new Map(1), Permeability.KILLABLE),
-				new ArrayList<IElement>()), new BoulderDashModel(1, 2, 3));
+    /**
+     * The main method.
+     *
+     * @param args
+     *            the arguments
+     * @throws IOException
+     * @throws InterruptedException
+     */
+    public static void main(final String[] args) throws IOException, InterruptedException, SQLException {
+        final IBoulderDashModel model = new BoulderDashModel(Main.LEVELNAME);
+        System.out.println("cc");
+        final IBoulderDashView view = new BoulderDashView(model.getMap());
+        final BoulderDashController controller = new BoulderDashController(view, model);
+        view.setOrderPerformer(controller.getOrderPerformer());
 
-		controller.play();
-	}
+        controller.play();
+    }
 
 }

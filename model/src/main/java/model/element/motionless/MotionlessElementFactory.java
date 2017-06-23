@@ -9,6 +9,8 @@ public abstract class MotionlessElementFactory {
             Permeability.PENETRABLEFOREVERYONE);
     private static Ground     ground     = new Ground(SpriteFactory.createGround(), Permeability.PENETRABLEFORMINER);
     private static Wall       wall       = new Wall(SpriteFactory.createWall(), Permeability.BLOCKINGFOREVERYONE);
+    private static IronWall   ironWall   = new IronWall(SpriteFactory.createIronWall(),
+            Permeability.BLOCKINGFOREVERYONE);
 
     private static MotionlessElement[] motionlessElements = { background, ground, wall,
 
@@ -24,6 +26,10 @@ public abstract class MotionlessElementFactory {
 
     public static MotionlessElement createWall() {
         return wall;
+    }
+
+    public static MotionlessElement createIronWall() {
+        return ironWall;
     }
 
     public static MotionlessElement getElementFromFileSymbol(final int elementID) {

@@ -12,6 +12,7 @@ public class Miner extends Mobile {
 
     public Miner(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
         super(x, y, sprite, map, permeability);
+        System.out.println("test");
         // TODO Auto-generated constructor stub
     }
 

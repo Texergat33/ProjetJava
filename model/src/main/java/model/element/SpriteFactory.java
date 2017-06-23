@@ -1,10 +1,10 @@
 package model.element;
 
 public abstract class SpriteFactory {
-    private static Sprite monsterFAFTW = new Sprite(0, null);
-    private static Sprite monsterSAFTW = new Sprite(0, null);
-    private static Sprite monsterFAR   = new Sprite(0, null);
-    private static Sprite monsterSAR   = new Sprite(0, null);
+    private static Sprite monsterFAFTW = new Sprite(11, "monster1.png");
+    private static Sprite monsterSAFTW = new Sprite(6, "monster2.png");
+    private static Sprite monsterFAR   = new Sprite(10, "monster3.png");
+    private static Sprite monsterSAR   = new Sprite(7, "monster4.png");
     private static Sprite boulder      = new Sprite(5, "boulder.png");
     private static Sprite diamondFront = new Sprite(9, "diamond.png");
     // private static Sprite diamondFront2 = new Sprite();
@@ -18,11 +18,12 @@ public abstract class SpriteFactory {
     private static Sprite minerLeft2  = new Sprite(8, "minerLeft2.png");
     private static Sprite minerRight1 = new Sprite(8, "minerRight1.png");
     private static Sprite minerRight2 = new Sprite(8, "minerRight2.png");
-    private static Sprite deadMiner1  = new Sprite(8, "deadMiner1");
-    private static Sprite deadMiner2  = new Sprite(8, "deadMiner2");
+    private static Sprite deadMiner1  = new Sprite(8, "deadMiner1.png");
+    private static Sprite deadMiner2  = new Sprite(8, "deadMiner2.png");
     private static Sprite background  = new Sprite(2, "background.png");
     private static Sprite ground      = new Sprite(3, "ground.png");
     private static Sprite wall        = new Sprite(4, "wall.png");
+    private static Sprite ironWall    = new Sprite(1, "ironWall.png");
 
     public static Sprite createBoulder() {
         boulder.loadImage();
@@ -46,6 +47,12 @@ public abstract class SpriteFactory {
 
     public static Sprite createDiamond() {
         diamondFront.loadImage();
+        return diamondFront;
+
+    }
+
+    public static Sprite createIronWall() {
+        ironWall.loadImage();
         return diamondFront;
 
     }
