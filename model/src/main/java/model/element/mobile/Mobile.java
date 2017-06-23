@@ -10,7 +10,6 @@ import showboard.IBoard;
 
 public abstract class Mobile extends Element implements IMobile {
 
-    private Point   position;
     private boolean alive   = true;
     private boolean falling = false;
     private IBoard  board;
@@ -18,10 +17,11 @@ public abstract class Mobile extends Element implements IMobile {
     private int     x;
     private int     y;
 
-    public Mobile(final Point position, final Sprite sprite, final IMap map, final Permeability permeability) {
+    public Mobile(int x, int y, final Sprite sprite, final IMap map, final Permeability permeability) {
         super(sprite, permeability);
         this.setMap(map);
-        this.position = new Point();
+        this.x = x;
+        this.y = y;
     }
 
     @Override
@@ -97,7 +97,7 @@ public abstract class Mobile extends Element implements IMobile {
         // montre que ça a bougé
     }
 
-    private void setHasChanged() {
+    protected void setHasChanged() {
         this.getMap().setMobileHasChanged();
     }
 
@@ -128,11 +128,11 @@ public abstract class Mobile extends Element implements IMobile {
         return this.y;
     }
 
-    private void setX(final int x) {
+    protected void setX(final int x) {
         this.x = x;
     }
 
-    private void setY(final int y) {
+    protected void setY(final int y) {
         this.y = y;
     }
 

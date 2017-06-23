@@ -6,14 +6,18 @@ import model.IMap;
 import model.element.Permeability;
 import model.element.Sprite;
 import model.element.SpriteFactory;
+import showboard.IBoard;
 
 public class Miner extends Mobile {
-
-    public Miner(final Point position, final Sprite sprite, final IMap map, final Permeability permeability) {
-        super(position, sprite, map, permeability);
+	
+    private int     x;
+    private int     y;
+    
+    public Miner(int x, int y, final Sprite sprite, final IMap map, final Permeability permeability) {
+        super(x, y, sprite, map, permeability);
         // TODO Auto-generated constructor stub
     }
-
+ 
 	@Override
 	public void die() {
 		super.die();
@@ -55,10 +59,10 @@ public class Miner extends Mobile {
  */
 	@Override
 	public void moveDown() {
-		super.moveDown();
-		while (true) {
 			this.setSprite(SpriteFactory.createMiner("minerDown1"));
-			this.setSprite(SpriteFactory.createMiner("minerDown2"));
+		if (this.getMap().getOnTheMapXY(this.getY(), this.getY() + 1).getPermeability() == Permeability.PENETRABLEFORMINER) {
+			 this.setY(this.getY() + 1);
+		        this.setHasChanged();
 		}
 	}
 
@@ -67,7 +71,7 @@ public class Miner extends Mobile {
 		super.moveLeft();
 		while (true) {
 			this.setSprite(SpriteFactory.createMiner("minerLeft1"));
-			this.setSprite(SpriteFactory.createMiner("minerLeft2"));
+
 		}
 	}
 
@@ -76,7 +80,7 @@ public class Miner extends Mobile {
 		super.moveRight();
 		while (true) {
 			this.setSprite(SpriteFactory.createMiner("minerRight1"));
-			this.setSprite(SpriteFactory.createMiner("minerRight2"));
+
 		}
 	}
 
