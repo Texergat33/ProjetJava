@@ -9,13 +9,7 @@ import java.util.List;
 import model.FillingMap;
 import model.MapDimensions;
 
-/**
- * <h1>The Class ExampleDAO.</h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
-public abstract class DAO extends AbstractDAO {
+public abstract class NewDAO {
 	/** The sql query which give us the map's size */
 	private static String sqlMapSize = "{call MapSize(?)}";
 
@@ -23,15 +17,50 @@ public abstract class DAO extends AbstractDAO {
 	private static String sqlFillMap = "{call FillMap(?)}";
 
 
+
+
 	/** The id column index. */
 	private static int idColumnIndex             = 1;
+
 	private static int HeightColumnIndex         = 2;
+
+
 	private static int WidthColumnIndex          = 3;
 	private static int DiamondCounterColumnIndex = 4;
 	private static int XColumnIndex              = 1;
 	private static int YColumnIndex              = 2;
 	private static int TypeColumnIndex           = 4;
 	private static int IDMAPColumnIndex          = 3;
+	public static List<ElementPositionEntry> getAllPositionsById(final int levelId) throws SQLException {
+		final List<ElementPositionEntry> elementPositionEntry = new ArrayList<ElementPositionEntry>();
+		final CallableStatement callStatement = AbstractDAO.prepareCall(DAO.sqlPositionElements);
+		callStatement.setInt(1, levelId);
+		if (callStatement.execute()) {
+			final ResultSet result = callStatement.getResultSet();
+
+			for (boolean isResultLeft = result.first(); isResultLeft; isResultLeft = result.next()) {
+				elementPositionEntry.add(new ElementPositionEntry(result.getInt(DAOLevel.XColumnIndex),
+						result.getInt(DAO.YColumnIndex), result.getInt(DAO.idElementType)));
+			}
+			result.close();
+		}
+		return elementPositionEntry;
+	}
+	public static LevelEntry getLevelByName(final String name) throws SQLException {
+		final CallableStatement callStatement = AbstractDAO.prepareCall(DAO.sqlDimensionsByName);
+		LevelEntry levelEntry = null;
+
+		callStatement.setString(1, name);
+		if (callStatement.execute()) {
+			final ResultSet result = callStatement.getResultSet();
+			if (result.first()) {
+				levelEntry = new LevelEntry(result.getInt(DAO.idColumnIndex),
+						result.getInt(DAO.widthColumnIndex), result.getInt(DAO.heightColumnIndex));
+			}
+			result.close();
+		}
+		return levelEntry;
+	}
 
 
 	/*
@@ -73,4 +102,5 @@ public abstract class DAO extends AbstractDAO {
 		}
 		return dimension;
 	}
+
 }

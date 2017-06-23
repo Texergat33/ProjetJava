@@ -85,6 +85,4 @@ public class BoulderDashModel extends Observable implements IBoulderDashModel {
 		this.miner = miner;
 	}
 
-
-
 }

@@ -14,7 +14,7 @@ import model.element.mobile.SlowAndFollowTheWallsMonster;
 import model.element.mobile.SlowAndRandomMonster;
 import model.element.motionless.MotionlessElementFactory;
 
-public class Map extends Observable implements IMap {
+public class NewMap {
 
 	private int       width;
 	private int       height;
@@ -125,5 +125,8 @@ public class Map extends Observable implements IMap {
 	private void setWidth(final int width) {
 		this.width = width;
 	}
+
+}
+
 
 }
