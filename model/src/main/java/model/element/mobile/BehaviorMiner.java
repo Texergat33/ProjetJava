@@ -3,6 +3,7 @@ package model.element.mobile;
 import model.element.Permeability;
 
 public class BehaviorMiner extends BehaviorDoSomething {
+
     @Override
     public void doSomething() {
         final int x = this.mobile.getX();
@@ -20,6 +21,7 @@ public class BehaviorMiner extends BehaviorDoSomething {
                 this.mobile.moveUp();
             } else if (this.mobile.getMap().getOnTheMapXY(x + 1, y).getPermeability() == Permeability.KILLABLE) {
                 this.mobile.die();
+
 
             } else {
                 this.mobile.doNothing();
@@ -85,5 +87,7 @@ public class BehaviorMiner extends BehaviorDoSomething {
 
         }
 
-    }
+
+	    }
+
 }

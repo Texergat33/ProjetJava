@@ -10,6 +10,7 @@ import showboard.IBoard;
 
 public abstract class Mobile extends Element implements IMobile {
 
+
     private Point   position;
     private boolean alive   = true;
     private boolean falling = false;
@@ -139,5 +140,6 @@ public abstract class Mobile extends Element implements IMobile {
     private void setY(final int y) {
         this.y = y;
     }
+
 
 }
