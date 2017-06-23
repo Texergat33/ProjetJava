@@ -9,7 +9,7 @@ public class BehaviorFall extends BehaviorDoSomething {
 		int x = this.mobile.getX();
 		int y = this.mobile.getY();
 
-		if (this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLEFORBOULDER) {
+		if (this.mobile.getMap().getOnTheMapXY(x, y + 1).getPermeability() == Permeability.PENETRABLEFOROTHERS) {
 			this.mobile.moveDown();
 			this.mobile.setFalling(true);
 
@@ -52,9 +52,9 @@ public class BehaviorFall extends BehaviorDoSomething {
 		}
 
 		if ((this.mobile.getMap().getOnTheMapXY(sideX, this.mobile.getY())
-				.getPermeability() == Permeability.PENETRABLEFORBOULDER)
+				.getPermeability() == Permeability.PENETRABLEFOROTHERS)
 				&& (this.mobile.getMap().getOnTheMapXY(sideX, this.mobile.getY() + 1)
-						.getPermeability() == Permeability.PENETRABLEFORBOULDER)) {
+						.getPermeability() == Permeability.PENETRABLEFOROTHERS)) {
 			return true;
 		}
 		return false;

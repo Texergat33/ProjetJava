@@ -1,13 +1,11 @@
 package main;
 
-import java.awt.Point;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import controller.BoulderDashController;
 import model.BoulderDashModel;
-import model.IMap;
 import model.Map;
 import model.element.IElement;
 import model.element.Permeability;
@@ -23,19 +21,20 @@ import view.BoulderDashView;
  */
 public abstract class Main {
 
-    /**
-     * The main method.
-     *
-     * @param args
-     *            the arguments
-     * @throws IOException 
-     * @throws InterruptedException 
-     */
-    public static void main(final String[] args) throws IOException, InterruptedException, SQLException {
-        final BoulderDashController controller = new BoulderDashController(new BoulderDashView(new Map(1), new Miner(new Point(), new Sprite(1, "defaultMiner1"), (IMap) new Map(1), Permeability.KILLABLE), new ArrayList<IElement>()),
-                new BoulderDashModel(1, 2, 3));
+	/**
+	 * The main method.
+	 *
+	 * @param args
+	 *            the arguments
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
+	public static void main(final String[] args) throws IOException, InterruptedException, SQLException {
+		final BoulderDashController controller = new BoulderDashController(new BoulderDashView(new Map(1),
+				new Miner(0, 0, new Sprite(1, "defaultMiner1"), new Map(1), Permeability.KILLABLE),
+				new ArrayList<IElement>()), new BoulderDashModel(1, 2, 3));
 
-        controller.play();
-    }
+		controller.play();
+	}
 
 }

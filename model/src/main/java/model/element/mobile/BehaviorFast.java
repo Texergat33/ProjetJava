@@ -10,24 +10,24 @@ public class BehaviorFast extends BehaviorDoSomething {
 	for (int i = 0; i<2; i++)
 		switch (this.random(1, 4)){
 		case 1:
-			if (this.mobile.getMap().getOnTheMapXY(x, y+1).getPermeability() == Permeability.PENETRABLEFORMONSTER){
+			if (this.mobile.getMap().getOnTheMapXY(x, y+1).getPermeability() == Permeability.PENETRABLEFOROTHERS){
 				this.mobile.moveDown();
 			}
 			break;
 		case 2:
-			if (this.mobile.getMap().getOnTheMapXY(x-1, y).getPermeability() == Permeability.PENETRABLEFORMONSTER){
+			if (this.mobile.getMap().getOnTheMapXY(x-1, y).getPermeability() == Permeability.PENETRABLEFOROTHERS){
 				this.mobile.moveLeft();
 			}
 			break;
 				
 		case 3:
-			if (this.mobile.getMap().getOnTheMapXY(x, y -1).getPermeability() == Permeability.PENETRABLEFORMONSTER){
+			if (this.mobile.getMap().getOnTheMapXY(x, y -1).getPermeability() == Permeability.PENETRABLEFOROTHERS){
 				this.mobile.moveUp();
 			}
 			break;
 			
 		case 4:
-			if (this.mobile.getMap().getOnTheMapXY(x+1, y).getPermeability() == Permeability.PENETRABLEFORMONSTER){
+			if (this.mobile.getMap().getOnTheMapXY(x+1, y).getPermeability() == Permeability.PENETRABLEFOROTHERS){
 				this.mobile.moveRight();
 			}
 			break;

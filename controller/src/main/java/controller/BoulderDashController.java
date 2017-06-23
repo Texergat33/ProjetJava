@@ -49,18 +49,16 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 		this.emptyOrderPile();
 	}
 
-	public void emptyOrderPile() {
-		this.OrderPile = UserOrder.NOP;
+
+	private void setModel(final IBoulderDashModel model) {
+		// TODO Auto-generated method stub
+		this.model = model;
 	}
 
-	/**
-	 * Gets the model.
-	 *
-	 * @return the model
-	 */
-	public IBoulderDashModel getModel() {
-		return this.model;
-	}
+	private void setView(final IBoulderDashView view) {
+		// TODO Auto-generated method stub
+		this.view = view;
+
 
 	/**
 	 * Start.
@@ -76,28 +74,18 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 	 * public void start() throws SQLException {
 	 * this.getView().displayMessage(this.getModel().getExampleById(1).toString(
 	 * )); // Display exemple 1, by ID, We call the view and we display the
-	 * message // We send a id
-	 * this.getView().displayMessage(this.getModel(). getExampleByName(
-	 * "Example 2").toString()); // Display exemple 2, by Name, We call the view
-	 * and we display the // message
-	 * final List<Example> examples = this.getModel().getAllExamples(); // we
-	 * put in a arraylist the result of the exemple 3 final StringBuilder
-	 * message = new StringBuilder(); // create a string list of 16 caractere
-	 * empty // a.append(" bar); for (final Example example : examples) {
+
+	 * message // We send a id this.getView().displayMessage(this.getModel().
+	 * getExampleByName( "Example 2").toString()); // Display exemple 2, by
+	 * Name, We call the view and we display the // message final List<Example>
+	 * examples = this.getModel().getAllExamples(); // we put in a arraylist the
+	 * result of the exemple 3 final StringBuilder message = new
+	 * StringBuilder(); // create a string list of 16 caractere empty //
+	 * a.append(" bar); for (final Example example : examples) {
+
 	 * message.append(example); message.append('\n'); }
 	 * this.getView().displayMessage(message.toString()); }
 	 */
-
-	@Override
-	public IOrderPerformer getOrderPerformer() {
-		// TODO Auto-generated method stub
-
-		return this;
-	}
-
-	public UserOrder getOrderPile() {
-		return this.OrderPile;
-	}
 
 	/**
 	 * Gets the view.
@@ -109,10 +97,14 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 	}
 
 
-	@Override
-	public void orderPerform(final UserOrder orderPile) {
-		// TODO Auto-generated method stub
-		this.setOrderPile(orderPile);
+	/**
+	 * Gets the model.
+	 *
+	 * @return the model
+	 */
+	public IBoulderDashModel getModel() {
+		return this.model;
+
 	}
 
 	/*
@@ -155,18 +147,34 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 		this.getView().displayMessage("Game over");
 	}
 
-	private void setModel(final IBoulderDashModel model) {
+
+	@Override
+	public IOrderPerformer getOrderPerformer() {
 		// TODO Auto-generated method stub
-		this.model = model;
+
+		return this;
 	}
+
+	@Override
+	public void orderPerform(final UserOrder orderPile) {
+		// TODO Auto-generated method stub
+		this.setOrderPile(orderPile);
+	}
+
+	public UserOrder getOrderPile() {
+		return this.OrderPile;
+	}
+
 
 	public void setOrderPile(final UserOrder orderPile) {
 		this.OrderPile = orderPile;
 	}
 
-	private void setView(final IBoulderDashView view) {
-		// TODO Auto-generated method stub
-		this.view = view;
+
+	public void emptyOrderPile() {
+		this.OrderPile = UserOrder.NOP;
+
+
 	}
 
 }

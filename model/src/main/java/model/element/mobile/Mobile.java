@@ -10,18 +10,28 @@ import showboard.IBoard;
 
 public abstract class Mobile extends Element implements IMobile {
 
-	private Point	position;
-	private boolean	alive	= true;
-	private boolean	falling	= false;
-	private IBoard	board;
-	private IMap	map;
-	private int		x;
-	private int		y;
+	@Override
+	public Point getPosition() {
+		return this.position;
+	}
 
-	public Mobile(final Point position, final Sprite sprite, final IMap map, final Permeability permeability) {
+	@Override
+	public void collect() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private boolean alive = true;
+	private boolean falling = false;
+	private IBoard board;
+	private IMap map;
+	protected Point position;
+
+	public Mobile(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
 		super(sprite, permeability);
 		this.setMap(map);
-		this.position = new Point();
+		this.position = new Point(x, y);
+
 	}
 
 	@Override
@@ -31,6 +41,7 @@ public abstract class Mobile extends Element implements IMobile {
 		// statue alive est faux
 		// informe du mouvement
 	}
+
 
 	public void ruin() {
 		this.getMap().getOnTheMapXY(this.x, this.y).createBackground();
@@ -72,6 +83,7 @@ public abstract class Mobile extends Element implements IMobile {
 	@Override
 	public void moveDown() {
 		this.setY(this.getY() + 1);
+
 		this.setHasChanged();
 		// met en place la position de Y
 		// montre que ça a bougé
@@ -95,13 +107,17 @@ public abstract class Mobile extends Element implements IMobile {
 
 	@Override
 	public void moveUp() {
-		this.setY(this.getY() - 1);
+
+		this.setY(this.getY() + 1);
+
 		this.setHasChanged();
 		// met en place la position de Y
 		// montre que ça a bougé
 	}
 
-	private void setHasChanged() {
+	protected void setHasChanged() {
+
+
 		this.getMap().setMobileHasChanged();
 	}
 
@@ -124,20 +140,23 @@ public abstract class Mobile extends Element implements IMobile {
 
 	@Override
 	public int getX() {
-		return this.x;
+return this.position.x;
+
 	}
 
 	@Override
 	public int getY() {
-		return this.y;
+
+		return this.position.y;
 	}
 
-	private void setX(final int x) {
-		this.x = x;
+	protected void setX(final int x) {
+		this.position.x = x;
 	}
 
-	private void setY(final int y) {
-		this.y = y;
+	protected void setY(final int y) {
+		this.position.y = y;
+
 	}
 
 }
