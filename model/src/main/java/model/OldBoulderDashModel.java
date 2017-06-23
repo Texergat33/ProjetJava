@@ -10,12 +10,12 @@ import model.dao.DAO;
 import model.element.mobile.IMobile;
 import model.element.mobile.Miner;
 
-public class BoulderDashModel extends Observable implements IBoulderDashModel {
-	private IMobile miner; //v�rifier utilit�
-	private IMap map; //v�rifier utilit�
-	private ArrayList<Observer> observers;
+public class OldBoulderDashModel extends Observable implements OldIBoulderDashModel {
+	private IMobile                   miner;
+	private IMap                      map;
+	private final ArrayList<Observer> observers;
 
-	public BoulderDashModel(final int level, final int minerStartX, final int minerStartY) {
+	public OldBoulderDashModel(final int level, final int minerStartX, final int minerStartY) {
 		this.observers = new ArrayList<Observer>();
 		this.setMap(new Map(level));
 		// met en place la route en créant la Map avec en paramètre le numéro
@@ -29,6 +29,7 @@ public class BoulderDashModel extends Observable implements IBoulderDashModel {
 	@Override
 	public void addObserver(final Observer observer) {
 		this.observers.add(observer);
+
 	}
 
 	@Override
@@ -37,32 +38,51 @@ public class BoulderDashModel extends Observable implements IBoulderDashModel {
 	}
 
 	@Override
-	public List<FillingMap> getAllPositionsById(final int levelID) throws SQLException {
-		return DAO.getMapFilledByID(levelID);
-	}
-
-	@Override
-	public GamingMap getLevelByID(int levelID) throws SQLException {
-		return DAO.getLevelByID(levelID);
-	}
-
-	@Override
 	public IMap getMap() {
 		return this.map;
 	}
 
 	@Override
-	public IMobile getMiner() {
-		return this.miner;
+	public List<FillingMap> getMapFilled(final int id) {
+		try {
+			return DAO.getMapFilled(id);
+		} catch (final SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
-	public void setMap(IMap map) {
+	@Override
+	public MapDimensions getMapSize(final int id) {
+		try {
+			return DAO.getMapSize(id);
+		} catch (final SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public IMobile getMiner() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void notifyObservers() {
+		for (final Observer observer : this.observers) {
+			observer.perform();
+		}
+	}
 
 	private void setMap(final IMap map) {
 		this.map = map;
 	}
 
-	public void setMiner(IMobile miner) {
+	private void setMiner(final IMobile miner) {
 		this.miner = miner;
 	}
+
 }

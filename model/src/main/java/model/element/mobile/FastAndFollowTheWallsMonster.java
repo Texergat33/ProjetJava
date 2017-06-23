@@ -8,7 +8,6 @@ import model.element.Sprite;
 import model.element.motionless.MotionlessElement;
 
 public class FastAndFollowTheWallsMonster extends Monster {
-    private static final Sprite SPRITE = new Sprite(11, "monster1");
 
     public FastAndFollowTheWallsMonster(final int x, final int y, final Sprite sprite, final IMap map,
             final Permeability permeability) {
@@ -26,5 +25,4 @@ public class FastAndFollowTheWallsMonster extends Monster {
         // TODO Auto-generated method stub
         return null;
     }
-
 }

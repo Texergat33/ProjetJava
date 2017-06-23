@@ -1,10 +1,8 @@
 package model;
 
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Observable;
 
-import model.dao.DAO;
 import model.element.IElement;
 import model.element.mobile.Boulder;
 import model.element.mobile.Diamond;
@@ -16,39 +14,30 @@ import model.element.mobile.SlowAndFollowTheWallsMonster;
 import model.element.mobile.SlowAndRandomMonster;
 import model.element.motionless.MotionlessElementFactory;
 
-public class Map extends Observable implements IMap {
+public class OldMap extends Observable implements IMap {
 
-	private int width;
-	private int height;
-	private int levelID;
-	private IElement onTheMap[][];
-	private int diamondCounter;
+	private int       width;
+	private int       height;
+	private int level;
+	private IElement  onTheMap[][];
+	private int       DiamondCounter;
 
-	public Map(final int levelID) {
+	public OldMap(final int level) {
 		super();
-		this.setLevelID(levelID);
+		this.level = level;
 		// récupère les informations du constructeur de la classe Observable
-		try {
-			this.loadLevel();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		this.loadLevel();
 		// lance la méthode load level avec en paramètre le numéro du niveau
 	}
 
 	@Override
 	public int getDiamondCounter() {
-		return this.diamondCounter;
+		return this.DiamondCounter;
 	}
 
 	@Override
 	public int getHeight() {
 		return this.height;
-	}
-
-	public int getLevelID() {
-		return this.levelID;
 	}
 
 	@Override
@@ -71,18 +60,18 @@ public class Map extends Observable implements IMap {
 		return this.width;
 	}
 
-	public void loadLevel() throws SQLException {
-		final GamingMap gamingMap = DAO.getLevelByID(this.levelID);
-		final int consoleMapTable[][] = new int[gamingMap.getWidth()][gamingMap.getHeight()];
-		this.onTheMap = new IElement[this.getHeight()][this.getWidth()];
-		final List<FillingMap> objects = DAO.getMapFilledByID(gamingMap.getLevelID());
-		for (final FillingMap fillingMap : objects) {
-			consoleMapTable[fillingMap.getY()][fillingMap.getX()] = fillingMap
-					.getObjectType();
+	private void loadLevel() {
+		// récupère les données de la map sélectionnée dans la BDD
+		// et transforme les caractères en instances d'éléments
+		final MapDimensions mapDimensions = this.getModel().getMapSize(this.level);
+		final int ConsoleMapTable[][] = new int[mapDimensions.getWidth()][mapDimensions.getLength()];
+		final List<FillingMap> objects = this.getModel().getMapFilled(mapDimensions.getId());
+		for (final FillingMap fillingmap : objects) {
+			ConsoleMapTable[fillingmap.x][fillingmap.y] = fillingmap.type;
 		}
-		for (int y = 0; y < this.getHeight(); y++) {
-			for (int x = 0; x < this.getWidth(); x++) {
-				final int currentCell = consoleMapTable[x][y];
+		for (int x = 0; x < mapDimensions.getWidth(); x++) {
+			for (int y = 0; y < mapDimensions.getLength(); y++) {
+				final int currentCell = ConsoleMapTable[x][y];
 				switch (currentCell) {
 				case 1:
 				case 2:
@@ -112,15 +101,11 @@ public class Map extends Observable implements IMap {
 
 	@Override
 	public void setDiamondCounter(final int diamondCounter) {
-		this.diamondCounter = diamondCounter;
+		this.DiamondCounter = diamondCounter;
 	}
 
 	private void setHeight(final int height) {
 		this.height = height;
-	}
-
-	public void setLevelID(int levelID) {
-		this.levelID = levelID;
 	}
 
 	@Override
@@ -140,4 +125,5 @@ public class Map extends Observable implements IMap {
 	private void setWidth(final int width) {
 		this.width = width;
 	}
+
 }

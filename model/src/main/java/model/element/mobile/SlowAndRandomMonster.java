@@ -26,5 +26,4 @@ public class SlowAndRandomMonster extends Monster {
         // TODO Auto-generated method stub
         return null;
     }
-
 }
