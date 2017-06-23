@@ -57,20 +57,20 @@ public class Map extends Observable implements IMap {
         return this.levelID;
     }
 
-	@Override
-	public IMobile getMobileXY(final int x, final int y) {
-		return null;
-	}
+    @Override
+    public IMobile getMobileXY(final int x, final int y) {
+        return this.mobile;
+    }
 
-	@Override
-	public Observable getObservable() {
-		return null;
-	}
+    @Override
+    public Observable getObservable() {
+        return this.observable;
+    }
 
-	@Override
-	public IElement getOnTheMapXY(final int x, final int y) {
-		return this.onTheMap[y][x];
-	}
+    @Override
+    public IElement getOnTheMapXY(final int x, final int y) {
+        return this.onTheMap[y][x];
+    }
 
     @Override
     public int getWidth() {
@@ -176,8 +176,8 @@ public class Map extends Observable implements IMap {
         this.miner = miner;
     }
 
-    /*
-     * public void setObservable(final Observable observable) { this.observable
-     * = observable; }
-     */
+    public void setObservable(final Observable observable) {
+        this.observable = observable;
+    }
+
 }
