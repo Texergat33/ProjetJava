@@ -4,14 +4,13 @@ import java.awt.Point;
 
 import model.IMap;
 import model.element.Permeability;
-import model.element.Sprite;
 import model.element.SpriteFactory;
 import model.element.motionless.MotionlessElement;
 
 public class Miner extends Mobile {
 
-    public Miner(final Point position, final Sprite sprite, final IMap map, final Permeability permeability) {
-        super(position, sprite, map, permeability);
+    public Miner(final int minerStartX, final int minerStartY, final IMap map) {
+        super(this.position, SpriteFactory.createMiner("defaultMiner1"), map, Permeability.KILLABLE);
         // TODO Auto-generated constructor stub
     }
 

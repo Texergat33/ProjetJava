@@ -16,15 +16,15 @@ public class BoulderDashModel extends Observable implements IBoulderDashModel {
     private final ArrayList<Observer> observers;
 
     public BoulderDashModel(final int level, final int minerStartX, final int minerStartY) {
-		this.observers = new ArrayList<Observer>();
-		this.setMap(new Map(level));
-		// met en place la route en créant la Map avec en paramètre le numéro
-		// de
-		// Map
-		this.setMiner(new Miner(minerStartX, minerStartY);
-		// met en place le mineur en le créant avec sa position X et Y de
-		// départ, et récupère la Map
-	}
+        this.observers = new ArrayList<Observer>();
+        this.setMap(new Map(level));
+        // met en place la route en créant la Map avec en paramètre le numéro
+        // de
+        // Map
+        this.setMiner(new Miner(minerStartX, minerStartY));
+        // met en place le mineur en le créant avec sa position X et Y de
+        // départ, et récupère la Map
+    }
 
     @Override
     public void addObserver(final Observer observer) {
