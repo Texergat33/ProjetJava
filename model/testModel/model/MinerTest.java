@@ -1,7 +1,7 @@
 package model;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -33,16 +33,21 @@ public class MinerTest {
 
 	@Test
 	public void testDie() {
-		fail("Not yet implemented");
+		final Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerRight1"), new Map(1),
+				Permeability.KILLABLE);
+		miner.die();
+		assertFalse(miner.alive);
 	}
 
 	@Test
 	public void testDoNothing() {
 		final Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerRight1"), new Map(1),
 				Permeability.KILLABLE);
-		final int expected = 2;
+		final int expectedX = 2;
+		final int expectedY = 2;
 		miner.doNothing();
-		assertEquals(expected, miner.getX());
+		assertEquals(expectedX, miner.getX());
+		assertEquals(expectedY, miner.getY());
 	}
 
 	@Test
