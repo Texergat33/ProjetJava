@@ -43,12 +43,24 @@ public class MinerTest {
 
 	@Test
 	public void testMoveDown() {
-		fail("Not yet implemented");
+		Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerRight1"), new Map(1), Permeability.KILLABLE);
+
+		int x = miner.getX();
+
+		miner.moveRight();
+
+		assertEquals(x - 1, miner.getY());
 	}
 
 	@Test
 	public void testMoveLeft() {
-		fail("Not yet implemented");
+		Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerLeft1"), new Map(1), Permeability.KILLABLE);
+
+		int x = miner.getX();
+
+		miner.moveLeft();
+
+		assertEquals(x - 1, miner.getY());
 	}
 
 	@Test
@@ -59,7 +71,7 @@ public class MinerTest {
 
 		miner.moveRight();
 
-		assertEquals(x - 1, miner.getY());
+		assertEquals(x + 1, miner.getY());
 	}
 
 	@Test
