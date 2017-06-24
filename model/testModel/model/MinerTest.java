@@ -15,83 +15,84 @@ import model.element.mobile.Miner;
 
 public class MinerTest {
 
-    @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
-    }
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+	}
 
-    @AfterClass
-    public static void tearDownAfterClass() throws Exception {
-    }
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
 
-    @Before
-    public void setUp() throws Exception {
-    }
+	@Before
+	public void setUp() throws Exception {
+	}
 
-    @After
-    public void tearDown() throws Exception {
-    }
+	@After
+	public void tearDown() throws Exception {
+	}
 
-    @Test
-    public void testDie() {
-        fail("Not yet implemented");
-    }
+	@Test
+	public void testDie() {
+		fail("Not yet implemented");
+	}
 
-    @Test
-    public void testDoNothing() {
-        final Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerRight1"), new Map(1),
-                Permeability.KILLABLE);
-        final int expected = 2;
-        miner.doNothing();
-        assertEquals(expected, miner.getX());
-    }
+	@Test
+	public void testDoNothing() {
+		final Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerRight1"), new Map(1),
+				Permeability.KILLABLE);
+		final int expected = 2;
+		miner.doNothing();
+		assertEquals(expected, miner.getX());
+	}
 
-    @Test
-    public void testMoveDown() {
-        final Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerRight1"), new Map(1),
-                Permeability.KILLABLE);
+	@Test
+	public void testMoveDown() {
+		final Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerRight1"), new Map(1),
+				Permeability.KILLABLE);
 
-        final int x = 2;
+		final int y = 2;
 
-        miner.moveDown();
+		miner.moveDown();
 
-        assertEquals(x - 1, miner.getY());
-    }
+		assertEquals(y + 1, miner.getY());
+	}
 
-    @Test
-    public void testMoveLeft() {
-        final Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerLeft1"), new Map(1), Permeability.KILLABLE);
+	@Test
+	public void testMoveLeft() {
+		final Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerLeft1"), new Map(1), Permeability.KILLABLE);
 
-        final int y = miner.getY();
-        final int expected = y;
+		final int x = miner.getX();
 
-        miner.moveLeft();
+		miner.moveLeft();
 
-        assertEquals(expected, miner.getY());
-    }
+		final int expected = x - 1;
 
-    @Test
-    public void testMoveRight() {
-        final Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerRight1"), new Map(1),
-                Permeability.KILLABLE);
+		assertEquals(expected, miner.getX());
+	}
 
-        final int x = miner.getX();
+	@Test
+	public void testMoveRight() {
+		final Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerRight1"), new Map(1),
+				Permeability.KILLABLE);
 
-        miner.moveRight();
+		final int x = miner.getX();
 
-        final int expected = x + 1;
+		miner.moveRight();
 
-        assertEquals(expected, miner.getX());
-    }
+		final int expected = x + 1;
 
-    @Test
-    public void testMoveUp() {
-        final Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerUp"), new Map(1), Permeability.KILLABLE);
+		assertEquals(expected, miner.getX());
+	}
 
-        final int y = miner.getY();
+	@Test
+	public void testMoveUp() {
+		final Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerUp"), new Map(1), Permeability.KILLABLE);
 
-        miner.moveUp();
+		final int y = miner.getY();
 
-        assertEquals(y - 1, miner.getY());
-    }
+		miner.moveUp();
+
+		assertEquals(y - 1, miner.getY());
+	}
 
 }
