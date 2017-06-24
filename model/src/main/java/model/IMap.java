@@ -7,24 +7,28 @@ import model.element.IElement;
 import model.element.mobile.IMobile;
 
 public interface IMap {
-    public int getHeight();
+	public int getDiamondCounter();
 
-    public Observable getObservable();
+	public int getHeight();
 
-    public IElement getOnTheMapXY(int x, int y);
+	public IMobile getMiner();
 
-    public int getWidth();
 
-    public void setMobileHasChanged();
+	public ArrayList<IMobile> getMobiles();
 
-    public IMobile getMobileXY(int x, int y);
 
-    public int getDiamondCounter();
 
-    public void setDiamondCounter(final int diamondCounter);
 
-    public IMobile getMiner();
+	public IMobile getMobileXY(int x, int y);
 
-    public ArrayList<IMobile> getMobiles();
+	public Observable getObservable();
+
+	public IElement getOnTheMapXY(int x, int y);
+
+	public int getWidth();
+
+	public void setDiamondCounter(final int diamondCounter);
+
+	public void setMobileHasChanged();
 
 }
