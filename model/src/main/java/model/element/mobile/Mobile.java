@@ -10,15 +10,15 @@ import showboard.IBoard;
 
 public abstract class Mobile extends Element implements IMobile {
 
-	private boolean alive = true;
-	private boolean falling = false;
-	private IBoard board;
-	private IMap map;
-	protected Point position;
-	protected BehaviorDoSomething doSomething;
-	private int x;
-	private int y;
-	
+	private boolean					alive	= true;
+	private boolean					falling	= false;
+	private IBoard					board;
+	private IMap					map;
+	protected Point					position;
+	protected BehaviorDoSomething	doSomething;
+	private int						x;
+	private int						y;
+
 	public Mobile(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
 		super(sprite, permeability);
 		this.setMap(map);
@@ -26,7 +26,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	}
 
-  @Override
+	@Override
 	public Point getPosition() {
 		return this.position;
 	}
@@ -34,13 +34,11 @@ public abstract class Mobile extends Element implements IMobile {
 	@Override
 	public void collect() {
 	}
-  
+
 	@Override
 	public void die() {
 		this.alive = false;
 		this.setHasChanged();
-		// statue alive est faux
-		// informe du mouvement
 	}
 
 	@Override
@@ -52,7 +50,7 @@ public abstract class Mobile extends Element implements IMobile {
 	public boolean isFalling() {
 		return this.falling;
 	}
-  
+
 	public void ruin() {
 		this.getMap().getOnTheMapXY(this.position.x, this.position.y).createBackground();
 	}
@@ -60,7 +58,6 @@ public abstract class Mobile extends Element implements IMobile {
 	@Override
 	public void doNothing() {
 		this.setHasChanged();
-		// informe du mouvement
 	}
 
 	@Override
@@ -73,11 +70,9 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.alive;
 	}
 
+	@Override
 	public boolean isKilled() {
 		return this.alive;
-		// récupère la map, et quand le mineur et le rocher/monstre se trouve
-		// à
-		// la même position lors d'une boucle,
 	}
 
 	@Override
@@ -85,24 +80,18 @@ public abstract class Mobile extends Element implements IMobile {
 		this.setY(this.getY() + 1);
 
 		this.setHasChanged();
-		// met en place la position de Y
-		// montre que ça a bougé
 	}
 
 	@Override
 	public void moveLeft() {
 		this.setX(this.getX() - 1);
 		this.setHasChanged();
-		// met en place la position de X
-		// montre que ça a bougé
 	}
 
 	@Override
 	public void moveRight() {
 		this.setX(this.getX() + 1);
 		this.setHasChanged();
-		// met en place la position de X
-		// montre que ça a bougé
 	}
 
 	@Override
@@ -111,10 +100,8 @@ public abstract class Mobile extends Element implements IMobile {
 		this.setY(this.getY() + 1);
 
 		this.setHasChanged();
-		// met en place la position de Y
-		// montre que ça a bougé
 	}
-    
+
 	protected void setHasChanged() {
 		this.getMap().setMobileHasChanged();
 	}
@@ -154,5 +141,5 @@ public abstract class Mobile extends Element implements IMobile {
 	protected void setY(final int y) {
 		this.position.y = y;
 
-  }
+	}
 }

@@ -21,19 +21,16 @@ public class Boulder extends Mobile {
 
 	@Override
 	public Point getPosition() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Point position(final int i, final int y) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public MotionlessElement createBackground() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
