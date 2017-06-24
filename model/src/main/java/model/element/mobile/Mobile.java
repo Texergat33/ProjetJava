@@ -13,39 +13,44 @@ import showboard.IBoard;
  * The Class Mobile.
  */
 public abstract class Mobile extends Element implements IMobile {
-	
+
 	/** The alive. */
-	private boolean					alive	= true;
-	
+	public boolean					alive	= true;
+
 	/** The falling. */
 	private boolean					falling	= false;
-	
+
 	/** The board. */
 	private IBoard					board;
-	
+
 	/** The map. */
 	private IMap					map;
-	
+
 	/** The position. */
 	protected Point					position;
-	
+
 	/** The do something. */
 	protected BehaviorDoSomething	doSomething;
-	
+
 	/** The x. */
 	private int						x;
-	
+
 	/** The y. */
 	private int						y;
 
 	/**
 	 * Instantiates a new mobile.
 	 *
-	 * @param x the x
-	 * @param y the y
-	 * @param sprite the sprite
-	 * @param map the map
-	 * @param permeability the permeability
+	 * @param x
+	 *            the x
+	 * @param y
+	 *            the y
+	 * @param sprite
+	 *            the sprite
+	 * @param map
+	 *            the map
+	 * @param permeability
+	 *            the permeability
 	 */
 	public Mobile(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
 		super(sprite, permeability);
@@ -54,14 +59,18 @@ public abstract class Mobile extends Element implements IMobile {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see model.element.mobile.IMobile#collect()
 	 */
 	@Override
 	public void collect() {
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see model.element.mobile.IMobile#die()
 	 */
 	@Override
@@ -70,7 +79,9 @@ public abstract class Mobile extends Element implements IMobile {
 		this.setHasChanged();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see model.element.mobile.IMobile#doNothing()
 	 */
 	@Override
@@ -78,7 +89,9 @@ public abstract class Mobile extends Element implements IMobile {
 		this.setHasChanged();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see model.element.mobile.IMobile#doSomething()
 	 */
 	@Override
@@ -95,7 +108,9 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.board;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see model.element.mobile.IMobile#getMap()
 	 */
 	@Override
@@ -103,7 +118,9 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.map;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see model.element.mobile.IMobile#getPosition()
 	 */
 	@Override
@@ -111,7 +128,9 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.position;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see model.element.mobile.IMobile#getX()
 	 */
 	@Override
@@ -120,7 +139,9 @@ public abstract class Mobile extends Element implements IMobile {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see model.element.mobile.IMobile#getY()
 	 */
 	@Override
@@ -128,7 +149,9 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.position.y;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see model.element.mobile.IMobile#isAlive()
 	 */
 	@Override
@@ -136,7 +159,9 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.alive;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see model.element.mobile.IMobile#isFalling()
 	 */
 	@Override
@@ -144,7 +169,9 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.falling;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see model.element.mobile.IMobile#isKilled()
 	 */
 	@Override
@@ -152,7 +179,9 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.alive;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see model.element.mobile.IMobile#moveDown()
 	 */
 	@Override
@@ -162,7 +191,9 @@ public abstract class Mobile extends Element implements IMobile {
 		this.setHasChanged();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see model.element.mobile.IMobile#moveLeft()
 	 */
 	@Override
@@ -171,7 +202,9 @@ public abstract class Mobile extends Element implements IMobile {
 		this.setHasChanged();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see model.element.mobile.IMobile#moveRight()
 	 */
 	@Override
@@ -180,7 +213,9 @@ public abstract class Mobile extends Element implements IMobile {
 		this.setHasChanged();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see model.element.mobile.IMobile#moveUp()
 	 */
 	@Override
@@ -198,7 +233,9 @@ public abstract class Mobile extends Element implements IMobile {
 		this.getMap().getOnTheMapXY(this.position.x, this.position.y).createBackground();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see model.element.mobile.IMobile#setFalling(boolean)
 	 */
 	@Override
@@ -216,7 +253,8 @@ public abstract class Mobile extends Element implements IMobile {
 	/**
 	 * Sets the map.
 	 *
-	 * @param map the new map
+	 * @param map
+	 *            the new map
 	 */
 	private void setMap(final IMap map) {
 		this.map = map;
@@ -225,7 +263,8 @@ public abstract class Mobile extends Element implements IMobile {
 	/**
 	 * Sets the position.
 	 *
-	 * @param position the new position
+	 * @param position
+	 *            the new position
 	 */
 	public void setPosition(final Point position) {
 		this.position = position;
@@ -234,7 +273,8 @@ public abstract class Mobile extends Element implements IMobile {
 	/**
 	 * Sets the x.
 	 *
-	 * @param x the new x
+	 * @param x
+	 *            the new x
 	 */
 	protected void setX(final int x) {
 		this.position.x = x;
@@ -243,7 +283,8 @@ public abstract class Mobile extends Element implements IMobile {
 	/**
 	 * Sets the y.
 	 *
-	 * @param y the new y
+	 * @param y
+	 *            the new y
 	 */
 	protected void setY(final int y) {
 		this.position.y = y;
