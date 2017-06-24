@@ -9,6 +9,7 @@ import model.element.Sprite;
 import showboard.IBoard;
 
 public abstract class Mobile extends Element implements IMobile {
+
 	private boolean alive   = true;
 	private boolean falling = false;
 	private IBoard  board;
@@ -23,6 +24,7 @@ public abstract class Mobile extends Element implements IMobile {
 		this.setPosition(new Point(x, y));
 
 	}
+
 	@Override
 	public void collect() {
 		// TODO Auto-generated method stub
@@ -64,7 +66,6 @@ public abstract class Mobile extends Element implements IMobile {
 	@Override
 	public int getX() {
 		return this.position.x;
-
 	}
 
 	@Override
@@ -133,7 +134,7 @@ public abstract class Mobile extends Element implements IMobile {
 	public void setFalling(final boolean falling) {
 		this.falling = falling;
 	}
-
+    
 	protected void setHasChanged() {
 		this.getMap().setMobileHasChanged();
 	}
@@ -144,6 +145,26 @@ public abstract class Mobile extends Element implements IMobile {
 
 	public void setPosition(final Point position) {
 		this.position = position;
+	}
+
+	protected IBoard getBoard() {
+		return this.board;
+	}
+
+	@Override
+	public IMap getMap() {
+		return this.map;
+	}
+
+	@Override
+	public int getX() {
+		return this.position.x;
+
+	}
+
+	@Override
+	public int getY() {
+		return this.position.y;
 	}
 
 	protected void setX(final int x) {
