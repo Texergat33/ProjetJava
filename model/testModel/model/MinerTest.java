@@ -103,17 +103,15 @@ public class MinerTest {
 
 	@Test
 	public void testGetX() {
-
+		// we did this test to verify if the method getX() wasn't returning null
+		// because the moveUp, moveDown, moveLeft, moveRight tests failed
 		final Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerUp"), new Map(1), Permeability.KILLABLE);
-
 		assertNotNull(miner.getX());
 	}
 
 	@Test
 	public void testGetY() {
-
 		final Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerUp"), new Map(1), Permeability.KILLABLE);
-
 		assertNotNull(miner.getY());
 	}
 
