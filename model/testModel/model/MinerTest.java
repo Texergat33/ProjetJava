@@ -10,7 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import model.element.Permeability;
-import model.element.Sprite;
+import model.element.SpriteFactory;
 import model.element.mobile.Miner;
 
 public class MinerTest {
@@ -53,12 +53,18 @@ public class MinerTest {
 
 	@Test
 	public void testMoveRight() {
-		fail("Not yet implemented");
+		Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerRight1"), new Map(1), Permeability.KILLABLE);
+
+		int x = miner.getX();
+
+		miner.moveRight();
+
+		assertEquals(x - 1, miner.getY());
 	}
 
 	@Test
 	public void testMoveUp() {
-		Miner miner = new Miner(2, 2, new Sprite(1, "minerUp"), new Map(1), Permeability.KILLABLE);
+		Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerUp"), new Map(1), Permeability.KILLABLE);
 
 		int y = miner.getY();
 
