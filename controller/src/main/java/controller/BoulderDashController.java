@@ -20,7 +20,7 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
     private IBoulderDashModel model;
 
     /* this is the speed of all the mobile element */
-    private int speed;
+    private final int speed = 200;
 
     /*
      * this attribute is the order that the controller receive from the view and
