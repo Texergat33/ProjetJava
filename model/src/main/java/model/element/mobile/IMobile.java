@@ -8,39 +8,41 @@ import showboard.IPawn;
 
 public interface IMobile extends IElement, IPawn {
 
-    public void collect();
+	public void collect();
 
-    public void die();
+	public void die();
 
-    void doNothing();
+	void doNothing();
 
-    public IMap getMap();
+	public IMap getMap();
 
-    @Override
-    public Point getPosition();
+	@Override
+	public Point getPosition();
 
-    @Override
-    public int getX();
+	@Override
+	public int getX();
 
-    @Override
-    public int getY();
+	@Override
+	public int getY();
 
-    public boolean isAlive();
+	public boolean isAlive();
 
-    public boolean isFalling();
+	public boolean isFalling();
 
-    public boolean isKilled();
+	public boolean isKilled();
 
-    public void moveDown();
+	public void moveDown();
 
-    public void moveLeft();
+	public void moveLeft();
 
-    public void moveRight();
+	public void moveRight();
 
-    public void moveUp();
+	public void doSomething();
 
-    public void setFalling(boolean b);
+	public void moveUp();
 
-    public Point position(int i, int y);
+	public void setFalling(boolean b);
+
+	public Point position(int i, int y);
 
 }
