@@ -10,27 +10,24 @@ import showboard.IBoard;
 
 public abstract class Mobile extends Element implements IMobile {
 
-	@Override
-	public Point getPosition() {
-		return this.position;
+	private boolean alive   = true;
+	private boolean falling = false;
+	private IBoard  board;
+	private IMap    map;
+	protected Point position;
+	private int x;
+	private int y;
+	
+	public Mobile(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
+		super(sprite, permeability);
+		this.setMap(map);
+		this.setPosition(new Point(x, y));
+
 	}
 
 	@Override
 	public void collect() {
 		// TODO Auto-generated method stub
-
-	}
-
-	public boolean	alive	= true;
-	private boolean	falling	= false;
-	private IBoard	board;
-	private IMap	map;
-	protected Point	position;
-
-	public Mobile(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
-		super(sprite, permeability);
-		this.setMap(map);
-		this.setPosition(new Point(x, y));
 
 	}
 
@@ -42,34 +39,48 @@ public abstract class Mobile extends Element implements IMobile {
 		// informe du mouvement
 	}
 
-	public void ruin() {
-		this.getMap().getOnTheMapXY(this.position.x, this.position.y).createBackground();
-	}
-
-	@Override
-	public void setFalling(final boolean falling) {
-		this.falling = falling;
-	}
-
-	@Override
-	public boolean isFalling() {
-		return this.falling;
-	}
-
 	@Override
 	public void doNothing() {
 		this.setHasChanged();
 		// informe du mouvement
 	}
 
-	@Override
 	public void doSomething() {
 
+	}
+
+	protected IBoard getBoard() {
+		return this.board;
+	}
+
+	@Override
+	public IMap getMap() {
+		return this.map;
+	}
+
+	@Override
+	public Point getPosition() {
+		return this.position;
+	}
+
+	@Override
+	public int getX() {
+		return this.position.x;
+	}
+
+	@Override
+	public int getY() {
+		return this.position.y;
 	}
 
 	@Override
 	public boolean isAlive() {
 		return this.alive;
+	}
+
+	@Override
+	public boolean isFalling() {
+		return this.falling;
 	}
 
 	@Override
@@ -115,6 +126,15 @@ public abstract class Mobile extends Element implements IMobile {
 		// montre que ça a bougé
 	}
 
+	public void ruin() {
+		this.getMap().getOnTheMapXY(this.position.x, this.position.y).createBackground();
+	}
+
+	@Override
+	public void setFalling(final boolean falling) {
+		this.falling = falling;
+	}
+    
 	protected void setHasChanged() {
 		this.getMap().setMobileHasChanged();
 	}
