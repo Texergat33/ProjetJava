@@ -62,6 +62,7 @@ public abstract class Mobile extends Element implements IMobile {
         // informe du mouvement
     }
 
+    @Override
     public void doSomething() {
 
     }
