@@ -55,6 +55,7 @@ public class Miner extends Mobile {
 				&& (this.getMap().getOnTheMapXY(this.getX() - 2, this.getY())
 						.getPermeability() == Permeability.PENETRABLEFOROTHERS)) {
 			this.getMap().getMobileXY(this.getX() - 1, this.getY()).moveLeft();
+			this.getMap().getMobileXY(this.getX() - 1, this.getY()).doSomething();
 			this.setX(this.getX() - 1);
 		} else if (this.getMap().getOnTheMapXY(this.getX() - 1, this.getY())
 				.getPermeability() == Permeability.COLLECTABLE) {
@@ -76,6 +77,7 @@ public class Miner extends Mobile {
 				&& (this.getMap().getOnTheMapXY(this.getX() + 2, this.getY())
 						.getPermeability() == Permeability.PENETRABLEFOROTHERS)) {
 			this.getMap().getMobileXY(this.getX() + 1, this.getY()).moveRight();
+			this.getMap().getMobileXY(this.getX() + 1, this.getY()).doSomething();
 			this.setX(this.getX() + 1);
 		} else if (this.getMap().getOnTheMapXY(this.getX() + 1, this.getY())
 				.getPermeability() == Permeability.COLLECTABLE) {
@@ -110,5 +112,4 @@ public class Miner extends Mobile {
 	public MotionlessElement createBackground() {
 		return new Background(SpriteFactory.createBackground(), Permeability.PENETRABLEFOREVERYONE);
 	}
-
 }
