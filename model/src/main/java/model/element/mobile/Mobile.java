@@ -9,16 +9,6 @@ import model.element.Sprite;
 import showboard.IBoard;
 
 public abstract class Mobile extends Element implements IMobile {
-<<<<<<< HEAD
-	private boolean alive   = true;
-	private boolean falling = false;
-	private IBoard  board;
-	private IMap    map;
-	protected Point position;
-	private int x;
-	private int y;
-=======
-
 	private boolean					alive	= true;
 	private boolean					falling	= false;
 	private IBoard					board;
@@ -27,18 +17,12 @@ public abstract class Mobile extends Element implements IMobile {
 	protected BehaviorDoSomething	doSomething;
 	private int						x;
 	private int						y;
->>>>>>> branch 'ProjetFINALSave' of https://github.com/Texergat33/ProjetJava
 
 	public Mobile(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
 		super(sprite, permeability);
 		this.setMap(map);
 		this.setPosition(new Point(x, y));
 
-	}
-
-	@Override
-	public Point getPosition() {
-		return this.position;
 	}
 
 	@Override
@@ -52,20 +36,6 @@ public abstract class Mobile extends Element implements IMobile {
 	}
 
 	@Override
-	public void setFalling(final boolean falling) {
-		this.falling = falling;
-	}
-
-	@Override
-	public boolean isFalling() {
-		return this.falling;
-	}
-
-	public void ruin() {
-		this.getMap().getOnTheMapXY(this.position.x, this.position.y).createBackground();
-	}
-
-	@Override
 	public void doNothing() {
 		this.setHasChanged();
 	}
@@ -75,9 +45,39 @@ public abstract class Mobile extends Element implements IMobile {
 		this.doSomething.doSomething();
 	}
 
+	protected IBoard getBoard() {
+		return this.board;
+	}
+
+	@Override
+	public IMap getMap() {
+		return this.map;
+	}
+
+	@Override
+	public Point getPosition() {
+		return this.position;
+	}
+
+	@Override
+	public int getX() {
+		return this.position.x;
+
+	}
+
+	@Override
+	public int getY() {
+		return this.position.y;
+	}
+
 	@Override
 	public boolean isAlive() {
 		return this.alive;
+	}
+
+	@Override
+	public boolean isFalling() {
+		return this.falling;
 	}
 
 	@Override
@@ -112,6 +112,15 @@ public abstract class Mobile extends Element implements IMobile {
 		this.setHasChanged();
 	}
 
+	public void ruin() {
+		this.getMap().getOnTheMapXY(this.position.x, this.position.y).createBackground();
+	}
+
+	@Override
+	public void setFalling(final boolean falling) {
+		this.falling = falling;
+	}
+
 	protected void setHasChanged() {
 		this.getMap().setMobileHasChanged();
 	}
@@ -122,26 +131,6 @@ public abstract class Mobile extends Element implements IMobile {
 
 	public void setPosition(final Point position) {
 		this.position = position;
-	}
-
-	protected IBoard getBoard() {
-		return this.board;
-	}
-
-	@Override
-	public IMap getMap() {
-		return this.map;
-	}
-
-	@Override
-	public int getX() {
-		return this.position.x;
-
-	}
-
-	@Override
-	public int getY() {
-		return this.position.y;
 	}
 
 	protected void setX(final int x) {
