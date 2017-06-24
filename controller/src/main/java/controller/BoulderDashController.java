@@ -6,7 +6,7 @@ import view.IBoulderDashView;
 public class BoulderDashController implements IBoulderDashController, IOrderPerformer {
 	private IBoulderDashView view;
 	private IBoulderDashModel model;
-	private int speed;
+	private int speed = 350;
 	private UserOrder OrderPile;
 
 	public BoulderDashController(final IBoulderDashView view, final IBoulderDashModel model) {

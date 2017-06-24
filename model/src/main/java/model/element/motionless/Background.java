@@ -5,13 +5,12 @@ import model.element.Sprite;
 
 public class Background extends MotionlessElement {
 
-    public Background(final Sprite sprite, final Permeability permeability) {
-        super(sprite, permeability);
-    }
+	public Background(final Sprite sprite, final Permeability permeability) {
+		super(sprite, permeability);
+	}
 
-    @Override
-    public MotionlessElement createBackground() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+	@Override
+	public MotionlessElement createBackground() {
+		return null;
+	}
 }

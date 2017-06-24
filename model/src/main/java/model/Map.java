@@ -21,14 +21,14 @@ import model.element.motionless.MotionlessElementFactory;
 
 public class Map extends Observable implements IMap {
 
-	private int                width;
-	private int                height;
-	private int                levelID;
-	private IElement           onTheMap[][];
-	private ArrayList<IMobile> mobiles;
-	private int                diamondCounter;
-	private IMobile            miner;
-	private IMobile            mobile;
+	private int					width;
+	private int					height;
+	private int					levelID;
+	private IElement			onTheMap[][];
+	private ArrayList<IMobile>	mobiles;
+	private int					diamondCounter;
+	private IMobile				miner;
+	private IMobile				mobile;
 
 	public Map(final int levelID) {
 		this.mobiles = new ArrayList<IMobile>();
@@ -104,15 +104,15 @@ public class Map extends Observable implements IMap {
 					break;
 				case 3:
 					this.getMobiles()
-					.add(new Boulder(x, y, SpriteFactory.createBoulder(), this, Permeability.PUSHABLE));
+							.add(new Boulder(x, y, SpriteFactory.createBoulder(), this, Permeability.PUSHABLE));
 					break;
 				case 4:
 					this.getMobiles()
-					.add(new Boulder(x, y, SpriteFactory.createBoulder(), this, Permeability.PUSHABLE));
+							.add(new Boulder(x, y, SpriteFactory.createBoulder(), this, Permeability.PUSHABLE));
 					break;
 				case 5:
 					this.getMobiles()
-					.add(new Boulder(x, y, SpriteFactory.createBoulder(), this, Permeability.PUSHABLE));
+							.add(new Boulder(x, y, SpriteFactory.createBoulder(), this, Permeability.PUSHABLE));
 					break;
 				case 6:
 					this.getMobiles().add(new SlowAndFollowTheWallsMonster(x, y,
@@ -129,7 +129,7 @@ public class Map extends Observable implements IMap {
 					break;
 				case 9:
 					this.getMobiles()
-					.add(new Diamond(x, y, SpriteFactory.createDiamond(), this, Permeability.COLLECTABLE));
+							.add(new Diamond(x, y, SpriteFactory.createDiamond(), this, Permeability.COLLECTABLE));
 					break;
 				case 10:
 					this.getMobiles().add(new FastAndRandomMonster(x, y, SpriteFactory.createMonster("monsterSAR"),
@@ -168,9 +168,6 @@ public class Map extends Observable implements IMap {
 	public void setMobileHasChanged() {
 		this.setChanged();
 		this.notifyObservers();
-		// Met en place les changements qui sont dans le package mobile
-		// Notifie l'Observer des changements
-
 	}
 
 	public void setMobiles(final ArrayList<IMobile> mobiles) {
@@ -179,7 +176,6 @@ public class Map extends Observable implements IMap {
 
 	private void setOnTheMapXY(final IElement element, final int x, final int y) {
 		this.onTheMap[y][x] = element;
-		// met l'élément dans le tableau de Map [x][y]
 	}
 
 	private void setWidth(final int width) {

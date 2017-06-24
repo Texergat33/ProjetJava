@@ -9,6 +9,7 @@ import model.element.Sprite;
 import showboard.IBoard;
 
 public abstract class Mobile extends Element implements IMobile {
+<<<<<<< HEAD
 	private boolean alive   = true;
 	private boolean falling = false;
 	private IBoard  board;
@@ -16,44 +17,23 @@ public abstract class Mobile extends Element implements IMobile {
 	protected Point position;
 	private int x;
 	private int y;
+=======
+
+	private boolean					alive	= true;
+	private boolean					falling	= false;
+	private IBoard					board;
+	private IMap					map;
+	protected Point					position;
+	protected BehaviorDoSomething	doSomething;
+	private int						x;
+	private int						y;
+>>>>>>> branch 'ProjetFINALSave' of https://github.com/Texergat33/ProjetJava
 
 	public Mobile(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
 		super(sprite, permeability);
 		this.setMap(map);
 		this.setPosition(new Point(x, y));
 
-	}
-	@Override
-	public void collect() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void die() {
-		this.alive = false;
-		this.setHasChanged();
-		// statue alive est faux
-		// informe du mouvement
-	}
-
-	@Override
-	public void doNothing() {
-		this.setHasChanged();
-		// informe du mouvement
-	}
-
-	public void doSomething() {
-
-	}
-
-	protected IBoard getBoard() {
-		return this.board;
-	}
-
-	@Override
-	public IMap getMap() {
-		return this.map;
 	}
 
 	@Override
@@ -62,14 +42,37 @@ public abstract class Mobile extends Element implements IMobile {
 	}
 
 	@Override
-	public int getX() {
-		return this.position.x;
-
+	public void collect() {
 	}
 
 	@Override
-	public int getY() {
-		return this.position.y;
+	public void die() {
+		this.alive = false;
+		this.setHasChanged();
+	}
+
+	@Override
+	public void setFalling(final boolean falling) {
+		this.falling = falling;
+	}
+
+	@Override
+	public boolean isFalling() {
+		return this.falling;
+	}
+
+	public void ruin() {
+		this.getMap().getOnTheMapXY(this.position.x, this.position.y).createBackground();
+	}
+
+	@Override
+	public void doNothing() {
+		this.setHasChanged();
+	}
+
+	@Override
+	public void doSomething() {
+		this.doSomething.doSomething();
 	}
 
 	@Override
@@ -78,16 +81,8 @@ public abstract class Mobile extends Element implements IMobile {
 	}
 
 	@Override
-	public boolean isFalling() {
-		return this.falling;
-	}
-
-	@Override
 	public boolean isKilled() {
 		return this.alive;
-		// récupère la map, et quand le mineur et le rocher/monstre se trouve
-		// à
-		// la même position lors d'une boucle,
 	}
 
 	@Override
@@ -95,24 +90,18 @@ public abstract class Mobile extends Element implements IMobile {
 		this.setY(this.getY() + 1);
 
 		this.setHasChanged();
-		// met en place la position de Y
-		// montre que ça a bougé
 	}
 
 	@Override
 	public void moveLeft() {
 		this.setX(this.getX() - 1);
 		this.setHasChanged();
-		// met en place la position de X
-		// montre que ça a bougé
 	}
 
 	@Override
 	public void moveRight() {
 		this.setX(this.getX() + 1);
 		this.setHasChanged();
-		// met en place la position de X
-		// montre que ça a bougé
 	}
 
 	@Override
@@ -121,17 +110,6 @@ public abstract class Mobile extends Element implements IMobile {
 		this.setY(this.getY() + 1);
 
 		this.setHasChanged();
-		// met en place la position de Y
-		// montre que ça a bougé
-	}
-
-	public void ruin() {
-		this.getMap().getOnTheMapXY(this.position.x, this.position.y).createBackground();
-	}
-
-	@Override
-	public void setFalling(final boolean falling) {
-		this.falling = falling;
 	}
 
 	protected void setHasChanged() {
@@ -146,6 +124,26 @@ public abstract class Mobile extends Element implements IMobile {
 		this.position = position;
 	}
 
+	protected IBoard getBoard() {
+		return this.board;
+	}
+
+	@Override
+	public IMap getMap() {
+		return this.map;
+	}
+
+	@Override
+	public int getX() {
+		return this.position.x;
+
+	}
+
+	@Override
+	public int getY() {
+		return this.position.y;
+	}
+
 	protected void setX(final int x) {
 		this.position.x = x;
 	}
@@ -154,5 +152,4 @@ public abstract class Mobile extends Element implements IMobile {
 		this.position.y = y;
 
 	}
-
 }

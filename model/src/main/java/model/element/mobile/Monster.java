@@ -6,9 +6,8 @@ import model.element.Sprite;
 
 public abstract class Monster extends Mobile {
 
-    public Monster(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
-        super(x, y, sprite, map, permeability);
-        // TODO Auto-generated constructor stub
-    }
+	public Monster(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
+		super(x, y, sprite, map, permeability);
+	}
 
 }

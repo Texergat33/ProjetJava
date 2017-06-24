@@ -10,8 +10,6 @@ public abstract class Element implements IElement {
 	public Element(Sprite sprite, Permeability permeability) {
 		this.setSprite(sprite);
 		this.setPermeability(permeability);
-		// met en place le sprite de l'élément
-		// met en place la permeabilité
 	}
 
 	@Override
