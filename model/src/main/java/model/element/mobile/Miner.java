@@ -19,31 +19,13 @@ public class Miner extends Mobile {
 	@Override
 	public void die() {
 		super.die();
-		while (true) {
-			this.setSprite(SpriteFactory.createMiner("deadMiner1"));
-			try {
-				Thread.sleep(350);
-			} catch (final InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			this.setSprite(SpriteFactory.createMiner("deadMiner2"));
-			try {
-				Thread.sleep(350);
-			} catch (final InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		this.setSprite(SpriteFactory.createMiner("deadMiner1"));
 	}
 
 	@Override
 	public void doNothing() {
 		super.doNothing();
-		while (true) {
-			this.setSprite(SpriteFactory.createMiner("defaultMiner1"));
-			// this.setSprite(SpriteFactory.createMiner("defaultMiner1"));
-		}
+		this.setSprite(SpriteFactory.createMiner("defaultMiner1"));
 	}
 
 	@Override
