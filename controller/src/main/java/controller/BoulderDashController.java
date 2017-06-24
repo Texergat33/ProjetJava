@@ -3,168 +3,88 @@ package controller;
 import model.IBoulderDashModel;
 import view.IBoulderDashView;
 
-/**
- * <h1>The Class ControllerFacade provides a facade of the Controller component.
- * </h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
 public class BoulderDashController implements IBoulderDashController, IOrderPerformer {
+	private IBoulderDashView view;
+	private IBoulderDashModel model;
+	private int speed;
+	private UserOrder OrderPile;
 
-    /** The view. */
+	public BoulderDashController(final IBoulderDashView view, final IBoulderDashModel model) {
 
-    private IBoulderDashView view;
+		this.setView(view);
+		this.setModel(model);
+		this.emptyOrderPile();
+	}
 
-    /** The model. */
-    private IBoulderDashModel model;
+	public void emptyOrderPile() {
+		this.OrderPile = UserOrder.NOP;
+	}
 
-    /* this is the speed of all the mobile element */
-    private int speed;
+	public IBoulderDashModel getModel() {
+		return this.model;
+	}
 
-    /*
-     * this attribute is the order that the controller receive from the view and
-     * will send to the model. This is the aggregation with the enum UserOrder
-     */
-    private UserOrder OrderPile;
+	@Override
+	public IOrderPerformer getOrderPerformer() {
+		return this;
+	}
 
-    /**
-     * Instantiates a new controller facade.
-     *
-     * @param view
-     *            the view
-     * @param model
-     *            the model
-     */
-    /*
-     * the main only call the controller who instanciate the view and the model
-     */
-    public BoulderDashController(final IBoulderDashView view, final IBoulderDashModel model) {
+	public UserOrder getOrderPile() {
+		return this.OrderPile;
+	}
 
-        this.setView(view);
-        this.setModel(model);
-        this.emptyOrderPile();
-    }
+	public IBoulderDashView getView() {
+		return this.view;
+	}
 
-    private void setModel(final IBoulderDashModel model) {
-        // TODO Auto-generated method stub
-        this.model = model;
-    }
+	@Override
+	public void orderPerform(final UserOrder orderPile) {
+		this.setOrderPile(orderPile);
+	}
 
-    private void setView(final IBoulderDashView view) {
-        // TODO Auto-generated method stub
-        this.view = view;
-    }
+	@Override
+	public void play() throws InterruptedException {
+		while (this.getModel().getMiner().isAlive()) {
+			Thread.sleep(this.speed);
+			switch (this.getOrderPile()) {
+			case UP:
+				this.getModel().getMiner().moveUp();
+				break;
 
-    /**
-     * Start.
-     *
-     * @throws SQLException
-     *             the SQL exception
-     */
-    /*
-     * the method start is call in the main. It call the view for the display
-     * the view call the model who call the query
-     */
-    /*
-     * public void start() throws SQLException {
-     * this.getView().displayMessage(this.getModel().getExampleById(1).toString(
-     * )); // Display exemple 1, by ID, We call the view and we display the
-     *
-     * message // We send a id this.getView().displayMessage(this.getModel().
-     * getExampleByName( "Example 2").toString()); // Display exemple 2, by
-     * Name, We call the view and we display the // message final List<Example>
-     * examples = this.getModel().getAllExamples(); // we put in a arraylist the
-     * result of the exemple 3 final StringBuilder message = new
-     * StringBuilder(); // create a string list of 16 caractere empty //
-     * a.append(" bar); for (final Example example : examples) {
-     *
-     * message.append(example); message.append('\n'); }
-     * this.getView().displayMessage(message.toString()); }
-     */
+			case DOWN:
+				this.getModel().getMiner().moveDown();
+				break;
 
-    /**
-     * Gets the view.
-     *
-     * @return the view
-     */
-    public IBoulderDashView getView() {
-        return this.view;
-    }
+			case RIGHT:
+				this.getModel().getMiner().moveRight();
+				break;
 
-    /**
-     * Gets the model.
-     *
-     * @return the model
-     */
-    public IBoulderDashModel getModel() {
-        return this.model;
+			case LEFT:
+				this.getModel().getMiner().moveLeft();
+				break;
 
-    }
+			case NOP:
+			default:
+				this.getModel().getMiner().doNothing();
+				;
+				break;
+			}
+			this.emptyOrderPile();
+			this.getView().notify();
+		}
 
-    /*
-     * play is the methode who is going to start the game. This is the methode
-     * who is called in the main
-     */
-    @Override
+		this.getView().displayMessage("Game over");
+	}
 
-    public void play() throws InterruptedException {
-        // TODO Auto-generated method stub
-        while (this.getModel().getMiner().isAlive()) {
-            Thread.sleep(this.speed);
-            switch (this.getOrderPile()) {
-            case UP:
-                this.getModel().getMiner().moveUp();
-                break;
+	private void setModel(final IBoulderDashModel model) {
+		this.model = model;
+	}
 
-            case DOWN:
-                this.getModel().getMiner().moveDown();
-                break;
+	public void setOrderPile(final UserOrder orderPile) {
+		this.OrderPile = orderPile;
+	}
 
-            case RIGHT:
-                this.getModel().getMiner().moveRight();
-                break;
-
-            case LEFT:
-                this.getModel().getMiner().moveLeft();
-                break;
-
-            case NOP:
-            default:
-                this.getModel().getMiner().doNothing();
-                ;
-                break;
-            }
-            this.emptyOrderPile();
-            this.getView().notify();
-        }
-
-        this.getView().displayMessage("Game over");
-    }
-
-    @Override
-    public IOrderPerformer getOrderPerformer() {
-        // TODO Auto-generated method stub
-
-        return this;
-    }
-
-    @Override
-    public void orderPerform(final UserOrder orderPile) {
-        this.setOrderPile(orderPile);
-    }
-
-    public UserOrder getOrderPile() {
-        return this.OrderPile;
-    }
-
-    public void setOrderPile(final UserOrder orderPile) {
-        this.OrderPile = orderPile;
-    }
-
-    public void emptyOrderPile() {
-        this.OrderPile = UserOrder.NOP;
-
-    }
-
+	private void setView(final IBoulderDashView view) {
+		this.view = view;
+	}
 }

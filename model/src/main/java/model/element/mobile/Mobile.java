@@ -16,7 +16,7 @@ public abstract class Mobile extends Element implements IMobile {
 	protected Point position;
 	private int x;
 	private int y;
-	
+
 	public Mobile(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
 		super(sprite, permeability);
 		this.setMap(map);
