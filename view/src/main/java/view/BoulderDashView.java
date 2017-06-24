@@ -97,14 +97,13 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener 
         boardFrame.setDimension(new Dimension(this.getMap().getWidth(), this.getMap().getHeight()));
         boardFrame.setDisplayFrame(this.closeView);
         boardFrame.setSize(this.closeView.width * squareSize, this.closeView.height * squareSize);
-        // boardFrame.setHeightLooped(true);
+        boardFrame.setHeightLooped(true);
         boardFrame.addKeyListener(this);
         boardFrame.setFocusable(true);
         boardFrame.setFocusTraversalKeysEnabled(false);
         for (int x = 0; x < this.getMap().getWidth(); x++) {
             for (int y = 0; y < this.getMap().getHeight(); y++) {
-                // System.out.print(this.map.getOnTheMapXY(x,
-                // y).getSprite().getDatabaseIDImage());
+                System.out.print(this.map.getOnTheMapXY(x, y).getSprite().getDatabaseIDImage());
                 boardFrame.addSquare(this.map.getOnTheMapXY(x, y), x, y);
             }
             System.out.println("");
@@ -162,8 +161,7 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener 
     /* this method will make the view follow the player. */
     @Override
     public void followMiner() {
-        // this.closeView = new Rectangle(this.getMiner().getX(),
-        // this.getMiner().getY());
+        this.closeView = new Rectangle(this.getMap().getMiner().getX(), this.getMap().getMiner().getY());
     }
 
     /**
@@ -223,11 +221,12 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener 
      */
     public void setMap(final IMap map) throws IOException {
         this.map = map;
-        /*
-         * for (int x = 0; x < this.getMap().getWidth(); x++) { for (int y = 0;
-         * y < this.getMap().getWidth(); y++) { this.getMap().getOnTheMapXY(x,
-         * y).getSprite().loadImage(); } }
-         */
+        for (int x = 0; x < this.getMap().getWidth(); x++) {
+            for (int y = 0; y < this.getMap().getWidth(); y++) {
+                this.getMap().getOnTheMapXY(x, y).getSprite().loadImage();
+            }
+        }
+
     }
 
     /**

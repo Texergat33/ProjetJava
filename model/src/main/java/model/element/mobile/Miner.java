@@ -6,6 +6,7 @@ import model.IMap;
 import model.element.Permeability;
 import model.element.Sprite;
 import model.element.SpriteFactory;
+import model.element.motionless.Background;
 import model.element.motionless.MotionlessElement;
 
 public class Miner extends Mobile {
@@ -13,7 +14,6 @@ public class Miner extends Mobile {
 	public Miner(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
 		super(x, y, sprite, map, permeability);
 		System.out.println("test");
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -37,6 +37,7 @@ public class Miner extends Mobile {
 		} else if (this.getMap().getOnTheMapXY(this.getX(), this.getY() + 1)
 				.getPermeability() == Permeability.COLLECTABLE) {
 			this.getMap().getMobileXY(this.getX(), this.getY() + 1).collect();
+			this.setY(this.getY() + 1);
 		} else {
 			this.doNothing();
 		}
@@ -104,14 +105,11 @@ public class Miner extends Mobile {
 
 	@Override
 	public Point position(final int i, final int y) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.position;
 	}
 
 	@Override
 	public MotionlessElement createBackground() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Background(SpriteFactory.createBackground(), Permeability.PENETRABLEFOREVERYONE);
 	}
-
 }

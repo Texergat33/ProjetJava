@@ -37,12 +37,12 @@ public interface IMobile extends IElement, IPawn {
 
 	public void moveRight();
 
-	public void doSomething();
-
 	public void moveUp();
 
 	public void setFalling(boolean b);
 
 	public Point position(int i, int y);
+
+	public void doSomething();
 
 }

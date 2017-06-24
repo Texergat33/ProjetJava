@@ -10,24 +10,15 @@ import showboard.IBoard;
 
 public abstract class Mobile extends Element implements IMobile {
 
-	@Override
-	public Point getPosition() {
-		return this.position;
-	}
-
-	@Override
-	public void collect() {
-		// TODO Auto-generated method stub
-
-	}
-
 	private boolean alive = true;
 	private boolean falling = false;
 	private IBoard board;
 	private IMap map;
 	protected Point position;
 	protected BehaviorDoSomething doSomething;
-
+	private int x;
+	private int y;
+	
 	public Mobile(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
 		super(sprite, permeability);
 		this.setMap(map);
@@ -35,16 +26,21 @@ public abstract class Mobile extends Element implements IMobile {
 
 	}
 
+  @Override
+	public Point getPosition() {
+		return this.position;
+	}
+
+	@Override
+	public void collect() {
+	}
+  
 	@Override
 	public void die() {
 		this.alive = false;
 		this.setHasChanged();
 		// statue alive est faux
 		// informe du mouvement
-	}
-
-	public void ruin() {
-		this.getMap().getOnTheMapXY(this.position.x, this.position.y).createBackground();
 	}
 
 	@Override
@@ -55,6 +51,10 @@ public abstract class Mobile extends Element implements IMobile {
 	@Override
 	public boolean isFalling() {
 		return this.falling;
+	}
+  
+	public void ruin() {
+		this.getMap().getOnTheMapXY(this.position.x, this.position.y).createBackground();
 	}
 
 	@Override
@@ -73,7 +73,6 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.alive;
 	}
 
-	@Override
 	public boolean isKilled() {
 		return this.alive;
 		// récupère la map, et quand le mineur et le rocher/monstre se trouve
@@ -115,7 +114,7 @@ public abstract class Mobile extends Element implements IMobile {
 		// met en place la position de Y
 		// montre que ça a bougé
 	}
-
+    
 	protected void setHasChanged() {
 		this.getMap().setMobileHasChanged();
 	}
@@ -155,6 +154,5 @@ public abstract class Mobile extends Element implements IMobile {
 	protected void setY(final int y) {
 		this.position.y = y;
 
-	}
-
+  }
 }
