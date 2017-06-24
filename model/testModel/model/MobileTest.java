@@ -1,6 +1,6 @@
-package model.element.mobile;
+package model;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -8,7 +8,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import model.element.mobile.Mobile;
+
 public class MobileTest {
+	private Mobile mobile;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -28,12 +31,12 @@ public class MobileTest {
 
 	@Test
 	public void testGetX() {
-		fail("Not yet implemented");
+		assertNotNull(this.mobile.getX());
 	}
 
 	@Test
 	public void testGetY() {
-		fail("Not yet implemented");
+		assertNotNull(this.mobile.getY());
 	}
 
 }

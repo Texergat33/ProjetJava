@@ -2,6 +2,7 @@ package model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -98,6 +99,22 @@ public class MinerTest {
 		miner.moveUp();
 
 		assertEquals(y - 1, miner.getY());
+	}
+
+	@Test
+	public void testGetX() {
+
+		final Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerUp"), new Map(1), Permeability.KILLABLE);
+
+		assertNotNull(miner.getX());
+	}
+
+	@Test
+	public void testGetY() {
+
+		final Miner miner = new Miner(2, 2, SpriteFactory.createMiner("MinerUp"), new Map(1), Permeability.KILLABLE);
+
+		assertNotNull(miner.getY());
 	}
 
 }
