@@ -1,47 +1,115 @@
 package model;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FillingMap.
+ */
 public class FillingMap {
-	private int pictureID;
-	public int x;
-	public int y;
-	public int objectType;
 
-	public FillingMap(final int x, final int y, final int pictureID, final int objectType) {
-		this.pictureID = pictureID;
-		this.x = x;
-		this.y = y;
-		this.objectType = objectType;
-	}
+    /** The picture ID. */
+    private int pictureID;
 
-	public int getObjectType() {
-		return this.objectType;
-	}
+    /** The x. */
+    public int x;
 
-	public int getPictureID() {
-		return this.pictureID;
-	}
+    /** The y. */
+    public int y;
 
-	public int getX() {
-		return this.x;
-	}
+    /** The object type. */
+    public int objectType;
 
-	public int getY() {
-		return this.y;
-	}
+    /**
+     * Instantiates a new filling map.
+     *
+     * @param x
+     *            the x
+     * @param y
+     *            the y
+     * @param pictureID
+     *            the picture ID
+     * @param objectType
+     *            the object type
+     */
+    public FillingMap(final int x, final int y, final int pictureID, final int objectType) {
+        this.pictureID = pictureID;
+        this.x = x;
+        this.y = y;
+        this.objectType = objectType;
+    }
 
-	public void setObjectType(int objectType) {
-		this.objectType = objectType;
-	}
+    /**
+     * Gets the object type.
+     *
+     * @return the object type
+     */
+    public int getObjectType() {
+        return this.objectType;
+    }
 
-	public void setPictureID(int pictureID) {
-		this.pictureID = pictureID;
-	}
+    /**
+     * Gets the picture ID.
+     *
+     * @return the picture ID
+     */
+    public int getPictureID() {
+        return this.pictureID;
+    }
 
-	public void setX(int x) {
-		this.x = x;
-	}
+    /**
+     * Gets the x.
+     *
+     * @return the x
+     */
+    public int getX() {
+        return this.x;
+    }
 
-	public void setY(int y) {
-		this.y = y;
-	}
+    /**
+     * Gets the y.
+     *
+     * @return the y
+     */
+    public int getY() {
+        return this.y;
+    }
+
+    /**
+     * Sets the object type.
+     *
+     * @param objectType
+     *            the new object type
+     */
+    public void setObjectType(final int objectType) {
+        this.objectType = objectType;
+    }
+
+    /**
+     * Sets the picture ID.
+     *
+     * @param pictureID
+     *            the new picture ID
+     */
+    public void setPictureID(final int pictureID) {
+        this.pictureID = pictureID;
+    }
+
+    /**
+     * Sets the x.
+     *
+     * @param x
+     *            the new x
+     */
+    public void setX(final int x) {
+        this.x = x;
+    }
+
+    /**
+     * Sets the y.
+     *
+     * @param y
+     *            the new y
+     */
+    public void setY(final int y) {
+        this.y = y;
+    }
 }

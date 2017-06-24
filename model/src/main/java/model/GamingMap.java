@@ -1,49 +1,116 @@
 package model;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GamingMap.
+ */
 public class GamingMap {
-	private int levelID;
-	public int  height;
-	public int  width;
-	public int  diamondCounter;
 
-	public GamingMap(final int levelID, final int height, final int width, final int diamondCounter) {
-		this.setLevelID(levelID);
-		this.height = height;
-		this.width = width;
-		this.setDiamondCounter(diamondCounter);
-	}
+    /** The level ID. */
+    private int levelID;
 
-	public int getDiamondCounter() {
-		return this.diamondCounter;
-	}
+    /** The height. */
+    public int height;
 
-	public int getHeight() {
-		return this.height;
-	}
+    /** The width. */
+    public int width;
 
-	public int getLevelID() {
-		return this.levelID;
-	}
+    /** The diamond counter. */
+    public int diamondCounter;
 
-	public int getWidth() {
-		return this.width;
-	}
+    /**
+     * Instantiates a new gaming map.
+     *
+     * @param levelID
+     *            the level ID
+     * @param height
+     *            the height
+     * @param width
+     *            the width
+     * @param diamondCounter
+     *            the diamond counter
+     */
+    public GamingMap(final int levelID, final int height, final int width, final int diamondCounter) {
+        this.setLevelID(levelID);
+        this.height = height;
+        this.width = width;
+        this.setDiamondCounter(diamondCounter);
+    }
 
-	public void setDiamondCounter(int diamondCounter) {
-		this.diamondCounter = diamondCounter;
-	}
+    /**
+     * Gets the diamond counter.
+     *
+     * @return the diamond counter
+     */
+    public int getDiamondCounter() {
+        return this.diamondCounter;
+    }
 
-	public void setHeight(int height) {
-		this.height = height;
-	}
+    /**
+     * Gets the height.
+     *
+     * @return the height
+     */
+    public int getHeight() {
+        return this.height;
+    }
 
-	public void setLevelID(int levelID) {
-		this.levelID = levelID;
-	}
+    /**
+     * Gets the level ID.
+     *
+     * @return the level ID
+     */
+    public int getLevelID() {
+        return this.levelID;
+    }
 
-	public void setWidth(int width) {
-		this.width = width;
-	}
+    /**
+     * Gets the width.
+     *
+     * @return the width
+     */
+    public int getWidth() {
+        return this.width;
+    }
 
+    /**
+     * Sets the diamond counter.
+     *
+     * @param diamondCounter
+     *            the new diamond counter
+     */
+    public void setDiamondCounter(final int diamondCounter) {
+        this.diamondCounter = diamondCounter;
+    }
+
+    /**
+     * Sets the height.
+     *
+     * @param height
+     *            the new height
+     */
+    public void setHeight(final int height) {
+        this.height = height;
+    }
+
+    /**
+     * Sets the level ID.
+     *
+     * @param levelID
+     *            the new level ID
+     */
+    public void setLevelID(final int levelID) {
+        this.levelID = levelID;
+    }
+
+    /**
+     * Sets the width.
+     *
+     * @param width
+     *            the new width
+     */
+    public void setWidth(final int width) {
+        this.width = width;
+    }
 
 }
