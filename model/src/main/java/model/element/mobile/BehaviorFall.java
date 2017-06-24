@@ -2,8 +2,15 @@ package model.element.mobile;
 
 import model.element.Permeability;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BehaviorFall.
+ */
 public class BehaviorFall extends BehaviorDoSomething {
 
+	/* (non-Javadoc)
+	 * @see model.element.mobile.BehaviorDoSomething#doSomething()
+	 */
 	@Override
 	public void doSomething() {
 		int x = this.mobile.getX();
@@ -33,6 +40,14 @@ public class BehaviorFall extends BehaviorDoSomething {
 
 	}
 
+	/**
+	 * Glide.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @param direction the direction
+	 * @return true, if successful
+	 */
 	public boolean glide(int x, int y, final String direction) {
 		int sideX = 0;
 		switch (direction) {
@@ -60,6 +75,13 @@ public class BehaviorFall extends BehaviorDoSomething {
 		return false;
 	}
 
+	/**
+	 * Random.
+	 *
+	 * @param mini the mini
+	 * @param maxi the maxi
+	 * @return the int
+	 */
 	public int random(double mini, double maxi) {
 		mini = Math.ceil(mini);
 		maxi = Math.floor(maxi);

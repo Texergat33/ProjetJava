@@ -2,9 +2,18 @@ package model.element.mobile;
 
 import model.element.Permeability;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BehaviorSlow.
+ */
 public class BehaviorSlow extends BehaviorDoSomething {
+	
+	/** The position. */
 	int position;
 
+	/* (non-Javadoc)
+	 * @see model.element.mobile.BehaviorDoSomething#doSomething()
+	 */
 	@Override
 	public void doSomething() {
 		int x = this.mobile.getX();
@@ -36,6 +45,13 @@ public class BehaviorSlow extends BehaviorDoSomething {
 		}
 	}
 
+	/**
+	 * Random.
+	 *
+	 * @param max the max
+	 * @param min the min
+	 * @return the int
+	 */
 	public int random(int max, int min) {
 		int random = (int) ((Math.random() * max) + min);
 		return random;

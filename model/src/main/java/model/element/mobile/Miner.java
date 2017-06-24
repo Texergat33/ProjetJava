@@ -9,25 +9,47 @@ import model.element.SpriteFactory;
 import model.element.motionless.Background;
 import model.element.motionless.MotionlessElement;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Miner.
+ */
 public class Miner extends Mobile {
 
+	/**
+	 * Instantiates a new miner.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @param sprite the sprite
+	 * @param map the map
+	 * @param permeability the permeability
+	 */
 	public Miner(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
 		super(x, y, sprite, map, permeability);
 		System.out.println("test");
 	}
 
+	/* (non-Javadoc)
+	 * @see model.element.mobile.Mobile#die()
+	 */
 	@Override
 	public void die() {
 		super.die();
 		this.setSprite(SpriteFactory.createMiner("deadMiner1"));
 	}
 
+	/* (non-Javadoc)
+	 * @see model.element.mobile.Mobile#doNothing()
+	 */
 	@Override
 	public void doNothing() {
 		super.doNothing();
 		this.setSprite(SpriteFactory.createMiner("defaultMiner1"));
 	}
 
+	/* (non-Javadoc)
+	 * @see model.element.mobile.Mobile#moveDown()
+	 */
 	@Override
 	public void moveDown() {
 		this.setSprite(SpriteFactory.createMiner("minerDown1"));
@@ -44,6 +66,9 @@ public class Miner extends Mobile {
 		this.setHasChanged();
 	}
 
+	/* (non-Javadoc)
+	 * @see model.element.mobile.Mobile#moveLeft()
+	 */
 	@Override
 	public void moveLeft() {
 		this.setSprite(SpriteFactory.createMiner("minerLeft1"));
@@ -66,6 +91,9 @@ public class Miner extends Mobile {
 		this.setHasChanged();
 	}
 
+	/* (non-Javadoc)
+	 * @see model.element.mobile.Mobile#moveRight()
+	 */
 	@Override
 	public void moveRight() {
 		this.setSprite(SpriteFactory.createMiner("minerRight1"));
@@ -88,6 +116,9 @@ public class Miner extends Mobile {
 		this.setHasChanged();
 	}
 
+	/* (non-Javadoc)
+	 * @see model.element.mobile.Mobile#moveUp()
+	 */
 	@Override
 	public void moveUp() {
 		this.setSprite(SpriteFactory.createMiner("minerUp1"));
@@ -103,11 +134,17 @@ public class Miner extends Mobile {
 		this.setHasChanged();
 	}
 
+	/* (non-Javadoc)
+	 * @see model.element.mobile.IMobile#position(int, int)
+	 */
 	@Override
 	public Point position(final int i, final int y) {
 		return this.position;
 	}
 
+	/* (non-Javadoc)
+	 * @see model.element.IElement#createBackground()
+	 */
 	@Override
 	public MotionlessElement createBackground() {
 		return new Background(SpriteFactory.createBackground(), Permeability.PENETRABLEFOREVERYONE);

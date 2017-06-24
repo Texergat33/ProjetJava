@@ -9,19 +9,49 @@ import java.util.List;
 import model.FillingMap;
 import model.GamingMap;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DAO.
+ */
 public abstract class DAO extends AbstractDAO {
+	
+	/** The sql map size. */
 	private static String sqlMapSize = "{call MapSize(?)}";
+	
+	/** The sql fill map. */
 	private static String sqlFillMap = "{call FillMap(?)}";
 
+	/** The ID column index. */
 	private static int IDColumnIndex             = 1;
+	
+	/** The Height column index. */
 	private static int HeightColumnIndex         = 2;
+	
+	/** The Width column index. */
 	private static int WidthColumnIndex          = 3;
+	
+	/** The Diamond counter column index. */
 	private static int DiamondCounterColumnIndex = 5;
+	
+	/** The X column index. */
 	private static int XColumnIndex              = 1;
+	
+	/** The Y column index. */
 	private static int YColumnIndex              = 2;
+	
+	/** The Type column index. */
 	private static int TypeColumnIndex           = 4;
+	
+	/** The IDMAP column index. */
 	private static int IDMAPColumnIndex          = 3;
 
+	/**
+	 * Gets the level by ID.
+	 *
+	 * @param levelID the level ID
+	 * @return the level by ID
+	 * @throws SQLException the SQL exception
+	 */
 	public static GamingMap getLevelByID(final int levelID) throws SQLException {
 		final CallableStatement callStatement = prepareCall(sqlMapSize);
 		GamingMap gamingMap = null;
@@ -38,6 +68,13 @@ public abstract class DAO extends AbstractDAO {
 		return gamingMap;
 	}
 
+	/**
+	 * Gets the map filled by ID.
+	 *
+	 * @param levelID the level ID
+	 * @return the map filled by ID
+	 * @throws SQLException the SQL exception
+	 */
 	public static List<FillingMap> getMapFilledByID(final int levelID) throws SQLException {
 		final List<FillingMap> objects = new ArrayList<FillingMap>();
 		final CallableStatement callStatement = prepareCall(sqlFillMap);

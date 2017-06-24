@@ -2,7 +2,15 @@ package model.element.mobile;
 
 import model.element.Permeability;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BehaviorFast.
+ */
 public class BehaviorFast extends BehaviorDoSomething {
+	
+	/* (non-Javadoc)
+	 * @see model.element.mobile.BehaviorDoSomething#doSomething()
+	 */
 	@Override
 	public void doSomething() {
 		int x = this.mobile.getX();
@@ -34,6 +42,13 @@ public class BehaviorFast extends BehaviorDoSomething {
 		}
 	}
 	
+		/**
+		 * Random.
+		 *
+		 * @param mini the mini
+		 * @param maxi the maxi
+		 * @return the int
+		 */
 		public int random(double mini, double maxi) {
 			mini = Math.ceil(mini);
 			maxi = Math.floor(maxi);
