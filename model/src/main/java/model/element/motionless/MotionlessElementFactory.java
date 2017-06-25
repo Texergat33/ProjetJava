@@ -1,30 +1,81 @@
 package model.element.motionless;
 
+import model.element.Permeability;
+import model.element.SpriteFactory;
+
+// TODO: Auto-generated Javadoc
+/**
+ * A factory for creating MotionlessElement objects.
+ */
 public abstract class MotionlessElementFactory {
 
-	private static Background		background		= new Background(null, null);
-	private static Ground			ground			= new Ground(null, null);
-	private static Wall				wall			= new Wall();
-	private static DiamondCounter	diamondCounter	= new DiamondCounter(null, null);
-	private static DeathStar		deathStar		= new DeathStar(null, null);
+    /** The background. */
+    private static Background background = new Background(SpriteFactory.createBackground(),
+            Permeability.PENETRABLEFOREVERYONE);
 
-	public static MotionlessElement createBackground() {
-		return null;
-	}
+    /** The ground. */
+    private static Ground ground = new Ground(SpriteFactory.createGround(), Permeability.PENETRABLEFORMINER);
 
-	public static MotionlessElement createDeathStar() {
-		return null;
-	}
+    /** The wall. */
+    private static Wall wall = new Wall(SpriteFactory.createWall(), Permeability.BLOCKINGFOREVERYONE);
 
-	public static MotionlessElement createDiamondCounter() {
-		return null;
-	}
+    /** The iron wall. */
+    private static IronWall ironWall = new IronWall(SpriteFactory.createIronWall(), Permeability.BLOCKINGFOREVERYONE);
 
-	public static MotionlessElement createGround() {
-		return null;
-	}
+    /** The motionless elements. */
+    private static MotionlessElement[] motionlessElements = { background, ground, wall,
 
-	public static MotionlessElement createWall() {
-		return null;
-	}
+    };
+
+    /**
+     * Creates a new MotionlessElement object.
+     *
+     * @return the motionless element
+     */
+    public static MotionlessElement createBackground() {
+        return background;
+    }
+
+    /**
+     * Creates a new MotionlessElement object.
+     *
+     * @return the motionless element
+     */
+    public static MotionlessElement createGround() {
+        return ground;
+    }
+
+    /**
+     * Creates a new MotionlessElement object.
+     *
+     * @return the motionless element
+     */
+    public static MotionlessElement createWall() {
+        return wall;
+    }
+
+    /**
+     * Creates a new MotionlessElement object.
+     *
+     * @return the motionless element
+     */
+    public static MotionlessElement createIronWall() {
+        return ironWall;
+    }
+
+    /**
+     * Gets the element from file symbol.
+     *
+     * @param elementID
+     *            the element ID
+     * @return the element from file symbol
+     */
+    public static MotionlessElement getElementFromFileSymbol(final int elementID) {
+        for (final MotionlessElement motionlessElement : motionlessElements) {
+            if (motionlessElement.getSprite().getDatabaseIDImage() == elementID) {
+                return motionlessElement;
+            }
+        }
+        return ground;
+    }
 }

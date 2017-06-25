@@ -5,33 +5,58 @@ import java.awt.Point;
 import model.IMap;
 import model.element.Permeability;
 import model.element.Sprite;
+import model.element.motionless.MotionlessElement;
 
-public class Boulder extends Mobile{
-	private Sprite spriteBoulder;
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Boulder.
+ */
+public class Boulder extends Mobile {
 
-	public Boulder(Point position, Sprite sprite, IMap map, Permeability permeability) {
-		super(sprite, permeability);
-		// TODO Auto-generated constructor stub
+	/**
+	 * Instantiates a new boulder.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @param sprite the sprite
+	 * @param map the map
+	 * @param permeability the permeability
+	 */
+	public Boulder(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
+		super(x, y, sprite, map, permeability);
+		this.doSomething = new BehaviorFall();
 	}
 
+	/* (non-Javadoc)
+	 * @see model.element.mobile.Mobile#collect()
+	 */
 	@Override
-	public void doNothing(){
+	public void collect() {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see model.element.mobile.Mobile#getPosition()
+	 */
 	@Override
-	public void moveDown(){
-
+	public Point getPosition() {
+		return null;
 	}
 
+	/* (non-Javadoc)
+	 * @see model.element.mobile.IMobile#position(int, int)
+	 */
 	@Override
-	public void moveLeft(){
-
+	public Point position(final int i, final int y) {
+		return null;
 	}
 
+	/* (non-Javadoc)
+	 * @see model.element.IElement#createBackground()
+	 */
 	@Override
-	public void moveRight(){
-
+	public MotionlessElement createBackground() {
+		return null;
 	}
 
 }
