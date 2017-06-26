@@ -175,6 +175,7 @@ public class Map extends Observable implements IMap {
 	public void loadLevel() throws SQLException {
 		final GamingMap gamingMap = DAO.getLevelByID(this.levelID);
 		final int consoleMapTable[][] = new int[gamingMap.getHeight()][gamingMap.getWidth()];
+		this.setDiamondCounter(gamingMap.getDiamondCounter());
 		this.setHeight(gamingMap.getHeight());
 		this.setWidth(gamingMap.getWidth());
 		this.onTheMap = new IElement[this.getHeight()][this.getWidth()];

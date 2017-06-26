@@ -54,7 +54,7 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see controller.IBoulderDashController#getOrderPerformer()
 	 */
 	@Override
@@ -82,7 +82,7 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see controller.IOrderPerformer#orderPerform(controller.UserOrder)
 	 */
 	@Override
@@ -92,12 +92,12 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see controller.IBoulderDashController#play()
 	 */
 	@Override
 	public void play() throws InterruptedException {
-		while (this.getModel().getMiner().isAlive()) {
+		while (this.getModel().getMiner().isAlive() && (this.getModel().getMap().getDiamondCounter() != 0)) {
 			Thread.sleep(this.speed);
 			switch (this.getOrderPile()) {
 			case UP:
@@ -119,7 +119,6 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 			case NOP:
 			default:
 				this.getModel().getMiner().doNothing();
-				;
 				break;
 			}
 			this.emptyOrderPile();
