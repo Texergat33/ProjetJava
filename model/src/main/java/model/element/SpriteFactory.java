@@ -25,7 +25,7 @@ public abstract class SpriteFactory {
     private static Sprite diamondFront = new Sprite(9, "diamond.png");
 
     /** The default miner 1. */
-    private static Sprite defaultMiner1 = new Sprite(8, "defaultMiner1.png");
+    private static Sprite defaultMiner1 = new Sprite(8, "ground.png");
 
     /** The default miner 2. */
     private static Sprite defaultMiner2 = new Sprite(81, "defaultMiner2.png");

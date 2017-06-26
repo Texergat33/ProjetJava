@@ -31,7 +31,7 @@ public abstract class DAO extends AbstractDAO {
 	private static int WidthColumnIndex          = 3;
 	
 	/** The Diamond counter column index. */
-	private static int DiamondCounterColumnIndex = 5;
+	private static int DiamondCounterColumnIndex = 4;
 	
 	/** The X column index. */
 	private static int XColumnIndex              = 1;

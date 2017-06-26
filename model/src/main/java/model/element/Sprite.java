@@ -52,6 +52,7 @@ public class Sprite {
      * @return the image
      */
     public Image getImage() {
+    	System.out.println(getImageName() + " : " + image);
         return this.image;
     }
 
