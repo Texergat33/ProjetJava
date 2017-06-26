@@ -65,9 +65,11 @@ public class Miner extends Mobile {
 	public void moveDown() {
 		this.setSprite(SpriteFactory.createMiner("minerDown1"));
 		if ((this.getMap().getOnTheMapXY(this.getX(), this.getY() + 1)
-				.getPermeability() == Permeability.PENETRABLEFORMINER)
-				|| (this.getMap().getOnTheMapXY(this.getX(), this.getY() + 1)
-						.getPermeability() == Permeability.PENETRABLEFOREVERYONE)) {
+				.getPermeability() == Permeability.PENETRABLEFORMINER)) {
+			this.getMap().getMobileXY(this.getX(), this.getY() + 1).collect();
+			super.moveDown();
+		} else if (this.getMap().getOnTheMapXY(this.getX(), this.getY() + 1)
+				.getPermeability() == Permeability.PENETRABLEFOREVERYONE) {
 			super.moveDown();
 		} else if (this.getMap().getOnTheMapXY(this.getX(), this.getY() + 1)
 				.getPermeability() == Permeability.COLLECTABLE) {
@@ -88,9 +90,11 @@ public class Miner extends Mobile {
 	public void moveLeft() {
 		this.setSprite(SpriteFactory.createMiner("minerLeft1"));
 		if ((this.getMap().getOnTheMapXY(this.getX() - 1, this.getY())
-				.getPermeability() == Permeability.PENETRABLEFORMINER)
-				|| (this.getMap().getOnTheMapXY(this.getX() - 1, this.getY())
-						.getPermeability() == Permeability.PENETRABLEFOREVERYONE)) {
+				.getPermeability() == Permeability.PENETRABLEFORMINER)) {
+			this.getMap().getMobileXY(this.getX() - 1, this.getY()).collect();
+			super.moveLeft();
+		} else if (this.getMap().getOnTheMapXY(this.getX() - 1, this.getY())
+				.getPermeability() == Permeability.PENETRABLEFOREVERYONE) {
 			super.moveLeft();
 		} else if ((this.getMap().getOnTheMapXY(this.getX() - 1, this.getY())
 				.getPermeability() == Permeability.PUSHABLE)
@@ -98,7 +102,7 @@ public class Miner extends Mobile {
 						.getPermeability() == Permeability.PENETRABLEFOROTHERS)) {
 			this.getMap().getMobileXY(this.getX() - 1, this.getY()).moveLeft();
 			this.getMap().getMobileXY(this.getX() - 1, this.getY()).doSomething();
-			this.setX(this.getX() - 1);
+			super.moveLeft();
 		} else if (this.getMap().getOnTheMapXY(this.getX() - 1, this.getY())
 				.getPermeability() == Permeability.COLLECTABLE) {
 			this.getMap().getMobileXY(this.getX() - 1, this.getY()).collect();
@@ -118,9 +122,11 @@ public class Miner extends Mobile {
 	public void moveRight() {
 		this.setSprite(SpriteFactory.createMiner("minerRight1"));
 		if ((this.getMap().getOnTheMapXY(this.getX() + 1, this.getY())
-				.getPermeability() == Permeability.PENETRABLEFORMINER)
-				|| (this.getMap().getOnTheMapXY(this.getX() + 1, this.getY())
-						.getPermeability() == Permeability.PENETRABLEFOREVERYONE)) {
+				.getPermeability() == Permeability.PENETRABLEFORMINER)) {
+			this.getMap().getMobileXY(this.getX() + 1, this.getY()).collect();
+			super.moveRight();
+		} else if (this.getMap().getOnTheMapXY(this.getX() + 1, this.getY())
+				.getPermeability() == Permeability.PENETRABLEFOREVERYONE) {
 			super.moveRight();
 		} else if ((this.getMap().getOnTheMapXY(this.getX() + 1, this.getY())
 				.getPermeability() == Permeability.PUSHABLE)
@@ -147,12 +153,13 @@ public class Miner extends Mobile {
 	 */
 	@Override
 	public void moveUp() {
-
-		this.setSprite(SpriteFactory.createMiner("minerUp1"));
+		this.setSprite(SpriteFactory.createMiner("minerDown1"));
 		if ((this.getMap().getOnTheMapXY(this.getX(), this.getY() - 1)
-				.getPermeability() == Permeability.PENETRABLEFORMINER)
-				|| (this.getMap().getOnTheMapXY(this.getX(), this.getY() - 1)
-						.getPermeability() == Permeability.PENETRABLEFOREVERYONE)) {
+				.getPermeability() == Permeability.PENETRABLEFORMINER)) {
+			this.getMap().getMobileXY(this.getX(), this.getY() - 1).collect();
+			super.moveUp();
+		} else if (this.getMap().getOnTheMapXY(this.getX(), this.getY() - 1)
+				.getPermeability() == Permeability.PENETRABLEFOREVERYONE) {
 			super.moveUp();
 		} else if (this.getMap().getOnTheMapXY(this.getX(), this.getY() - 1)
 				.getPermeability() == Permeability.COLLECTABLE) {

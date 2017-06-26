@@ -13,6 +13,7 @@ import model.element.mobile.Boulder;
 import model.element.mobile.Diamond;
 import model.element.mobile.FastAndFollowTheWallsMonster;
 import model.element.mobile.FastAndRandomMonster;
+import model.element.mobile.Ground;
 import model.element.mobile.IMobile;
 import model.element.mobile.Miner;
 import model.element.mobile.SlowAndFollowTheWallsMonster;
@@ -190,9 +191,14 @@ public class Map extends Observable implements IMap {
 				switch (currentCell) {
 				case 1:
 				case 2:
-				case 3:
 				case 4:
 					this.setOnTheMapXY(MotionlessElementFactory.getElementFromFileSymbol(currentCell), x, y);
+					break;
+				case 3:
+					this.getMobiles()
+							.add(new Ground(x, y, SpriteFactory.createGround(), this, Permeability.PENETRABLEFORMINER));
+					this.setOnTheMapXY(
+							new Background(SpriteFactory.createBackground(), Permeability.PENETRABLEFOREVERYONE), x, y);
 					break;
 				case 5:
 					this.getMobiles()
