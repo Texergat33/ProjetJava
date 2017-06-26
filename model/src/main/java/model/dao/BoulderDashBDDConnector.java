@@ -11,18 +11,18 @@ import java.sql.Statement;
  * The Class BoulderDashBDDConnector.
  */
 final class BoulderDashBDDConnector {
-	
+
 	/** The instance. */
 	private static BoulderDashBDDConnector instance;
-	
+
 	/** The user. */
 	private static String user = "root";
-	
+
 	/** The password. */
 	private static String password = "";
-	
+
 	/** The url. */
-	private static String url = "jdbc:mysql://localhost/texereau?useSSL=false&serverTimezone=UTC";
+	private static String url = "jdbc:mysql://localhost/boulder_dash?useSSL=false&serverTimezone=UTC";
 
 	/**
 	 * Gets the single instance of BoulderDashBDDConnector.
@@ -39,7 +39,8 @@ final class BoulderDashBDDConnector {
 	/**
 	 * Sets the instance.
 	 *
-	 * @param instance the new instance
+	 * @param instance
+	 *            the new instance
 	 */
 	private static void setInstance(final BoulderDashBDDConnector instance) {
 		BoulderDashBDDConnector.instance = instance;
@@ -47,7 +48,7 @@ final class BoulderDashBDDConnector {
 
 	/** The connection. */
 	private Connection connection;
-	
+
 	/** The statement. */
 	private Statement statement;
 
@@ -61,7 +62,8 @@ final class BoulderDashBDDConnector {
 	/**
 	 * Execute query.
 	 *
-	 * @param query the query
+	 * @param query
+	 *            the query
 	 * @return the result set
 	 */
 	public ResultSet executeQuery(final String query) {
@@ -76,7 +78,8 @@ final class BoulderDashBDDConnector {
 	/**
 	 * Execute update.
 	 *
-	 * @param query the query
+	 * @param query
+	 *            the query
 	 * @return the int
 	 */
 	public int executeUpdate(final String query) {
@@ -126,7 +129,8 @@ final class BoulderDashBDDConnector {
 	/**
 	 * Prepare call.
 	 *
-	 * @param query the query
+	 * @param query
+	 *            the query
 	 * @return the java.sql. callable statement
 	 */
 	public java.sql.CallableStatement prepareCall(final String query) {
@@ -141,7 +145,8 @@ final class BoulderDashBDDConnector {
 	/**
 	 * Sets the connection.
 	 *
-	 * @param connection the new connection
+	 * @param connection
+	 *            the new connection
 	 */
 	public void setConnection(final Connection connection) {
 		this.connection = connection;
@@ -150,7 +155,8 @@ final class BoulderDashBDDConnector {
 	/**
 	 * Sets the statement.
 	 *
-	 * @param statement the new statement
+	 * @param statement
+	 *            the new statement
 	 */
 	public void setStatement(final Statement statement) {
 		this.statement = statement;
