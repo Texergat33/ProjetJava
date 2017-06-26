@@ -2,7 +2,6 @@ package model.element.motionless;
 
 import model.element.Permeability;
 import model.element.SpriteFactory;
-import model.element.mobile.Ground;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -14,9 +13,6 @@ public abstract class MotionlessElementFactory {
 	private static Background background = new Background(SpriteFactory.createBackground(),
 			Permeability.PENETRABLEFOREVERYONE);
 
-	/** The ground. */
-	private static Ground ground = new Ground(SpriteFactory.createGround(), Permeability.PENETRABLEFORMINER);
-
 	/** The wall. */
 	private static Wall wall = new Wall(SpriteFactory.createWall(), Permeability.BLOCKINGFOREVERYONE);
 
@@ -24,7 +20,7 @@ public abstract class MotionlessElementFactory {
 	private static IronWall ironWall = new IronWall(SpriteFactory.createIronWall(), Permeability.BLOCKINGFOREVERYONE);
 
 	/** The motionless elements. */
-	private static MotionlessElement[] motionlessElements = { background, ground, wall,
+	private static MotionlessElement[] motionlessElements = { background, wall,
 
 	};
 
@@ -42,8 +38,8 @@ public abstract class MotionlessElementFactory {
 	 *
 	 * @return the motionless element
 	 */
-	public static MotionlessElement createGround() {
-		return ground;
+	public static MotionlessElement createIronWall() {
+		return ironWall;
 	}
 
 	/**
@@ -53,15 +49,6 @@ public abstract class MotionlessElementFactory {
 	 */
 	public static MotionlessElement createWall() {
 		return wall;
-	}
-
-	/**
-	 * Creates a new MotionlessElement object.
-	 *
-	 * @return the motionless element
-	 */
-	public static MotionlessElement createIronWall() {
-		return ironWall;
 	}
 
 	/**
