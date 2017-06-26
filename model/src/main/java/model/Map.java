@@ -19,6 +19,7 @@ import model.element.mobile.SlowAndFollowTheWallsMonster;
 import model.element.mobile.SlowAndRandomMonster;
 import model.element.motionless.Background;
 import model.element.motionless.MotionlessElementFactory;
+import showboard.ISquare;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -337,6 +338,11 @@ public class Map extends Observable implements IMap {
 	 */
 	private void setWidth(final int width) {
 		this.width = width;
+	}
+
+	@Override
+	public ISquare getElementOnTheMapXY(final int x, final int y) {
+		return this.onTheMap[y][x];
 	}
 
 }

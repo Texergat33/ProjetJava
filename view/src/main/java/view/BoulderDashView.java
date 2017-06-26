@@ -208,7 +208,7 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener 
 			for (int y = 0; y < this.getMap().getHeight(); y++) {
 				// System.out.print(this.map.getOnTheMapXY(x,
 				// y).getSprite().getDatabaseIDImage());
-				boardFrame.addSquare(this.map.getOnTheMapXY(x, y), x, y);
+				boardFrame.addSquare(this.map.getElementOnTheMapXY(x, y), x, y);
 			}
 			System.out.println("");
 		}
