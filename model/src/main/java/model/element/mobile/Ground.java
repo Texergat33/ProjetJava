@@ -2,6 +2,7 @@ package model.element.mobile;
 
 import java.awt.Point;
 
+import model.IMap;
 import model.element.Permeability;
 import model.element.Sprite;
 import model.element.motionless.MotionlessElement;
@@ -20,8 +21,10 @@ public class Ground extends Mobile {
 	 * @param permeability
 	 *            the permeability
 	 */
-	public Ground(final Sprite sprite, final Permeability permeability) {
-		super(sprite, permeability);
+
+	public Ground(int x, int y, Sprite sprite, IMap map, Permeability permeability) {
+		super(x, y, sprite, map, permeability);
+		// TODO Auto-generated constructor stub
 	}
 
 	/*
