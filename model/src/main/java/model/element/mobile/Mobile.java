@@ -221,7 +221,7 @@ public abstract class Mobile extends Element implements IMobile {
 	@Override
 	public void moveUp() {
 
-		this.setY(this.getY() + 1);
+		this.setY(this.getY() - 1);
 
 		this.setHasChanged();
 	}

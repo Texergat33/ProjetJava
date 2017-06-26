@@ -89,7 +89,7 @@ public class Miner extends Mobile {
 		this.setSprite(SpriteFactory.createMiner("minerLeft1"));
 		if ((this.getMap().getOnTheMapXY(this.getX() - 1, this.getY())
 				.getPermeability() == Permeability.PENETRABLEFORMINER)
-				|| (this.getMap().getOnTheMapXY(this.getX(), this.getY() + 1)
+				|| (this.getMap().getOnTheMapXY(this.getX() - 1, this.getY())
 						.getPermeability() == Permeability.PENETRABLEFOREVERYONE)) {
 			super.moveLeft();
 		} else if ((this.getMap().getOnTheMapXY(this.getX() - 1, this.getY())
@@ -119,7 +119,7 @@ public class Miner extends Mobile {
 		this.setSprite(SpriteFactory.createMiner("minerRight1"));
 		if ((this.getMap().getOnTheMapXY(this.getX() + 1, this.getY())
 				.getPermeability() == Permeability.PENETRABLEFORMINER)
-				|| (this.getMap().getOnTheMapXY(this.getX(), this.getY() + 1)
+				|| (this.getMap().getOnTheMapXY(this.getX() + 1, this.getY())
 						.getPermeability() == Permeability.PENETRABLEFOREVERYONE)) {
 			super.moveRight();
 		} else if ((this.getMap().getOnTheMapXY(this.getX() + 1, this.getY())
