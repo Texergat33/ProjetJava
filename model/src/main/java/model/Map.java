@@ -13,6 +13,7 @@ import model.element.mobile.Boulder;
 import model.element.mobile.Diamond;
 import model.element.mobile.FastAndFollowTheWallsMonster;
 import model.element.mobile.FastAndRandomMonster;
+import model.element.mobile.Ground;
 import model.element.mobile.IMobile;
 import model.element.mobile.Miner;
 import model.element.mobile.SlowAndFollowTheWallsMonster;
@@ -27,28 +28,28 @@ import model.element.motionless.MotionlessElementFactory;
 public class Map extends Observable implements IMap {
 
 	/** The width. */
-	private int width;
+	private int					width;
 
 	/** The height. */
-	private int height;
+	private int					height;
 
 	/** The level ID. */
-	private int levelID;
+	private int					levelID;
 
 	/** The on the map. */
-	private IElement onTheMap[][];
+	private IElement			onTheMap[][];
 
 	/** The mobiles. */
-	private ArrayList<IMobile> mobiles;
+	private ArrayList<IMobile>	mobiles;
 
 	/** The diamond counter. */
-	private int diamondCounter;
+	private int					diamondCounter;
 
 	/** The miner. */
-	private IMobile miner;
+	private IMobile				miner;
 
 	/** The mobile. */
-	private IMobile mobile;
+	private IMobile				mobile;
 
 	/**
 	 * Instantiates a new map.
@@ -178,9 +179,14 @@ public class Map extends Observable implements IMap {
 				switch (currentCell) {
 				case 1:
 				case 2:
-				case 3:
 				case 4:
 					this.setOnTheMapXY(MotionlessElementFactory.getElementFromFileSymbol(currentCell), x, y);
+					break;
+				case 3:
+					this.getMobiles().add(
+							new Ground(x, y, SpriteFactory.createBoulder(), this, Permeability.PENETRABLEFORMINER));
+					this.setOnTheMapXY(
+							new Background(SpriteFactory.createBackground(), Permeability.PENETRABLEFOREVERYONE), x, y);
 					break;
 				case 5:
 					this.getMobiles()
