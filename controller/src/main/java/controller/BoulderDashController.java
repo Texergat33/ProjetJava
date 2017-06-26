@@ -8,24 +8,26 @@ import view.IBoulderDashView;
  * The Class BoulderDashController.
  */
 public class BoulderDashController implements IBoulderDashController, IOrderPerformer {
-	
+
 	/** The view. */
 	private IBoulderDashView view;
-	
+
 	/** The model. */
 	private IBoulderDashModel model;
-	
+
 	/** The speed. */
-	private int speed = 350;
-	
+	private final int speed = 350;
+
 	/** The Order pile. */
 	private UserOrder OrderPile;
 
 	/**
 	 * Instantiates a new boulder dash controller.
 	 *
-	 * @param view the view
-	 * @param model the model
+	 * @param view
+	 *            the view
+	 * @param model
+	 *            the model
 	 */
 	public BoulderDashController(final IBoulderDashView view, final IBoulderDashModel model) {
 
@@ -50,7 +52,9 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 		return this.model;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see controller.IBoulderDashController#getOrderPerformer()
 	 */
 	@Override
@@ -76,7 +80,9 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 		return this.view;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see controller.IOrderPerformer#orderPerform(controller.UserOrder)
 	 */
 	@Override
@@ -84,7 +90,9 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 		this.setOrderPile(orderPile);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see controller.IBoulderDashController#play()
 	 */
 	@Override
@@ -115,7 +123,7 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 				break;
 			}
 			this.emptyOrderPile();
-			this.getView().notify();
+			// this.getView().notify();
 		}
 
 		this.getView().displayMessage("Game over");
@@ -124,7 +132,8 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 	/**
 	 * Sets the model.
 	 *
-	 * @param model the new model
+	 * @param model
+	 *            the new model
 	 */
 	private void setModel(final IBoulderDashModel model) {
 		this.model = model;
@@ -133,7 +142,8 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 	/**
 	 * Sets the order pile.
 	 *
-	 * @param orderPile the new order pile
+	 * @param orderPile
+	 *            the new order pile
 	 */
 	public void setOrderPile(final UserOrder orderPile) {
 		this.OrderPile = orderPile;
@@ -142,7 +152,8 @@ public class BoulderDashController implements IBoulderDashController, IOrderPerf
 	/**
 	 * Sets the view.
 	 *
-	 * @param view the new view
+	 * @param view
+	 *            the new view
 	 */
 	private void setView(final IBoulderDashView view) {
 		this.view = view;

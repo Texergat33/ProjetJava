@@ -27,7 +27,7 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener 
 	private static final int squareSize = 100;
 
 	/** The boulder view. */
-	private static int boulderView = 100;
+	private static int boulderView = 50;
 
 	/**
 	 * Key code to user order.
