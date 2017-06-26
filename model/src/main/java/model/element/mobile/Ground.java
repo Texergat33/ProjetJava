@@ -22,7 +22,7 @@ public class Ground extends Mobile {
 	 *            the permeability
 	 */
 
-	public Ground(int x, int y, Sprite sprite, IMap map, Permeability permeability) {
+	public Ground(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
 		super(x, y, sprite, map, permeability);
 		// TODO Auto-generated constructor stub
 	}
@@ -41,5 +41,12 @@ public class Ground extends Mobile {
 	public Point position(final int i, final int y) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void collect() {
+		this.setX(-1);
+		this.setY(-1);
+		super.collect();
 	}
 }
