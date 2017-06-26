@@ -15,28 +15,28 @@ import showboard.IBoard;
 public abstract class Mobile extends Element implements IMobile {
 
 	/** The alive. */
-	public boolean					alive	= true;
+	public boolean alive = true;
 
 	/** The falling. */
-	private boolean					falling	= false;
+	private boolean falling = false;
 
 	/** The board. */
-	private IBoard					board;
+	private IBoard board;
 
 	/** The map. */
-	private IMap					map;
+	private IMap map;
 
 	/** The position. */
-	protected Point					position;
+	protected Point position;
 
 	/** The do something. */
-	protected BehaviorDoSomething	doSomething;
+	protected BehaviorDoSomething doSomething;
 
 	/** The x. */
-	private int						x;
+	private int x;
 
 	/** The y. */
-	private int						y;
+	private int y;
 
 	/**
 	 * Instantiates a new mobile.
@@ -61,7 +61,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see model.element.mobile.IMobile#collect()
 	 */
 	@Override
@@ -70,7 +70,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see model.element.mobile.IMobile#die()
 	 */
 	@Override
@@ -81,7 +81,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see model.element.mobile.IMobile#doNothing()
 	 */
 	@Override
@@ -91,7 +91,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see model.element.mobile.IMobile#doSomething()
 	 */
 	@Override
@@ -110,7 +110,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see model.element.mobile.IMobile#getMap()
 	 */
 	@Override
@@ -120,7 +120,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see model.element.mobile.IMobile#getPosition()
 	 */
 	@Override
@@ -130,7 +130,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see model.element.mobile.IMobile#getX()
 	 */
 	@Override
@@ -141,7 +141,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see model.element.mobile.IMobile#getY()
 	 */
 	@Override
@@ -151,7 +151,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see model.element.mobile.IMobile#isAlive()
 	 */
 	@Override
@@ -161,7 +161,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see model.element.mobile.IMobile#isFalling()
 	 */
 	@Override
@@ -171,7 +171,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see model.element.mobile.IMobile#isKilled()
 	 */
 	@Override
@@ -181,7 +181,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see model.element.mobile.IMobile#moveDown()
 	 */
 	@Override
@@ -193,7 +193,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see model.element.mobile.IMobile#moveLeft()
 	 */
 	@Override
@@ -204,7 +204,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see model.element.mobile.IMobile#moveRight()
 	 */
 	@Override
@@ -215,7 +215,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see model.element.mobile.IMobile#moveUp()
 	 */
 	@Override
@@ -235,7 +235,7 @@ public abstract class Mobile extends Element implements IMobile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see model.element.mobile.IMobile#setFalling(boolean)
 	 */
 	@Override

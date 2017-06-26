@@ -27,7 +27,7 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener 
 	private static final int squareSize = 100;
 
 	/** The boulder view. */
-	private static int boulderView = 50;
+	private static int boulderView = 30;
 
 	/**
 	 * Key code to user order.
@@ -44,11 +44,13 @@ public class BoulderDashView implements IBoulderDashView, Runnable, KeyListener 
 			break;
 		case KeyEvent.VK_LEFT:
 			userOrder = UserOrder.LEFT;
+			break;
 		case KeyEvent.VK_UP:
 			userOrder = UserOrder.UP;
 			break;
 		case KeyEvent.VK_DOWN:
 			userOrder = UserOrder.DOWN;
+			break;
 		default:
 			userOrder = UserOrder.NOP;
 			break;
