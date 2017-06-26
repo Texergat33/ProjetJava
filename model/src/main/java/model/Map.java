@@ -122,7 +122,12 @@ public class Map extends Observable implements IMap {
 	 */
 	@Override
 	public IMobile getMobileXY(final int x, final int y) {
-		return this.mobile;
+		for (final IMobile mobile : this.getMobiles()) {
+			if ((mobile.getX() == x) && (mobile.getY() == y)) {
+				return mobile;
+			}
+		}
+		return null;
 	}
 
 	/*
@@ -142,7 +147,11 @@ public class Map extends Observable implements IMap {
 	 */
 	@Override
 	public IElement getOnTheMapXY(final int x, final int y) {
-		return this.onTheMap[y][x];
+		if (this.getMobileXY(x, y) != null) {
+			return this.getMobileXY(x, y);
+		} else {
+			return this.onTheMap[y][x];
+		}
 	}
 
 	/*

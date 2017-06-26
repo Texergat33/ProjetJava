@@ -151,12 +151,12 @@ public class Miner extends Mobile {
 		this.setSprite(SpriteFactory.createMiner("minerUp1"));
 		if ((this.getMap().getOnTheMapXY(this.getX(), this.getY() - 1)
 				.getPermeability() == Permeability.PENETRABLEFORMINER)
-				|| (this.getMap().getOnTheMapXY(this.getX(), this.getY() + 1)
+				|| (this.getMap().getOnTheMapXY(this.getX(), this.getY() - 1)
 						.getPermeability() == Permeability.PENETRABLEFOREVERYONE)) {
 			super.moveUp();
-		} else if (this.getMap().getOnTheMapXY(this.getX(), this.getY() + 1)
+		} else if (this.getMap().getOnTheMapXY(this.getX(), this.getY() - 1)
 				.getPermeability() == Permeability.COLLECTABLE) {
-			this.getMap().getMobileXY(this.getX(), this.getY() + 1).collect();
+			this.getMap().getMobileXY(this.getX(), this.getY() - 1).collect();
 			super.moveUp();
 		} else {
 			this.doNothing();
