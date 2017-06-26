@@ -2,6 +2,7 @@ package model.element.motionless;
 
 import model.element.Permeability;
 import model.element.SpriteFactory;
+import model.element.mobile.Ground;
 
 // TODO: Auto-generated Javadoc
 /**
